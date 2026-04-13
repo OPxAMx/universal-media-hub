@@ -1,6 +1,6 @@
 import { ContentItem } from "@/types/content";
 
-export const sampleContent = [
+export const sampleContent: ContentItem[] = [
   {
     "id": "114150",
     "type": "film",
