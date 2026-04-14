@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Film, Tv, Music, Mic, Code, Image, Heart, Home, Plus, ListMusic } from "lucide-react";
+import { Film, Tv, Music, Mic, Code, Image, Heart, Home, Plus, ListMusic, Clock, Upload } from "lucide-react";
 import SearchBar from "./SearchBar";
 
 const navItems = [
@@ -12,6 +12,7 @@ const navItems = [
   { to: "/gallery", label: "Galerie", icon: <Image className="w-4 h-4" /> },
   { to: "/favorites", label: "Favoris", icon: <Heart className="w-4 h-4" /> },
   { to: "/playlist", label: "Playlist", icon: <ListMusic className="w-4 h-4" /> },
+  { to: "/history", label: "Historique", icon: <Clock className="w-4 h-4" /> },
 ];
 
 const Layout = ({ children }: { children: React.ReactNode }) => {

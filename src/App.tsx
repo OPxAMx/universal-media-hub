@@ -10,6 +10,8 @@ import FavoritesPage from "./pages/FavoritesPage";
 import PlaylistPage from "./pages/PlaylistPage";
 import ViewerPage from "./pages/ViewerPage";
 import EditorPage from "./pages/EditorPage";
+import HistoryPage from "./pages/HistoryPage";
+import ContinuousPlayerPage from "./pages/ContinuousPlayerPage";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/playlist" element={<PlaylistPage />} />
+          <Route path="/player" element={<ContinuousPlayerPage />} />
+          <Route path="/history" element={<HistoryPage />} />
           <Route path="/viewer/:id" element={<ViewerPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/editor/:id" element={<EditorPage />} />
