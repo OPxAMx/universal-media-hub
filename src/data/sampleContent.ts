@@ -55218,7 +55218,7 @@ export const sampleContent: ContentItem[] = [
   },
   {
   "id": "ARpl9DDZ02c",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - CAR MIX",
   "description": "",
   "tags": [],
@@ -55237,7 +55237,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "TZ7qHeKv6e8",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - CONTROLA",
   "description": "",
   "tags": [],
@@ -55256,7 +55256,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "ualhW48t0Os",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x G-HOUSE MAFIA - Street Lifeee",
   "description": "",
   "tags": [],
@@ -55275,7 +55275,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "-bmcUn6JNjY",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - BVLGARI",
   "description": "",
   "tags": [],
@@ -55294,7 +55294,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "3T2VhjY9NrU",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - JAFFA",
   "description": "",
   "tags": [],
@@ -55313,7 +55313,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "QiPBkJt_W3A",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Vibing Brand New",
   "description": "",
   "tags": [],
@@ -55332,7 +55332,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "dhrEHQ5X-mg",
-  "type": "youtube",
+  "type": "music",
   "title": "HELLFXRMANCE - SNAP BACK",
   "description": "",
   "tags": [],
@@ -55351,7 +55351,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "BrNXNqVzZ7s",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE x BEELIE - JEDDAH",
   "description": "",
   "tags": [],
@@ -55370,7 +55370,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "lB6zMGOTxY4",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Aha Aha",
   "description": "",
   "tags": [],
@@ -55389,7 +55389,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "zYZCkXIyBlA",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - BangBangBang (KEAN DYSSO VIP Remix)",
   "description": "",
   "tags": [],
@@ -55408,7 +55408,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "r27NwL2_228",
-  "type": "youtube",
+  "type": "music",
   "title": "G-HOUSE MAFIA x KEAN DYSSO - BAZOOKA",
   "description": "",
   "tags": [],
@@ -55427,7 +55427,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "ygw8a0porwk",
-  "type": "youtube",
+  "type": "music",
   "title": "BEELIE, DEELIZE & KEAN DYSSO - Into Shadows",
   "description": "",
   "tags": [],
@@ -55446,7 +55446,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "rfEFYWIW8HM",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - RARRI",
   "description": "",
   "tags": [],
@@ -55465,7 +55465,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "TT-V6MTdGkw",
-  "type": "youtube",
+  "type": "music",
   "title": "BEELIE, DEELIZE - DTMF",
   "description": "",
   "tags": [],
@@ -55484,7 +55484,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "3unL6aVFgoU",
-  "type": "youtube",
+  "type": "music",
   "title": "G-HOUSE MAFIA - MegaPush (ft. KEAN DYSSO)",
   "description": "",
   "tags": [],
@@ -55503,7 +55503,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "cZYz5X2lVD0",
-  "type": "youtube",
+  "type": "music",
   "title": "BEELIE, DEELIZE - La-La-La",
   "description": "",
   "tags": [],
@@ -55522,7 +55522,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "g0tVwesDdzs",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x BLACKVETTE - CRYPTOMANE",
   "description": "",
   "tags": [],
@@ -55541,7 +55541,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "tylIg2fctHg",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - BLACK LEATHER",
   "description": "",
   "tags": [],
@@ -55560,7 +55560,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "7l-3j9d12cQ",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Screwed Sand City",
   "description": "",
   "tags": [],
@@ -55579,7 +55579,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "lEZcMnFw2UM",
-  "type": "youtube",
+  "type": "music",
   "title": "BEELIE, DEELIZE & KEAN DYSSO - Pontiac",
   "description": "",
   "tags": [],
@@ -55598,7 +55598,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "MisVwVy7jaE",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - F THE LAW",
   "description": "",
   "tags": [],
@@ -55617,7 +55617,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "7gjYKtgP4Ws",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Qlimax Bass (Slowed Remix)",
   "description": "",
   "tags": [],
@@ -55636,7 +55636,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "nRtnMDJUp5A",
-  "type": "youtube",
+  "type": "music",
   "title": "BEELIE - BOSSY",
   "description": "",
   "tags": [],
@@ -55655,7 +55655,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "z50RVyq7Pu0",
-  "type": "youtube",
+  "type": "music",
   "title": "Night Lovell - Your Luv Slowed (BEELIE & DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -55674,7 +55674,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "6dk--c_g7v8",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x BEELIE - SLO-MO",
   "description": "",
   "tags": [],
@@ -55693,7 +55693,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "9S5YxIQJn-s",
-  "type": "youtube",
+  "type": "music",
   "title": "Night Lovell x BONES - Your Luv Ressurection (BLACKVETTE & DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -55712,7 +55712,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "0oirucYjWDQ",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Five-O",
   "description": "",
   "tags": [],
@@ -55731,7 +55731,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "Lbm3EKNSLzE",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Hella Compilation (Ft. DEELIZE, Night Lovell, 2Pac, BLACKVETTE) Car Bass Remix",
   "description": "",
   "tags": [],
@@ -55750,7 +55750,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "u0WNHxuKgnw",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO & DEELIZE - Kyzyl Kum",
   "description": "",
   "tags": [],
@@ -55769,7 +55769,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "IcpHYwANusQ",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - C B M",
   "description": "",
   "tags": [],
@@ -55788,7 +55788,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "iYzblddgMCQ",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Shambanya",
   "description": "",
   "tags": [],
@@ -55807,7 +55807,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "dApopoEzrEQ",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - QLIMAX",
   "description": "",
   "tags": [],
@@ -55826,7 +55826,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "7KnlVExFGBA",
-  "type": "youtube",
+  "type": "music",
   "title": "drift drift drift",
   "description": "",
   "tags": [],
@@ -55845,7 +55845,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "BP0k3jCB5mg",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - LIL LIT",
   "description": "",
   "tags": [],
@@ -55864,7 +55864,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "E-DaeFY6COI",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x BLACKVETTE - Fegan Moxxx",
   "description": "",
   "tags": [],
@@ -55883,7 +55883,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "3VNsLt8U9tc",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Hella WOAH",
   "description": "",
   "tags": [],
@@ -55902,7 +55902,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "rq1lwERDTso",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Sand City Madness",
   "description": "",
   "tags": [],
@@ -55921,7 +55921,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "3BurBMjbnjQ",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES - Corduroy, SystemPreference, NeverKnow, Look To (KEAN DYSSO, DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -55940,7 +55940,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "Ex7Q9CsptAQ",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES - RampartRange 2, BlackMold, CtrlAltDel, Faded (BLACKVETTE, DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -55959,7 +55959,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "y7TMvBpgO5k",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES - GrandestNothing (BEELIE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -55978,7 +55978,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "3gMbJZo6Jeo",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES - Right Click Save It (KEAN DYSSO & DEELIZE Remix)",
   "description": "",
   "tags": [],
@@ -55997,7 +55997,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "jweqyEYe61g",
-  "type": "youtube",
+  "type": "music",
   "title": "Bones - SystemPreference ft. Night Lovell, 2Pac, Lithe, Juicy J. (DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56016,7 +56016,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "VsnerXIlPuE",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE - Never Know",
   "description": "",
   "tags": [],
@@ -56035,7 +56035,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "eShoG6TVicM",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES - Preference (BEELIE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56054,7 +56054,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "ztUpap8BAbg",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO & DEELIZE - SleepMode",
   "description": "",
   "tags": [],
@@ -56073,7 +56073,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "tWhQttWeBoo",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES - RightClickSaveIt (BLACKVETTE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56092,7 +56092,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "jGa4mLbnZVQ",
-  "type": "youtube",
+  "type": "music",
   "title": "Bones - .EXE (KEAN DYSSO Remix)",
   "description": "",
   "tags": [],
@@ -56111,7 +56111,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "AC1MbQ6nrPo",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - drift drift drift",
   "description": "",
   "tags": [],
@@ -56130,7 +56130,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "2hZEGZ9Owc8",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - CarBassMusic (Premiere 2026)",
   "description": "",
   "tags": [],
@@ -56149,7 +56149,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "9qeWtSXHMr8",
-  "type": "youtube",
+  "type": "music",
   "title": "Tupac, BONES, Night Lovell - Ghetto Gospel, Timberlake, BumbleBe (KEAN DYSSO Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56168,7 +56168,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "cASSfnwVuuA",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Slowed 8Ball",
   "description": "",
   "tags": [],
@@ -56187,7 +56187,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "CaLleHFKg0s",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO & DEELIZE ft. BLACKVETTE - SICKO MODE",
   "description": "",
   "tags": [],
@@ -56206,7 +56206,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "NdYq5SoTgt8",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES x Night Lovell - Dirt, Nabdak, Guidance (DEELIZE, KEAN DYSSO Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56225,7 +56225,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "M6FatGiDd0g",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE x Bones - AirplaneMode (Screwed Remix)",
   "description": "",
   "tags": [],
@@ -56244,7 +56244,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "OLJxve2cw30",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO ft. DEELIZE & BEELIE - Midnight Drive",
   "description": "",
   "tags": [],
@@ -56263,7 +56263,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "a0Lyx_8WTNA",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES & Night Lovell - Mary Jane, Corduroy (DEELIZE Slowed Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56282,7 +56282,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "w_6AUkK0Wx8",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - PARIS II (Beast Mode)",
   "description": "",
   "tags": [],
@@ -56301,7 +56301,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "rNvF2Bfq2OY",
-  "type": "youtube",
+  "type": "music",
   "title": "Night Lovell x BLACKVETTE - Black Bimmer (DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56320,7 +56320,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "sVnIfKpa_Zw",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Devil Eyez",
   "description": "",
   "tags": [],
@@ -56339,7 +56339,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "l25x5ck6FeU",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Big Dawgs",
   "description": "",
   "tags": [],
@@ -56358,7 +56358,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "sJ3IVCX8GwE",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x BLACKVETTE - Gangsta Mentality",
   "description": "",
   "tags": [],
@@ -56377,7 +56377,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "L2NlE8AfWcI",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x BEELIE ft Night Lovell - Polozhenia",
   "description": "",
   "tags": [],
@@ -56396,7 +56396,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "7N8DjNibUmg",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - LooseScrew II (Beast Mode)",
   "description": "",
   "tags": [],
@@ -56415,7 +56415,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "TuDgCjV3nAw",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE - Black Bimmer",
   "description": "",
   "tags": [],
@@ -56434,7 +56434,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "qor_mPCncmc",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - MethodMan (VIP)",
   "description": "",
   "tags": [],
@@ -56453,7 +56453,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "F30K3c-iweI",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO x DEELIZE - MUKHRAJ (Official)",
   "description": "",
   "tags": [],
@@ -56472,7 +56472,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "NA4jYObkF34",
-  "type": "youtube",
+  "type": "music",
   "title": "BLACKVETTE - Blacked BMW",
   "description": "",
   "tags": [],
@@ -56491,7 +56491,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "1V7dbdWzFU0",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - BOUNCE THANG",
   "description": "",
   "tags": [],
@@ -56510,7 +56510,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "YHHzBPTQ34k",
-  "type": "youtube",
+  "type": "music",
   "title": "2Pac ft. BLACKVETTE & BEELIE - My Block (Gangster Remix)",
   "description": "",
   "tags": [],
@@ -56529,7 +56529,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "rAwVuj0VWxw",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE & BEELIE - All Eyez On Me",
   "description": "",
   "tags": [],
@@ -56548,7 +56548,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "RDSyJXH2lXQ",
-  "type": "youtube",
+  "type": "music",
   "title": "STALLULAR - Sahara",
   "description": "",
   "tags": [],
@@ -56567,7 +56567,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "UGlq1DW1WVc",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Arabic Nights (ft. DEELIZE & BEELIE)",
   "description": "",
   "tags": [],
@@ -56586,7 +56586,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "e_cmoubD69I",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - STILL CHECKIN",
   "description": "",
   "tags": [],
@@ -56605,7 +56605,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "c-iytKwlyr4",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - WorkWorkWork",
   "description": "",
   "tags": [],
@@ -56624,7 +56624,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "6lmMVVRwk2Y",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Harder Than Me",
   "description": "",
   "tags": [],
@@ -56643,7 +56643,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "wwracbbbU38",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Keep Rollin Spedup",
   "description": "",
   "tags": [],
@@ -56662,7 +56662,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "3C-AUnbqkd8",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Keep Rollin Sidewayz",
   "description": "",
   "tags": [],
@@ -56681,7 +56681,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "4Y0vKtrcTSM",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Drop It Low",
   "description": "",
   "tags": [],
@@ -56700,7 +56700,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "VOgvXwJGmd0",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Wiggle It Girl",
   "description": "",
   "tags": [],
@@ -56719,7 +56719,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "NmJ7kNqOwNE",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - PROMISES (We Never Change)",
   "description": "",
   "tags": [],
@@ -56738,7 +56738,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "qnVUx_5AANM",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - L.E.G.E.N.D",
   "description": "",
   "tags": [],
@@ -56757,7 +56757,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "2VdU0BUGH_Q",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - GOEZ WILD",
   "description": "",
   "tags": [],
@@ -56776,7 +56776,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "uVgLPb9uXc4",
-  "type": "youtube",
+  "type": "music",
   "title": "Stallular, Bones, Night Lovell - Nabdak Talashaa, Off Air, Still Cold (BLACKVETTE & DEELIZE Remix)",
   "description": "",
   "tags": [],
@@ -56795,7 +56795,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "y9DQ_d4nl30",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Rollin Solo Now",
   "description": "",
   "tags": [],
@@ -56814,7 +56814,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "5U1PW2tmy-I",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO & DEELIZE ft. BEELIE - Arabic Mixtape (Deep House Remix)",
   "description": "",
   "tags": [],
@@ -56833,7 +56833,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "IA_Jjf0-HNg",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - BangBangBang",
   "description": "",
   "tags": [],
@@ -56852,7 +56852,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "WWd2yQafT4k",
-  "type": "youtube",
+  "type": "music",
   "title": "BLACKVETTE x KEYDEEZ - Timberlake (ft. Bones, Juicy J, 2Pac)",
   "description": "",
   "tags": [],
@@ -56871,7 +56871,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "i4082skuxiY",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - VibeMaster",
   "description": "",
   "tags": [],
@@ -56890,7 +56890,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "I0_JvMzUmdY",
-  "type": "youtube",
+  "type": "music",
   "title": "BEELIE & DEELIZE - Nabdak",
   "description": "",
   "tags": [],
@@ -56909,7 +56909,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "2BNV-1eTwH8",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO & DEELIZE - MARKAZ (ft. Bones, Juicy J, Eddy Baker) Deep House Remix",
   "description": "",
   "tags": [],
@@ -56928,7 +56928,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "FKLXoYzZvr4",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Bubble Butt",
   "description": "",
   "tags": [],
@@ -56947,7 +56947,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "6tUpw-g7UM4",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO & DEELIZE - Ya Leil",
   "description": "",
   "tags": [],
@@ -56966,7 +56966,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "khO1phze_wo",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE - Mayor Que Usted",
   "description": "",
   "tags": [],
@@ -56985,7 +56985,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "crjvqPLz228",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - YO JANE",
   "description": "",
   "tags": [],
@@ -57004,7 +57004,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "c4hagjAfUMg",
-  "type": "youtube",
+  "type": "music",
   "title": "Night Lovell, Eddy Baker, BONES - Sadly I Cannot Control, Mary Jane (DEELIZE Remix) Deep House Remix",
   "description": "",
   "tags": [],
@@ -57023,7 +57023,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "i9b9fY3KZII",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Op Op Opapa",
   "description": "",
   "tags": [],
@@ -57042,7 +57042,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "T1O780YDC-s",
-  "type": "youtube",
+  "type": "music",
   "title": "BONES & Ghost/\\/ghoul - Silverado (KEAN DYSSO & DEELIZE Remix) Deep House",
   "description": "",
   "tags": [],
@@ -57061,7 +57061,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "opvp36lEq70",
-  "type": "youtube",
+  "type": "music",
   "title": "DEELIZE & KEAN DYSSO - Me Hace Rampam",
   "description": "",
   "tags": [],
@@ -57080,7 +57080,7 @@ export const sampleContent: ContentItem[] = [
 },
 {
   "id": "FCt9BfzBcPg",
-  "type": "youtube",
+  "type": "music",
   "title": "KEAN DYSSO - Gangsta4Night",
   "description": "",
   "tags": [],
