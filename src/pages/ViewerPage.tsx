@@ -4,12 +4,17 @@ import Layout from "@/components/Layout";
 import EmbedViewer from "@/components/EmbedViewer";
 import GalleryViewer from "@/components/GalleryViewer";
 import { galleryImages } from "@/data/sampleContent";
+import { useEffect } from "react";
 
 const ViewerPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getItem } = useContentStore();
+  const { getItem, addToHistory } = useContentStore();
   const item = id ? getItem(id) : undefined;
+
+  useEffect(() => {
+    if (item) addToHistory(item.id);
+  }, [item?.id]);
 
   if (!item) {
     return (

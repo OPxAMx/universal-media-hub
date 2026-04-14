@@ -57096,7 +57096,7 @@ export const sampleContent: ContentItem[] = [
     "date_added": "2026-04-13",
     "source": "youtube-playlist"
   }
-}
+},
   {
     id: "film-2",
     type: "film",

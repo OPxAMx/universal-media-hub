@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import ContentGrid from "@/components/ContentGrid";
 import { useContentStore } from "@/store/contentStore";
-import { X, GripVertical, Play } from "lucide-react";
+import { X, GripVertical, Play, PlayCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const PlaylistPage = () => {
@@ -14,7 +14,17 @@ const PlaylistPage = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h2 className="font-heading text-xl font-bold text-foreground">Ma Playlist</h2>
-          <span className="text-sm text-muted-foreground">{playlistItems.length} éléments</span>
+          <div className="flex items-center gap-3">
+            {playlistItems.length > 0 && (
+              <button
+                onClick={() => navigate("/player")}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors"
+              >
+                <PlayCircle className="w-3.5 h-3.5" /> Lecture continue
+              </button>
+            )}
+            <span className="text-sm text-muted-foreground">{playlistItems.length} éléments</span>
+          </div>
         </div>
 
         {playlistItems.length === 0 && (
