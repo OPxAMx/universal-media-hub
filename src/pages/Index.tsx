@@ -1,7 +1,5 @@
 import Layout from "@/components/Layout";
 import ContentCard from "@/components/ContentCard";
-import FilterBar from "@/components/FilterBar";
-import TagList from "@/components/TagList";
 import { useContentStore } from "@/store/contentStore";
 import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight, Clock, AlertTriangle } from "lucide-react";
 import { useMemo, useRef, useEffect, useState } from "react";
