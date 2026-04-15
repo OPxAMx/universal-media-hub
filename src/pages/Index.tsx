@@ -107,8 +107,12 @@ const Index = () => {
     return recent.map(h => items.find(i => i.id === h.id)).filter(Boolean);
   }, [history, items]);
 
+  const recentlyAdded = useMemo(() => [...items].reverse().slice(0, 20), [items]);
+
   const totalTags = useMemo(() => new Set(items.flatMap(i => i.tags)).size, [items]);
   const totalProviders = useMemo(() => new Set(items.map(i => i.embed.provider)).size, [items]);
+
+  const isSearching = searchQuery.length > 0;
 
   return (
     <Layout>
