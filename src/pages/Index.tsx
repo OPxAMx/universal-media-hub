@@ -3,7 +3,7 @@ import ContentCard from "@/components/ContentCard";
 import FilterBar from "@/components/FilterBar";
 import TagList from "@/components/TagList";
 import { useContentStore } from "@/store/contentStore";
-import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight } from "lucide-react";
+import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight, Clock, AlertTriangle } from "lucide-react";
 import { useMemo, useRef, useEffect, useState } from "react";
 
 const stats = [
@@ -87,7 +87,7 @@ const Carousel = ({ title, items, icon }: { title: string; items: any[]; icon: R
 };
 
 const Index = () => {
-  const { items, filteredItems, favorites, history } = useContentStore();
+  const { items, filteredItems, favorites, history, searchQuery } = useContentStore();
   const filtered = filteredItems();
 
   const counts = useMemo(() => {
