@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Film, Tv, Music, Mic, Code, Image, Heart, Home, Plus, ListMusic, Clock, Upload } from "lucide-react";
 import SearchBar from "./SearchBar";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { useRef, useEffect, useState } from "react";
 
 const navItems = [
@@ -38,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         ref={headerRef}
         className="sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden"
         style={{
-          background: "hsl(220 20% 6% / 0.75)",
+          background: "hsl(var(--background) / 0.75)",
         }}
       >
         {/* Cursor light follower */}
@@ -49,13 +50,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             top: mousePos.y - 100,
             width: 200,
             height: 200,
-            background: "radial-gradient(circle, hsl(350 80% 55% / 0.07) 0%, transparent 70%)",
+            background: "radial-gradient(circle, hsl(var(--primary) / 0.07) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
 
         <div className="container flex items-center justify-between h-16 relative z-10">
-          <Link to="/" className="font-heading text-xl font-bold gradient-text">UEM</Link>
+          <ThemeSwitcher />
           <div className="hidden md:flex">
             <SearchBar />
           </div>
