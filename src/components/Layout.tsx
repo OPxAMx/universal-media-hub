@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Film, Tv, Music, Mic, Code, Image, Heart, Home, Plus, ListMusic, Clock, Upload } from "lucide-react";
 import SearchBar from "./SearchBar";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { useRef, useEffect, useState } from "react";
 
 const navItems = [
