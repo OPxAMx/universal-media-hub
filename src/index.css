@@ -58,6 +58,122 @@
     --sidebar-border: 220 14% 18%;
     --sidebar-ring: 350 80% 55%;
   }
+
+  /* Dark Ocean */
+  .theme-dark-ocean {
+    --background: 220 25% 8%;
+    --foreground: 210 20% 92%;
+    --card: 220 22% 12%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 22% 12%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 210 90% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 18% 18%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 220 16% 16%;
+    --muted-foreground: 215 15% 55%;
+    --accent: 190 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 16% 20%;
+    --input: 220 16% 20%;
+    --ring: 210 90% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(210 90% 50%), hsl(190 70% 45%));
+    --shadow-glow: 0 0 20px hsl(210 90% 50% / 0.3);
+    --tag-film: 210 90% 50%;
+    --tag-series: 190 80% 45%;
+    --tag-music: 160 60% 45%;
+    --tag-podcast: 30 90% 55%;
+    --tag-code: 270 60% 55%;
+    --tag-gallery: 180 60% 45%;
+  }
+
+  /* Light Rose */
+  .theme-light-rose {
+    --background: 0 0% 97%;
+    --foreground: 220 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+    --primary: 340 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 20% 92%;
+    --secondary-foreground: 220 15% 30%;
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 300 60% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 10% 88%;
+    --input: 220 10% 88%;
+    --ring: 340 75% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(340 75% 55%), hsl(300 60% 50%));
+    --shadow-glow: 0 0 20px hsl(340 75% 55% / 0.2);
+    --tag-film: 340 75% 55%;
+    --tag-series: 200 70% 50%;
+    --tag-music: 150 55% 40%;
+    --tag-podcast: 30 85% 50%;
+    --tag-code: 270 55% 50%;
+    --tag-gallery: 180 55% 40%;
+  }
+
+  /* Light Sky */
+  .theme-light-sky {
+    --background: 210 20% 96%;
+    --foreground: 220 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+    --primary: 210 80% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 90%;
+    --secondary-foreground: 220 15% 30%;
+    --muted: 210 12% 90%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 240 60% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 210 12% 86%;
+    --input: 210 12% 86%;
+    --ring: 210 80% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(210 80% 50%), hsl(240 60% 55%));
+    --shadow-glow: 0 0 20px hsl(210 80% 50% / 0.2);
+    --tag-film: 350 70% 55%;
+    --tag-series: 210 80% 50%;
+    --tag-music: 150 55% 40%;
+    --tag-podcast: 30 85% 50%;
+    --tag-code: 260 55% 50%;
+    --tag-gallery: 180 55% 40%;
+  }
+
+  /* Neon Cyber (Tron style) */
+  .theme-neon-cyber {
+    --background: 240 15% 6%;
+    --foreground: 180 50% 90%;
+    --card: 240 15% 10%;
+    --card-foreground: 180 50% 90%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 180 50% 90%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 15% 6%;
+    --secondary: 240 12% 16%;
+    --secondary-foreground: 180 30% 75%;
+    --muted: 240 12% 14%;
+    --muted-foreground: 240 10% 50%;
+    --accent: 280 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 240 15% 20%;
+    --input: 240 15% 20%;
+    --ring: 180 100% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%), hsl(280 100% 60%));
+    --shadow-glow: 0 0 20px hsl(180 100% 50% / 0.4);
+    --tag-film: 0 90% 55%;
+    --tag-series: 180 100% 50%;
+    --tag-music: 120 80% 50%;
+    --tag-podcast: 45 100% 55%;
+    --tag-code: 280 100% 60%;
+    --tag-gallery: 200 90% 50%;
+  }
 }
 
 @layer base {
