@@ -265,6 +265,6 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: hsl(220 20% 6%); }
-::-webkit-scrollbar-thumb { background: hsl(220 14% 22%); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: hsl(220 14% 30%); }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
