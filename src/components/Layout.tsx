@@ -55,7 +55,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         />
 
         <div className="container flex items-center justify-between h-16 relative z-10">
-          <Link to="/" className="font-heading text-xl font-bold gradient-text">UEM</Link>
+          <ThemeSwitcher />
           <div className="hidden md:flex">
             <SearchBar />
           </div>
