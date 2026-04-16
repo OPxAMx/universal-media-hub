@@ -39,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         ref={headerRef}
         className="sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden"
         style={{
-          background: "hsl(220 20% 6% / 0.75)",
+          background: "hsl(var(--background) / 0.75)",
         }}
       >
         {/* Cursor light follower */}
@@ -50,7 +50,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             top: mousePos.y - 100,
             width: 200,
             height: 200,
-            background: "radial-gradient(circle, hsl(350 80% 55% / 0.07) 0%, transparent 70%)",
+            background: "radial-gradient(circle, hsl(var(--primary) / 0.07) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
