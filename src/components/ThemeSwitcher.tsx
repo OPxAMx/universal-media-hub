@@ -32,7 +32,7 @@ const ThemeSwitcher = () => {
   }, []);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="flex items-center gap-2">
       <button
         onClick={() => setOpen(o => !o)}
         className="font-heading text-xl font-bold gradient-text hover:opacity-80 transition-opacity"
@@ -40,17 +40,16 @@ const ThemeSwitcher = () => {
         UEM
       </button>
       <div
-        className={`absolute top-full left-0 mt-2 flex gap-2 p-2 rounded-xl border border-border/50 backdrop-blur-xl z-50 transition-all duration-300 origin-top-left ${
-          open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-75 pointer-events-none"
+        className={`flex items-center gap-1.5 transition-all duration-300 overflow-hidden ${
+          open ? "opacity-100 max-w-[200px]" : "opacity-0 max-w-0"
         }`}
-        style={{ background: "hsl(220 18% 10% / 0.9)" }}
       >
         {themes.map(t => (
           <button
             key={t.id}
             title={t.label}
             onClick={() => { setActive(t.id); setOpen(false); }}
-            className={`relative w-7 h-7 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
+            className={`relative w-6 h-6 rounded-full border-2 transition-all duration-200 hover:scale-110 flex-shrink-0 ${
               active === t.id ? "border-white scale-110" : "border-transparent"
             } ${t.id === "neon-cyber" ? "neon-dot" : ""}`}
             style={{
