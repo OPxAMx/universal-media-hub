@@ -3,6 +3,7 @@ import { useContentStore } from "@/store/contentStore";
 import Layout from "@/components/Layout";
 import ContentEditor from "@/components/ContentEditor";
 import JsonUploader from "@/components/JsonUploader";
+import ContentAuditor from "@/components/ContentAuditor";
 
 const EditorPage = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const EditorPage = () => {
     <Layout>
       <div className="space-y-8">
         <JsonUploader />
+        <ContentAuditor />
         <ContentEditor item={item} />
       </div>
     </Layout>
