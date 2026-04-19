@@ -292,7 +292,7 @@ export const sampleContent: ContentItem[] = [
     "type": "film",
     "title": "La machine de guerre",
     "description": "Lors d'une dernière mission éprouvante durant son entraînement de Ranger de l'armée, un militaire de génie du combat mène son unité face à une machine de guerre extraterrestre.",
-    "tags": ["Action", "Science-Fiction", "Thriller""],
+    "tags": ["Action", "Science-Fiction", "Thriller"],
     "thumbnail": "https://media.themoviedb.org/t/p/w220_and_h330_face/tlPgDzwIE7VYYIIAGCTUOnN4wI1.jpg",
     "embed": {
       "provider": "vidking",
