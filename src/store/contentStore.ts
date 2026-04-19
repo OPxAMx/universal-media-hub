@@ -60,12 +60,21 @@ export const useContentStore = create<ContentStore>((set, get) => ({
   searchQuery: "",
   activeType: null,
   activeTags: [],
+  filterId: "",
+  filterDateFrom: "",
+  filterDateTo: "",
+  sortKey: "none",
+  sortDir: "desc",
   setSearchQuery: (q) => set({ searchQuery: q }),
   setActiveType: (type) => set({ activeType: type }),
   toggleTag: (tag) => set((s) => ({
     activeTags: s.activeTags.includes(tag) ? s.activeTags.filter(t => t !== tag) : [...s.activeTags, tag]
   })),
-  clearFilters: () => set({ searchQuery: "", activeType: null, activeTags: [] }),
+  setFilterId: (v) => set({ filterId: v }),
+  setFilterDateFrom: (v) => set({ filterDateFrom: v }),
+  setFilterDateTo: (v) => set({ filterDateTo: v }),
+  setSort: (key, dir) => set((s) => ({ sortKey: key, sortDir: dir ?? s.sortDir })),
+  clearFilters: () => set({ searchQuery: "", activeType: null, activeTags: [], filterId: "", filterDateFrom: "", filterDateTo: "", sortKey: "none" }),
   toggleFavorite: (id) => set((s) => {
     const next = s.favorites.includes(id) ? s.favorites.filter(f => f !== id) : [...s.favorites, id];
     localStorage.setItem("uem-favorites", JSON.stringify(next));
