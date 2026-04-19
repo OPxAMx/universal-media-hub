@@ -115,10 +115,11 @@ const Index = () => {
   return (
     <Layout>
       <div className="space-y-12">
-        {isSearching ? (
+        <AdvancedFilters />
+        {isFiltering ? (
           <div className="space-y-6">
             <h2 className="font-heading text-xl font-bold text-foreground">
-              Résultats pour "{searchQuery}" ({filtered.length})
+              {searchQuery ? `Résultats pour "${searchQuery}"` : "Résultats filtrés"} ({filtered.length})
             </h2>
             {filtered.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
