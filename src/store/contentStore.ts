@@ -105,16 +105,31 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     set({ history: [] });
   },
   filteredItems: () => {
-    const { items, searchQuery, activeType, activeTags } = get();
-    return items.filter(item => {
+    const { items, searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir } = get();
+    let result = items.filter(item => {
       if (activeType && item.type !== activeType) return false;
       if (activeTags.length && !activeTags.some(t => item.tags.includes(t))) return false;
+      if (filterId && !item.id.toLowerCase().includes(filterId.toLowerCase())) return false;
+      const itemDate = item.meta?.date_added || "";
+      if (filterDateFrom && itemDate && itemDate < filterDateFrom) return false;
+      if (filterDateTo && itemDate && itemDate > filterDateTo) return false;
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
         return item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q) || item.tags.some(t => t.toLowerCase().includes(q));
       }
       return true;
     });
+    if (sortKey !== "none") {
+      const dir = sortDir === "asc" ? 1 : -1;
+      result = [...result].sort((a, b) => {
+        let av: string | number = "", bv: string | number = "";
+        if (sortKey === "title") { av = a.title.toLowerCase(); bv = b.title.toLowerCase(); }
+        else if (sortKey === "id") { av = a.id; bv = b.id; }
+        else if (sortKey === "date") { av = a.meta?.date_added || ""; bv = b.meta?.date_added || ""; }
+        return av < bv ? -1 * dir : av > bv ? 1 * dir : 0;
+      });
+    }
+    return result;
   },
   getItem: (id) => get().items.find(i => i.id === id),
 }));
