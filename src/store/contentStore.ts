@@ -7,6 +7,9 @@ interface HistoryEntry {
   watchedAt: string;
 }
 
+export type SortKey = "title" | "id" | "date" | "none";
+export type SortDir = "asc" | "desc";
+
 interface ContentStore {
   items: ContentItem[];
   favorites: string[];
@@ -15,9 +18,18 @@ interface ContentStore {
   searchQuery: string;
   activeType: string | null;
   activeTags: string[];
+  filterId: string;
+  filterDateFrom: string;
+  filterDateTo: string;
+  sortKey: SortKey;
+  sortDir: SortDir;
   setSearchQuery: (q: string) => void;
   setActiveType: (type: string | null) => void;
   toggleTag: (tag: string) => void;
+  setFilterId: (v: string) => void;
+  setFilterDateFrom: (v: string) => void;
+  setFilterDateTo: (v: string) => void;
+  setSort: (key: SortKey, dir?: SortDir) => void;
   clearFilters: () => void;
   toggleFavorite: (id: string) => void;
   addToPlaylist: (id: string) => void;
