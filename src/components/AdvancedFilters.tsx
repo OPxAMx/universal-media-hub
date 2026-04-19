@@ -1,0 +1,155 @@
+import { useContentStore, SortKey } from "@/store/contentStore";
+import { useState, useMemo } from "react";
+import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag } from "lucide-react";
+import FilterBar from "./FilterBar";
+
+const AdvancedFilters = () => {
+  const {
+    items,
+    filterId, setFilterId,
+    filterDateFrom, setFilterDateFrom,
+    filterDateTo, setFilterDateTo,
+    sortKey, sortDir, setSort,
+    activeTags, toggleTag,
+    activeType, filterDateFrom: df, filterDateTo: dt,
+    clearFilters,
+    searchQuery,
+  } = useContentStore();
+
+  const [open, setOpen] = useState(false);
+
+  const allTags = useMemo(() => {
+    const set = new Set<string>();
+    items.forEach(i => i.tags.forEach(t => set.add(t)));
+    return Array.from(set).sort();
+  }, [items]);
+
+  const activeCount =
+    (filterId ? 1 : 0) +
+    (filterDateFrom ? 1 : 0) +
+    (filterDateTo ? 1 : 0) +
+    (activeType ? 1 : 0) +
+    activeTags.length +
+    (sortKey !== "none" ? 1 : 0) +
+    (searchQuery ? 1 : 0);
+
+  const sortOptions: { key: SortKey; label: string; icon: React.ReactNode }[] = [
+    { key: "title", label: "Nom", icon: <ArrowDownAZ className="w-3.5 h-3.5" /> },
+    { key: "id", label: "ID", icon: <Hash className="w-3.5 h-3.5" /> },
+    { key: "date", label: "Date", icon: <Calendar className="w-3.5 h-3.5" /> },
+  ];
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-2 flex-wrap">
+        <button
+          onClick={() => setOpen(!open)}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+            open || activeCount > 0
+              ? "bg-primary text-primary-foreground"
+              : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+          }`}
+        >
+          <SlidersHorizontal className="w-3.5 h-3.5" />
+          Filtres {activeCount > 0 && <span className="bg-background/30 rounded-full px-1.5">{activeCount}</span>}
+        </button>
+        <FilterBar />
+      </div>
+
+      {open && (
+        <div className="rounded-xl p-4 space-y-4 border border-border/40 bg-card/40 backdrop-blur-sm fade-up">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="space-y-1.5">
+              <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Hash className="w-3 h-3" />ID</label>
+              <input
+                type="text"
+                value={filterId}
+                onChange={e => setFilterId(e.target.value)}
+                placeholder="Rechercher par ID..."
+                className="w-full px-3 py-2 rounded-md bg-background border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Calendar className="w-3 h-3" />Date début</label>
+              <input
+                type="date"
+                value={filterDateFrom}
+                onChange={e => setFilterDateFrom(e.target.value)}
+                className="w-full px-3 py-2 rounded-md bg-background border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Calendar className="w-3 h-3" />Date fin</label>
+              <input
+                type="date"
+                value={filterDateTo}
+                onChange={e => setFilterDateTo(e.target.value)}
+                className="w-full px-3 py-2 rounded-md bg-background border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground">Trier par</label>
+            <div className="flex items-center gap-2 flex-wrap">
+              {sortOptions.map(opt => {
+                const active = sortKey === opt.key;
+                return (
+                  <button
+                    key={opt.key}
+                    onClick={() => setSort(active ? "none" : opt.key, sortDir)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                      active ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    }`}
+                  >
+                    {opt.icon} {opt.label}
+                  </button>
+                );
+              })}
+              {sortKey !== "none" && (
+                <button
+                  onClick={() => setSort(sortKey, sortDir === "asc" ? "desc" : "asc")}
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs bg-accent/20 text-accent-foreground hover:bg-accent/30"
+                  title="Inverser l'ordre"
+                >
+                  {sortDir === "asc" ? <ArrowUpAZ className="w-3.5 h-3.5" /> : <ArrowDownAZ className="w-3.5 h-3.5" />}
+                  {sortDir === "asc" ? "Croissant" : "Décroissant"}
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Tag className="w-3 h-3" />Tags ({activeTags.length} sélectionnés)</label>
+            <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto">
+              {allTags.map(tag => (
+                <button
+                  key={tag}
+                  onClick={() => toggleTag(tag)}
+                  className={`text-xs px-2 py-1 rounded-full transition-all ${
+                    activeTags.includes(tag)
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {activeCount > 0 && (
+            <button
+              onClick={clearFilters}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs bg-destructive/20 text-destructive hover:bg-destructive/30 transition-colors"
+            >
+              <X className="w-3 h-3" /> Réinitialiser tous les filtres
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default AdvancedFilters;
