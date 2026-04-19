@@ -85,7 +85,7 @@ const Carousel = ({ title, items, icon }: { title: string; items: any[]; icon: R
 };
 
 const Index = () => {
-  const { items, filteredItems, favorites, history, searchQuery } = useContentStore();
+  const { items, filteredItems, favorites, history, searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey } = useContentStore();
   const filtered = filteredItems();
 
   const counts = useMemo(() => {
@@ -110,7 +110,7 @@ const Index = () => {
   const totalTags = useMemo(() => new Set(items.flatMap(i => i.tags)).size, [items]);
   const totalProviders = useMemo(() => new Set(items.map(i => i.embed.provider)).size, [items]);
 
-  const isSearching = searchQuery.length > 0;
+  const isFiltering = !!(searchQuery || activeType || activeTags.length || filterId || filterDateFrom || filterDateTo || sortKey !== "none");
 
   return (
     <Layout>
