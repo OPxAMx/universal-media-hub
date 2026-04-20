@@ -11,7 +11,7 @@ interface ContentEditorProps {
 
 const emptyItem: ContentItem = {
   id: "", type: "film", title: "", description: "", tags: [], thumbnail: "",
-  embed: { provider: "", iframe: "", url: "" },
+  embed: { provider: "", iframe: "", url: "", iframe_fr: "", url_fr: "" },
   meta: { duration: "", author: "", date_added: new Date().toISOString().split("T")[0], source: "" },
 };
 
@@ -113,8 +113,21 @@ const ContentEditor = ({ item }: ContentEditorProps) => {
           </div>
         </div>
         <div>
-          <label className="text-xs font-medium text-muted-foreground mb-1 block">Iframe HTML</label>
+          <label className="text-xs font-medium text-muted-foreground mb-1 block">Iframe HTML (EN — principal)</label>
           <textarea value={data.embed.iframe} onChange={e => set("embed.iframe", e.target.value)} className={inputCls + " min-h-[60px] font-mono text-xs"} placeholder='<iframe src="..." ...>' />
+        </div>
+        <div className="grid grid-cols-2 gap-4 p-3 rounded-lg border border-dashed border-border/60 bg-secondary/20">
+          <div className="col-span-2">
+            <label className="text-xs font-medium text-muted-foreground block">Version française (facultatif)</label>
+          </div>
+          <div>
+            <label className="text-xs font-medium text-muted-foreground mb-1 block">URL FR</label>
+            <input value={data.embed.url_fr || ""} onChange={e => set("embed.url_fr", e.target.value)} className={inputCls} placeholder="https://..." />
+          </div>
+          <div>
+            <label className="text-xs font-medium text-muted-foreground mb-1 block">Iframe FR</label>
+            <textarea value={data.embed.iframe_fr || ""} onChange={e => set("embed.iframe_fr", e.target.value)} className={inputCls + " min-h-[60px] font-mono text-xs"} placeholder='<iframe src="..." ...>' />
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>

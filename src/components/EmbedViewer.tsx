@@ -1,6 +1,7 @@
 import { ContentItem } from "@/types/content";
-import { X, Heart, ExternalLink, ListPlus, Star } from "lucide-react";
+import { X, Heart, ExternalLink, ListPlus, Star, Languages } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
+import { useState } from "react";
 
 interface EmbedViewerProps {
   item: ContentItem;
@@ -10,10 +11,14 @@ interface EmbedViewerProps {
 const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
   const { toggleFavorite, favorites, addToPlaylist } = useContentStore();
   const isFav = favorites.includes(item.id);
+  const hasFr = !!(item.embed.iframe_fr || item.embed.url_fr);
+  const [lang, setLang] = useState<"en" | "fr">("en");
 
   const getEmbedSrc = () => {
-    const match = item.embed.iframe.match(/src="([^"]+)"/);
-    return match ? match[1] : "";
+    const iframe = lang === "fr" && item.embed.iframe_fr ? item.embed.iframe_fr : item.embed.iframe;
+    const fallbackUrl = lang === "fr" && item.embed.url_fr ? item.embed.url_fr : item.embed.url;
+    const match = iframe?.match(/src="([^"]+)"/);
+    return match ? match[1] : fallbackUrl || "";
   };
 
   return (
@@ -55,6 +60,16 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
             <button className="p-2 rounded-full hover:bg-secondary/50 transition-colors text-muted-foreground hover:text-foreground">
               <Star className="w-5 h-5" />
             </button>
+            {hasFr && (
+              <button
+                onClick={() => setLang(lang === "en" ? "fr" : "en")}
+                className="px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-secondary/50 hover:bg-secondary text-foreground border border-border/40 flex items-center gap-1.5 transition-colors"
+                title="Changer de langue"
+              >
+                <Languages className="w-3.5 h-3.5" />
+                {lang}
+              </button>
+            )}
             <button
               onClick={() => toggleFavorite(item.id)}
               className={`p-2 rounded-full transition-colors ${isFav ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"}`}
