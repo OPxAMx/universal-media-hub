@@ -11,6 +11,9 @@ export interface ContentItem {
     provider: string;
     iframe: string;
     url: string;
+    /** Optional French version of the embed (iframe + url). Primary embed (above) is English by convention. */
+    iframe_fr?: string;
+    url_fr?: string;
   };
   meta: {
     duration: string;

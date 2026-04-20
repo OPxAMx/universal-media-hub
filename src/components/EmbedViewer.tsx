@@ -1,6 +1,7 @@
 import { ContentItem } from "@/types/content";
-import { X, Heart, ExternalLink, ListPlus, Star } from "lucide-react";
+import { X, Heart, ExternalLink, ListPlus, Star, Languages } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
+import { useState } from "react";
 
 interface EmbedViewerProps {
   item: ContentItem;
@@ -10,10 +11,14 @@ interface EmbedViewerProps {
 const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
   const { toggleFavorite, favorites, addToPlaylist } = useContentStore();
   const isFav = favorites.includes(item.id);
+  const hasFr = !!(item.embed.iframe_fr || item.embed.url_fr);
+  const [lang, setLang] = useState<"en" | "fr">("en");
 
   const getEmbedSrc = () => {
-    const match = item.embed.iframe.match(/src="([^"]+)"/);
-    return match ? match[1] : "";
+    const iframe = lang === "fr" && item.embed.iframe_fr ? item.embed.iframe_fr : item.embed.iframe;
+    const fallbackUrl = lang === "fr" && item.embed.url_fr ? item.embed.url_fr : item.embed.url;
+    const match = iframe?.match(/src="([^"]+)"/);
+    return match ? match[1] : fallbackUrl || "";
   };
 
   return (
