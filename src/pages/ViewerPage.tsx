@@ -3,7 +3,6 @@ import { useContentStore } from "@/store/contentStore";
 import Layout from "@/components/Layout";
 import EmbedViewer from "@/components/EmbedViewer";
 import GalleryViewer from "@/components/GalleryViewer";
-import { galleryImages } from "@/data/sampleContent";
 import { useEffect } from "react";
 
 const ViewerPage = () => {
@@ -27,8 +26,7 @@ const ViewerPage = () => {
   }
 
   if (item.type === "gallery") {
-    const images = galleryImages[item.id] || [item.thumbnail];
-    return <GalleryViewer images={images} title={item.title} onClose={() => navigate(-1)} />;
+    return <GalleryViewer gallery={item} onClose={() => navigate(-1)} />;
   }
 
   return <EmbedViewer item={item} onClose={() => navigate(-1)} />;
