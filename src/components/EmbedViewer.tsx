@@ -1,7 +1,8 @@
 import { ContentItem } from "@/types/content";
-import { X, Heart, ExternalLink, ListPlus, Star, Languages } from "lucide-react";
+import { X, Heart, ExternalLink, ListPlus, Star, Languages, Pencil, Calendar, Clock, User, Tag, Info, Globe } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface EmbedViewerProps {
   item: ContentItem;
@@ -10,9 +11,15 @@ interface EmbedViewerProps {
 
 const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
   const { toggleFavorite, favorites, addToPlaylist } = useContentStore();
+  const navigate = useNavigate();
   const isFav = favorites.includes(item.id);
   const hasFr = !!(item.embed.iframe_fr || item.embed.url_fr);
   const [lang, setLang] = useState<"en" | "fr">("en");
+
+  const handleEdit = () => {
+    onClose();
+    navigate(`/editor/${item.id}`);
+  };
 
   const getEmbedSrc = () => {
     const iframe = lang === "fr" && item.embed.iframe_fr ? item.embed.iframe_fr : item.embed.iframe;
@@ -22,15 +29,15 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-xl" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-xl overflow-y-auto py-6" onClick={onClose}>
       {/* Ambient glow background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
         <div className="absolute top-1/3 left-1/3 w-[400px] h-[300px] bg-accent/10 rounded-full blur-[100px]" />
       </div>
 
       <div
-        className="relative w-full max-w-5xl mx-4 rounded-2xl overflow-hidden modal-cinematic"
+        className="relative w-full max-w-5xl mx-4 rounded-2xl overflow-hidden modal-cinematic my-auto"
         onClick={(e) => e.stopPropagation()}
         style={{
           background: "linear-gradient(145deg, hsl(220 18% 12% / 0.8), hsl(220 18% 6% / 0.9))",
@@ -79,11 +86,19 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
             <button
               onClick={() => addToPlaylist(item.id)}
               className="p-2 rounded-full hover:bg-secondary/50 transition-colors text-muted-foreground hover:text-foreground"
+              title="Ajouter à la playlist"
             >
               <ListPlus className="w-5 h-5" />
             </button>
+            <button
+              onClick={handleEdit}
+              className="p-2 rounded-full hover:bg-secondary/50 transition-colors text-muted-foreground hover:text-foreground"
+              title="Modifier ce média"
+            >
+              <Pencil className="w-5 h-5" />
+            </button>
             {item.embed.url && (
-              <a href={item.embed.url} target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-secondary/50 transition-colors text-muted-foreground hover:text-foreground">
+              <a href={item.embed.url} target="_blank" rel="noreferrer" className="p-2 rounded-full hover:bg-secondary/50 transition-colors text-muted-foreground hover:text-foreground" title="Ouvrir la source">
                 <ExternalLink className="w-5 h-5" />
               </a>
             )}
@@ -105,14 +120,87 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
           </div>
         </div>
 
-        {/* Footer info */}
-        <div className="px-5 py-4 text-center">
-          <h2 className="font-heading text-xl font-bold text-foreground tracking-wide uppercase">{item.title}</h2>
+        {/* Title block */}
+        <div className="px-5 pt-3 pb-4 text-center border-b border-border/30">
+          <div className="flex items-center justify-center gap-2 mb-1">
+            <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30">{item.type}</span>
+            <span className="text-[10px] uppercase tracking-widest text-muted-foreground">#{item.id}</span>
+          </div>
+          <h2 className="font-heading text-2xl font-bold text-foreground tracking-wide uppercase">{item.title}</h2>
           <p className="text-sm text-muted-foreground mt-1">{item.embed.provider} · {item.meta.duration}</p>
-          <div className="flex flex-wrap justify-center gap-2 mt-3">
-            {item.tags.slice(0, 5).map(tag => (
-              <span key={tag} className="text-[10px] px-2.5 py-1 rounded-full bg-secondary/50 text-muted-foreground border border-border/30 backdrop-blur-sm">{tag}</span>
-            ))}
+        </div>
+
+        {/* Detailed info card */}
+        <div className="px-6 py-5 space-y-5">
+          {/* Description */}
+          {item.description && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Info className="w-3.5 h-3.5" /> Synopsis
+              </h3>
+              <p className="text-sm text-foreground/90 leading-relaxed">{item.description}</p>
+            </section>
+          )}
+
+          {/* Meta grid */}
+          <section>
+            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              <Info className="w-3.5 h-3.5" /> Informations
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { icon: Clock, label: "Durée", value: item.meta.duration },
+                { icon: User, label: "Auteur", value: item.meta.author },
+                { icon: Calendar, label: "Ajouté le", value: item.meta.date_added },
+                { icon: Globe, label: "Source", value: item.meta.source || item.embed.provider },
+              ].map(({ icon: Icon, label, value }) => (
+                <div key={label} className="rounded-xl p-3 bg-secondary/30 border border-border/30 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                    <Icon className="w-3 h-3" /> {label}
+                  </div>
+                  <div className="text-sm font-medium text-foreground truncate">{value || "—"}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Tags */}
+          {item.tags.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Tag className="w-3.5 h-3.5" /> Tags
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {item.tags.map(tag => (
+                  <span key={tag} className="text-[11px] px-2.5 py-1 rounded-full bg-secondary/50 text-foreground/80 border border-border/40 backdrop-blur-sm">{tag}</span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Languages availability */}
+          <section>
+            <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+              <Languages className="w-3.5 h-3.5" /> Versions disponibles
+            </h3>
+            <div className="flex gap-2">
+              <span className="text-[11px] px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/30">EN</span>
+              {hasFr ? (
+                <span className="text-[11px] px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/30">FR</span>
+              ) : (
+                <span className="text-[11px] px-3 py-1 rounded-full bg-secondary/30 text-muted-foreground border border-border/30">FR indisponible</span>
+              )}
+            </div>
+          </section>
+
+          {/* Edit CTA */}
+          <div className="pt-2 flex justify-center">
+            <button
+              onClick={handleEdit}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg"
+            >
+              <Pencil className="w-4 h-4" /> Modifier ce média
+            </button>
           </div>
         </div>
       </div>
