@@ -17,7 +17,6 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
   const [lang, setLang] = useState<"en" | "fr">("en");
 
   const handleEdit = () => {
-    onClose();
     navigate(`/editor/${item.id}`);
   };
 
