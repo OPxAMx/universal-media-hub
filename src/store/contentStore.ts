@@ -108,14 +108,14 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     const { items, searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir } = get();
     let result = items.filter(item => {
       if (activeType && item.type !== activeType) return false;
-      if (activeTags.length && !activeTags.some(t => item.tags.includes(t))) return false;
-      if (filterId && !item.id.toLowerCase().includes(filterId.toLowerCase())) return false;
+      if (activeTags.length && !activeTags.some(t => (item.tags || []).includes(t))) return false;
+      if (filterId && !(item.id || "").toLowerCase().includes(filterId.toLowerCase())) return false;
       const itemDate = item.meta?.date_added || "";
       if (filterDateFrom && itemDate && itemDate < filterDateFrom) return false;
       if (filterDateTo && itemDate && itemDate > filterDateTo) return false;
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
-        return item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q) || item.tags.some(t => t.toLowerCase().includes(q));
+        return (item.title || "").toLowerCase().includes(q) || (item.description || "").toLowerCase().includes(q) || (item.tags || []).some(t => (t || "").toLowerCase().includes(q));
       }
       return true;
     });
