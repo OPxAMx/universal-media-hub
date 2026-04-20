@@ -114,8 +114,16 @@ export const useContentStore = create<ContentStore>((set, get) => ({
       if (filterDateFrom && itemDate && itemDate < filterDateFrom) return false;
       if (filterDateTo && itemDate && itemDate > filterDateTo) return false;
       if (searchQuery) {
-        const q = searchQuery.toLowerCase();
-        return (item.title || "").toLowerCase().includes(q) || (item.description || "").toLowerCase().includes(q) || (item.tags || []).some(t => (t || "").toLowerCase().includes(q));
+        const q = searchQuery.toLowerCase().trim();
+        if (!q) return true;
+        return (
+          (item.title || "").toLowerCase().includes(q) ||
+          (item.description || "").toLowerCase().includes(q) ||
+          (item.id || "").toLowerCase().includes(q) ||
+          (item.meta?.author || "").toLowerCase().includes(q) ||
+          (item.embed?.provider || "").toLowerCase().includes(q) ||
+          (item.tags || []).some(t => (t || "").toLowerCase().includes(q))
+        );
       }
       return true;
     });
