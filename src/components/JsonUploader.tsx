@@ -189,7 +189,13 @@ const JsonUploader = () => {
   "description": "...",
   "tags": ["tag1", "tag2"],
   "thumbnail": "https://...",
-  "embed": { "provider": "...", "iframe": "<iframe ...>", "url": "..." },
+  "embed": {
+    "provider": "...",
+    "iframe": "<iframe ...>",        // EN (principal)
+    "url": "...",
+    "iframe_fr": "<iframe ...>",     // FR (facultatif)
+    "url_fr": "..."                   // FR (facultatif)
+  },
   "meta": { "duration": "", "author": "", "date_added": "", "source": "" }
 }`}
           </pre>
