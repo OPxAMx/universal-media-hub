@@ -58,7 +58,7 @@ const ContentEditor = ({ item }: ContentEditorProps) => {
       <div className="flex items-center justify-between">
         <h2 className="font-heading text-2xl font-bold text-foreground">{item ? "Modifier" : "Nouveau contenu"}</h2>
         <div className="flex gap-2">
-          <button onClick={() => navigate(-1)} className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 text-sm transition-colors">
+          <button onClick={() => navigate(item ? `/viewer/${item.id}` : "/")} className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 text-sm transition-colors">
             <X className="w-4 h-4" /> Annuler
           </button>
           <button onClick={save} className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 text-sm transition-colors">
