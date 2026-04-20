@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import ContentEditor from "@/components/ContentEditor";
 import JsonUploader from "@/components/JsonUploader";
 import ContentAuditor from "@/components/ContentAuditor";
+import GalleryOrganizer from "@/components/GalleryOrganizer";
 
 const EditorPage = () => {
   const { id } = useParams();
@@ -15,6 +16,7 @@ const EditorPage = () => {
       <div className="space-y-8">
         <JsonUploader />
         <ContentAuditor />
+        {item?.type === "gallery" && <GalleryOrganizer gallery={item} />}
         <ContentEditor item={item} />
       </div>
     </Layout>
