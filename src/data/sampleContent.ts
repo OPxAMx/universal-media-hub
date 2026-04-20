@@ -57088,7 +57088,9 @@ export const sampleContent: ContentItem[] = [
   "embed": {
     "provider": "youtube",
     "iframe": "<iframe src=\"https://www.youtube.com/embed/FCt9BfzBcPg\" allowfullscreen></iframe>",
-    "url": "https://www.youtube.com/watch?v=FCt9BfzBcPg"
+    "url": "https://www.youtube.com/watch?v=FCt9BfzBcPg",
+    "iframe_fr": "<iframe src=\"https://www.pornhub.com/embed/693934248261b\" allowfullscreen></iframe>",
+    "url_fr": "https://www.pornhub.com/embed/693934248261b"
   },
   "meta": {
     "duration": "",
