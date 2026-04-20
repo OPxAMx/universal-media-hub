@@ -123,7 +123,7 @@ export const useContentStore = create<ContentStore>((set, get) => ({
       const dir = sortDir === "asc" ? 1 : -1;
       result = [...result].sort((a, b) => {
         let av: string | number = "", bv: string | number = "";
-        if (sortKey === "title") { av = a.title.toLowerCase(); bv = b.title.toLowerCase(); }
+        if (sortKey === "title") { av = (a.title || "").toLowerCase(); bv = (b.title || "").toLowerCase(); }
         else if (sortKey === "id") { av = a.id; bv = b.id; }
         else if (sortKey === "date") { av = a.meta?.date_added || ""; bv = b.meta?.date_added || ""; }
         return av < bv ? -1 * dir : av > bv ? 1 * dir : 0;
