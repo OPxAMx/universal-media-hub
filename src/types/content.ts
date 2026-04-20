@@ -21,4 +21,6 @@ export interface ContentItem {
     date_added: string;
     source: string;
   };
+  /** For type === "gallery": ordered list of media IDs (any type) included in the gallery. */
+  galleryItems?: string[];
 }
