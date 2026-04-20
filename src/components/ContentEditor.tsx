@@ -48,7 +48,7 @@ const ContentEditor = ({ item }: ContentEditorProps) => {
     if (item) updateItem(data);
     else addItem(data);
     toast.success(item ? "Contenu mis à jour" : "Contenu ajouté");
-    navigate(-1);
+    navigate(`/viewer/${data.id}`);
   };
 
   const inputCls = "w-full px-3 py-2 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring";
