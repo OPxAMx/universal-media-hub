@@ -1578,21 +1578,7 @@ export const sampleContent: ContentItem[] = [
       "date_added": "2026-02-11",
       "source": "html-import"
     }
-  },    "title": "Dracula",
-    "description": "",
-    "tags": [],
-    "thumbnail": "https://media.themoviedb.org/t/p/w220_and_h330_face/hCKkybW6EfSZoOW3xia9ZsQwaUd.jpg",
-    "embed": {
-      "provider": "vidking",
-      "iframe": "<iframe src=\"https://www.vidking.net/embed/movie/640674\" allowfullscreen></iframe>",
-      "url": "https://www.vidking.net/embed/movie/640674"
-    },
-    "meta": {
-      "duration": "",
-      "author": "",
-      "date_added": "2026-04-13",
-      "source": "html-import"
-    }
+  },
   {
     "id": "1246049",
     "type": "film",
