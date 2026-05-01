@@ -28,7 +28,6 @@ const HEADER = `// @ts-nocheck
 import { ContentItem } from "@/types/content";
 
 export const sampleContent: ContentItem[] = `;
-const FOOTER = ";\n";
 
 /** Split the array body into top-level `{...}` object strings. */
 function splitObjects(body) {
