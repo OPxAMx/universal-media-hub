@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Validates and auto-fixes common syntax issues in src/data/sampleContent.ts.
  *
