@@ -57571,7 +57571,7 @@ export const sampleContent: ContentItem[] = [
     description: "A collection of stunning cyberpunk-inspired city photographs and digital art.",
     tags: ["cyberpunk", "art", "city"],
     thumbnail: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=400&h=225&fit=crop",
-    embed: { provider: "gallery", iframe: "", url: " }",
+    embed: { provider: "gallery", iframe: "", url: "" },
     meta: { duration: "12 photos", author: "Various Artists", date_added: "2024-06-01", source: "Unsplash" }
   },
   {
@@ -57581,7 +57581,7 @@ export const sampleContent: ContentItem[] = [
     description: "Vibrant neon-lit urban photography from around the world.",
     tags: ["neon", "urban", "night"],
     thumbnail: "https://images.unsplash.com/photo-1514905552197-0610a4d8fd73?w=400&h=225&fit=crop",
-    embed: { provider: "gallery", iframe: "", url: " }",
+    embed: { provider: "gallery", iframe: "", url: "" },
     meta: { duration: "8 photos", author: "Night Photographers", date_added: "2024-06-10", source: "Unsplash" }
   },
 ];
