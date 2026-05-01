@@ -1578,21 +1578,7 @@ export const sampleContent: ContentItem[] = [
       "date_added": "2026-02-11",
       "source": "html-import"
     }
-  },    "title": "Dracula",
-    "description": "",
-    "tags": [],
-    "thumbnail": "https://media.themoviedb.org/t/p/w220_and_h330_face/hCKkybW6EfSZoOW3xia9ZsQwaUd.jpg",
-    "embed": {
-      "provider": "vidking",
-      "iframe": "<iframe src=\"https://www.vidking.net/embed/movie/640674\" allowfullscreen></iframe>",
-      "url": "https://www.vidking.net/embed/movie/640674"
-    },
-    "meta": {
-      "duration": "",
-      "author": "",
-      "date_added": "2026-04-13",
-      "source": "html-import"
-    }
+  },
   {
     "id": "1246049",
     "type": "film",
@@ -2015,7 +2001,7 @@ export const sampleContent: ContentItem[] = [
     "id": "238",
     "type": "film",
     "title": "Le Parrain",
-    "description": "En 1945, à New York, les Corleone sont une des cinq familles de la mafia. Don Vito Corleone, "parrain" de cette famille, marie sa fille à un bookmaker. Sollozzo, " parrain " de la famille Tattaglia, propose à Don Vito une association dans le trafic de drogue, mais celui-ci refuse. Sonny, un de ses fils, y est quant à lui favorable.Afin de traiter avec Sonny, Sollozzo tente de faire tuer Don Vito, mais celui-ci en réchappe. Michael, le frère cadet de Sonny, recherche alors les commanditaires de l'attentat et tue Sollozzo et le chef de la police, en représailles.Michael part alors en Sicile, où il épouse Apollonia, mais celle-ci est assassinée à sa place. De retour à New York, Michael épouse Kay Adams et se prépare à devenir le successeur de son père...",
+    "description": "En 1945, à New York, les Corleone sont une des cinq familles de la mafia. Don Vito Corleone, \"parrain\" de cette famille, marie sa fille à un bookmaker. Sollozzo, \" parrain \" de la famille Tattaglia, propose à Don Vito une association dans le trafic de drogue, mais celui-ci refuse. Sonny, un de ses fils, y est quant à lui favorable.Afin de traiter avec Sonny, Sollozzo tente de faire tuer Don Vito, mais celui-ci en réchappe. Michael, le frère cadet de Sonny, recherche alors les commanditaires de l'attentat et tue Sollozzo et le chef de la police, en représailles.Michael part alors en Sicile, où il épouse Apollonia, mais celle-ci est assassinée à sa place. De retour à New York, Michael épouse Kay Adams et se prépare à devenir le successeur de son père...",
     "tags": ["Drame", "Crime"],
     "thumbnail": "https://media.themoviedb.org/t/p/w220_and_h330_face/ypUCFOvOf07bcHy81jng9LyMUfi.jpg",
     "embed": {
@@ -2547,7 +2533,7 @@ export const sampleContent: ContentItem[] = [
     "id": "19995",
     "type": "film",
     "title": "Avatar",
-    "description": "Malgré sa paralysie, Jake Sully, un ancien marine immobilisé dans un fauteuil roulant, est resté un combattant au plus profond de son être. Il est recruté pour se rendre à des années-lumière de la Terre, sur Pandora, où de puissants groupes industriels exploitent un minerai rarissime destiné à résoudre la crise énergétique sur Terre. Parce que l'atmosphère de Pandora est toxique pour les humains, ceux-ci ont créé le Programme Avatar, qui permet à des " pilotes " humains de lier leur esprit à un avatar, un corps biologique commandé à distance, capable de survivre dans cette atmosphère létale. Ces avatars sont des hybrides créés génétiquement en croisant l'ADN humain avec celui des Na'vi, les autochtones de Pandora. Sous sa forme d'avatar, Jake peut de nouveau marcher. On lui confie une mission d'infiltration auprès des Na'vi, devenus un obstacle trop conséquent à l'exploitation du précieux minerai. Mais tout va changer lorsque Neytiri, une très belle Na'vi, sauve la vie de Jake...",
+    "description": "Malgré sa paralysie, Jake Sully, un ancien marine immobilisé dans un fauteuil roulant, est resté un combattant au plus profond de son être. Il est recruté pour se rendre à des années-lumière de la Terre, sur Pandora, où de puissants groupes industriels exploitent un minerai rarissime destiné à résoudre la crise énergétique sur Terre. Parce que l'atmosphère de Pandora est toxique pour les humains, ceux-ci ont créé le Programme Avatar, qui permet à des \" pilotes \" humains de lier leur esprit à un avatar, un corps biologique commandé à distance, capable de survivre dans cette atmosphère létale. Ces avatars sont des hybrides créés génétiquement en croisant l'ADN humain avec celui des Na'vi, les autochtones de Pandora. Sous sa forme d'avatar, Jake peut de nouveau marcher. On lui confie une mission d'infiltration auprès des Na'vi, devenus un obstacle trop conséquent à l'exploitation du précieux minerai. Mais tout va changer lorsque Neytiri, une très belle Na'vi, sauve la vie de Jake...",
     "tags": ["Science-Fiction", "Action", "Aventure"],
     "thumbnail": "https://media.themoviedb.org/t/p/w220_and_h330_face/aSMz7X2yQaN0ojeXEmOonbIJFhU.jpg",
     "embed": {
@@ -2632,7 +2618,7 @@ export const sampleContent: ContentItem[] = [
       "url": "https://www.vidking.net/embed/movie/1010581"
     },
     "meta": {
-      "duration": ""1h 56m,
+      "duration": "1h 56m",
       "author": "Domingo González",
       "date_added": "2023-06-08",
       "source": "html-import"
@@ -3051,7 +3037,7 @@ export const sampleContent: ContentItem[] = [
     },
     "meta": {
       "duration": "1h 50m",
-      "author": ""Claude Miller,
+      "author": "Claude Miller",
       "date_added": "2012-05-27",
       "source": "html-import"
     }
@@ -57585,7 +57571,7 @@ export const sampleContent: ContentItem[] = [
     description: "A collection of stunning cyberpunk-inspired city photographs and digital art.",
     tags: ["cyberpunk", "art", "city"],
     thumbnail: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=400&h=225&fit=crop",
-    embed: { provider: "gallery", iframe: "", url: "" },
+    embed: { provider: "gallery", iframe: "", url: " }",
     meta: { duration: "12 photos", author: "Various Artists", date_added: "2024-06-01", source: "Unsplash" }
   },
   {
@@ -57595,7 +57581,7 @@ export const sampleContent: ContentItem[] = [
     description: "Vibrant neon-lit urban photography from around the world.",
     tags: ["neon", "urban", "night"],
     thumbnail: "https://images.unsplash.com/photo-1514905552197-0610a4d8fd73?w=400&h=225&fit=crop",
-    embed: { provider: "gallery", iframe: "", url: "" },
+    embed: { provider: "gallery", iframe: "", url: " }",
     meta: { duration: "8 photos", author: "Night Photographers", date_added: "2024-06-10", source: "Unsplash" }
   },
 ];
