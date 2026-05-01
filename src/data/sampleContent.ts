@@ -58067,3 +58067,18 @@ export const sampleContent: ContentItem[] = [
     }
   }
 ];
+
+export const galleryImages: Record<string, string[]> = {
+  "gallery-1": [
+    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1480044965905-02098d419e96?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1534809027769-b00d750a6bac?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=800&h=500&fit=crop",
+  ],
+  "gallery-2": [
+    "https://images.unsplash.com/photo-1514905552197-0610a4d8fd73?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=500&fit=crop",
+  ],
+};
