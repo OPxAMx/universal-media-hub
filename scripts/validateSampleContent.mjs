@@ -119,12 +119,37 @@ export function validateAndFix({ write = false, silent = false } = {}) {
     return { ok: true, total: 0, valid: 0, dropped: 0, fixed: 0 };
   }
   const src = fs.readFileSync(FILE, "utf8");
-  const arrStart = src.indexOf("[");
-  const arrEnd = src.lastIndexOf("]");
-  if (arrStart === -1 || arrEnd === -1) {
-    if (!silent) console.warn("[validateSampleContent] Could not locate array literal.");
+
+  // Locate the sampleContent array using its declaration as anchor.
+  const decl = "export const sampleContent: ContentItem[] =";
+  const declIdx = src.indexOf(decl);
+  if (declIdx === -1) {
+    if (!silent) console.warn("[validateSampleContent] sampleContent declaration not found.");
     return { ok: false, total: 0, valid: 0, dropped: 0, fixed: 0 };
   }
+  const arrStart = src.indexOf("[", declIdx);
+  if (arrStart === -1) {
+    if (!silent) console.warn("[validateSampleContent] Opening [ not found.");
+    return { ok: false, total: 0, valid: 0, dropped: 0, fixed: 0 };
+  }
+  // Find matching closing ] for this array (skipping strings & nested brackets).
+  let arrEnd = -1, depth = 0, inStr = false, esc = false;
+  for (let i = arrStart; i < src.length; i++) {
+    const c = src[i];
+    if (esc) { esc = false; continue; }
+    if (c === "\\") { esc = true; continue; }
+    if (c === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (c === "[") depth++;
+    else if (c === "]") { depth--; if (depth === 0) { arrEnd = i; break; } }
+  }
+  if (arrEnd === -1) {
+    if (!silent) console.warn("[validateSampleContent] Matching ] not found.");
+    return { ok: false, total: 0, valid: 0, dropped: 0, fixed: 0 };
+  }
+
+  const before = src.slice(0, arrStart);            // includes "= "
+  const trailing = src.slice(arrEnd + 1);            // ";\n...other exports..."
   const body = src.slice(arrStart + 1, arrEnd);
   const rawObjects = splitObjects(body);
 
@@ -161,7 +186,7 @@ export function validateAndFix({ write = false, silent = false } = {}) {
 
   if (write && (fixed > 0 || dropped > 0)) {
     const json = JSON.stringify(valid, null, 2);
-    fs.writeFileSync(FILE, HEADER + json + FOOTER, "utf8");
+    fs.writeFileSync(FILE, before + json + trailing, "utf8");
     if (!silent) console.log(`[validateSampleContent] Rewrote ${FILE} with ${valid.length} entries.`);
   }
 
