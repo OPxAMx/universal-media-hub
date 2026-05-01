@@ -127,7 +127,7 @@ export function validateAndFix({ write = false, silent = false } = {}) {
     if (!silent) console.warn("[validateSampleContent] sampleContent declaration not found.");
     return { ok: false, total: 0, valid: 0, dropped: 0, fixed: 0 };
   }
-  const arrStart = src.indexOf("[", declIdx);
+  const arrStart = src.indexOf("[", declIdx + decl.length);
   if (arrStart === -1) {
     if (!silent) console.warn("[validateSampleContent] Opening [ not found.");
     return { ok: false, total: 0, valid: 0, dropped: 0, fixed: 0 };
