@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Film, Tv, Music, Mic, Code, Image, Heart, Home, Plus, ListMusic, Clock, Upload, Radio } from "lucide-react";
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "./ThemeSwitcher";
+import NeonBeams from "./NeonBeams";
 import { useRef, useEffect, useState } from "react";
 
 const navItems = [
