@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [
-    sampleContentValidator(),
+    sampleContentValidator(mode),
     react(),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
