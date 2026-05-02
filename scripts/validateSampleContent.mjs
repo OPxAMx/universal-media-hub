@@ -202,6 +202,13 @@ export function validateAndFix({ write = false, silent = false } = {}) {
 const isMain = import.meta.url === `file://${process.argv[1]}`;
 if (isMain) {
   const write = process.argv.includes("--write");
+  const strict = process.argv.includes("--strict");
   const result = validateAndFix({ write });
+  if (strict && (result.dropped > 0 || result.fixed > 0)) {
+    console.error(
+      `[validateSampleContent] STRICT mode failed: fixed=${result.fixed} dropped=${result.dropped}`
+    );
+    process.exit(1);
+  }
   process.exit(result.ok ? 0 : (write ? 0 : 1));
 }
