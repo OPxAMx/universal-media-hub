@@ -36,7 +36,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Global neon ambient beams (scroll-reactive) */}
+      <NeonBeams />
+
       <header
         ref={headerRef}
         className="sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden"
@@ -91,7 +94,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <SearchBar />
         </div>
       </header>
-      <main className="container py-8">{children}</main>
+      <main className="container py-8 relative z-10">{children}</main>
     </div>
   );
 };
