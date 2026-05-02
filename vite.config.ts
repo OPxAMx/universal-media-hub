@@ -5,17 +5,25 @@ import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - plain JS module, no types
 import { validateAndFix } from "./scripts/validateSampleContent.mjs";
 
-// Runs the sampleContent validator once at dev/build start.
-// Auto-fixes recoverable issues; logs and drops unrecoverable entries.
-function sampleContentValidator(): Plugin {
+// Runs the sampleContent validator at dev/build start.
+// - Dev: auto-fixes recoverable issues, never blocks.
+// - Production build: STRICT mode — any dropped entry or parse failure fails the build.
+function sampleContentValidator(mode: string): Plugin {
+  const isProdBuild = mode === "production";
   return {
     name: "validate-sample-content",
     enforce: "pre",
     buildStart() {
       try {
-        validateAndFix({ write: true, silent: false });
+        const result = validateAndFix({ write: true, silent: false });
+        if (isProdBuild && (!result.ok || result.dropped > 0)) {
+          this.error(
+            `[validate-sample-content] STRICT build failed: ` +
+              `total=${result.total} valid=${result.valid} fixed=${result.fixed} dropped=${result.dropped}`
+          );
+        }
       } catch (e) {
-        // Never block the dev server on validator errors.
+        if (isProdBuild) throw e;
         console.warn("[validate-sample-content] skipped:", (e as Error).message);
       }
     },
