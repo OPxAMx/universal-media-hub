@@ -217,16 +217,23 @@
     animation: slideIn 0.3s ease-out forwards;
   }
 
-  /* Neon pulsing button */
+  /* Neon pulsing button — intensified */
   .neon-btn {
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
-    box-shadow: 0 0 15px hsl(var(--primary) / 0.4), 0 0 30px hsl(var(--primary) / 0.2);
+    box-shadow:
+      0 0 18px hsl(var(--primary) / 0.55),
+      0 0 38px hsl(var(--primary) / 0.3),
+      0 0 70px hsl(var(--accent) / 0.18),
+      inset 0 0 10px hsl(0 0% 100% / 0.15);
     animation: neonPulse 2s ease-in-out infinite;
   }
   .neon-btn:hover {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 50px hsl(var(--primary) / 0.3);
-    transform: scale(1.05);
+    box-shadow:
+      0 0 28px hsl(var(--primary) / 0.8),
+      0 0 60px hsl(var(--primary) / 0.45),
+      0 0 110px hsl(var(--accent) / 0.3);
+    transform: scale(1.06);
   }
 
   /* Stats ticker infinite scroll */
@@ -240,6 +247,98 @@
   /* Scrollbar hide utility */
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { scrollbar-width: none; }
+
+  /* ─────────── Global neon ambient beams ─────────── */
+  /* Scroll-reactive vars set in JS: --scroll-hue (deg) and --scroll-progress (0..1) */
+  .neon-beams {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  }
+  .neon-beams::before,
+  .neon-beams::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    transition: background 0.6s ease;
+    will-change: transform, background;
+  }
+  .neon-beams::before {
+    top: calc(-10% + var(--scroll-progress, 0) * 30%);
+    left: -10%;
+    width: 55vw;
+    height: 55vw;
+    background: radial-gradient(
+      circle,
+      hsl(calc(var(--scroll-hue, 0) * 1deg + 0deg) 90% 55% / 0.38) 0%,
+      hsl(calc(var(--scroll-hue, 0) * 1deg + 40deg) 80% 50% / 0.2) 45%,
+      transparent 70%
+    );
+    animation: beamFloatA 18s ease-in-out infinite alternate;
+  }
+  .neon-beams::after {
+    bottom: calc(-15% - var(--scroll-progress, 0) * 20%);
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(
+      circle,
+      hsl(calc(var(--scroll-hue, 0) * 1deg + 180deg) 90% 55% / 0.34) 0%,
+      hsl(calc(var(--scroll-hue, 0) * 1deg + 220deg) 80% 50% / 0.18) 45%,
+      transparent 70%
+    );
+    animation: beamFloatB 22s ease-in-out infinite alternate;
+  }
+  .neon-beams .beam-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70vw;
+    height: 70vw;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    filter: blur(150px);
+    background: radial-gradient(
+      circle,
+      hsl(calc(var(--scroll-hue, 0) * 1deg + 100deg) 85% 55% / 0.2) 0%,
+      transparent 60%
+    );
+    animation: beamPulse 10s ease-in-out infinite;
+  }
+  .neon-beams .beam-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--accent) / 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    opacity: calc(0.35 + var(--scroll-progress, 0) * 0.4);
+  }
+
+  /* Section-wide soft neon frame */
+  .neon-frame {
+    position: relative;
+    border-radius: 1.25rem;
+    border: 1px solid hsl(var(--primary) / calc(0.18 + var(--scroll-progress, 0) * 0.25));
+    box-shadow:
+      0 0 0 1px hsl(var(--accent) / 0.05),
+      0 10px 60px -20px hsl(var(--primary) / calc(0.25 + var(--scroll-progress, 0) * 0.35)),
+      inset 0 1px 0 hsl(0 0% 100% / 0.04);
+    transition: box-shadow 0.6s ease, border-color 0.6s ease;
+  }
+
+  .neon-text-glow {
+    text-shadow:
+      0 0 8px hsl(var(--primary) / 0.6),
+      0 0 24px hsl(var(--accent) / 0.35);
+  }
 }
 
 @keyframes modalIn {
@@ -255,16 +354,44 @@
   to { opacity: 1; transform: translateX(0); }
 }
 @keyframes neonPulse {
-  0%, 100% { box-shadow: 0 0 15px hsl(var(--primary) / 0.4), 0 0 30px hsl(var(--primary) / 0.2); }
-  50% { box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 45px hsl(var(--primary) / 0.25); }
+  0%, 100% {
+    box-shadow:
+      0 0 18px hsl(var(--primary) / 0.55),
+      0 0 38px hsl(var(--primary) / 0.3),
+      0 0 70px hsl(var(--accent) / 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 26px hsl(var(--primary) / 0.75),
+      0 0 55px hsl(var(--primary) / 0.4),
+      0 0 100px hsl(var(--accent) / 0.28);
+  }
 }
 @keyframes tickerScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+@keyframes beamFloatA {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(8vw, 6vh) scale(1.15); }
+}
+@keyframes beamFloatB {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-10vw, -8vh) scale(1.2); }
+}
+@keyframes beamPulse {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+}
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+/* Scrollbar — themed and scroll-reactive */
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: hsl(var(--background)); }
-::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    hsl(calc(var(--scroll-hue, 0) * 1deg + 0deg) 80% 50%),
+    hsl(calc(var(--scroll-hue, 0) * 1deg + 180deg) 80% 50%));
+  border-radius: 4px;
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.45);
+}
+::-webkit-scrollbar-thumb:hover { filter: brightness(1.2); }
