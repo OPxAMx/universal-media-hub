@@ -1,17 +1,27 @@
 import { useContentStore, SortKey } from "@/store/contentStore";
 import { useState, useMemo } from "react";
-import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag } from "lucide-react";
-import FilterBar from "./FilterBar";
+import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers } from "lucide-react";
+import { ContentType } from "@/types/content";
+
+const typeOptions: { value: ContentType; label: string; icon: React.ReactNode }[] = [
+  { value: "film", label: "Films", icon: <Film className="w-3.5 h-3.5" /> },
+  { value: "series", label: "Séries", icon: <Tv className="w-3.5 h-3.5" /> },
+  { value: "music", label: "Musique", icon: <Music className="w-3.5 h-3.5" /> },
+  { value: "podcast", label: "Podcasts", icon: <Mic className="w-3.5 h-3.5" /> },
+  { value: "codepen", label: "Code", icon: <Code className="w-3.5 h-3.5" /> },
+  { value: "gallery", label: "Galerie", icon: <Image className="w-3.5 h-3.5" /> },
+  { value: "iframe", label: "Iframe", icon: <Layers className="w-3.5 h-3.5" /> },
+];
 
 const AdvancedFilters = () => {
   const {
     items,
+    activeType, setActiveType,
     filterId, setFilterId,
     filterDateFrom, setFilterDateFrom,
     filterDateTo, setFilterDateTo,
     sortKey, sortDir, setSort,
     activeTags, toggleTag,
-    activeType, filterDateFrom: df, filterDateTo: dt,
     clearFilters,
     searchQuery,
   } = useContentStore();
@@ -53,11 +63,45 @@ const AdvancedFilters = () => {
           <SlidersHorizontal className="w-3.5 h-3.5" />
           Filtres {activeCount > 0 && <span className="bg-background/30 rounded-full px-1.5">{activeCount}</span>}
         </button>
-        <FilterBar />
+        {activeCount > 0 && (
+          <button
+            onClick={clearFilters}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs bg-destructive/20 text-destructive hover:bg-destructive/30 transition-colors"
+          >
+            <X className="w-3 h-3" /> Effacer
+          </button>
+        )}
+        {/* Active type chip summary */}
+        {activeType && (
+          <span className="text-[10px] px-2 py-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+            Type: {typeOptions.find(t => t.value === activeType)?.label || activeType}
+          </span>
+        )}
       </div>
 
       {open && (
         <div className="rounded-xl p-4 space-y-4 border border-border/40 bg-card/40 backdrop-blur-sm fade-up">
+          {/* Type filter (moved here from FilterBar) */}
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Layers className="w-3 h-3" />Type de contenu</label>
+            <div className="flex items-center gap-2 flex-wrap">
+              {typeOptions.map(t => (
+                <button
+                  key={t.value}
+                  onClick={() => setActiveType(activeType === t.value ? null : t.value)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    activeType === t.value
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  {t.icon}
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="space-y-1.5">
               <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Hash className="w-3 h-3" />ID</label>
