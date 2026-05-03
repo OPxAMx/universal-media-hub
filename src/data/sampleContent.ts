@@ -67447,3 +67447,6 @@ export const sampleContent: ContentItem[] = [
     }
   }
 ]
+// Backwards-compatibility stub for legacy gallery image map
+export const galleryImages: Record<string, string[]> = {};
+

@@ -1,7 +1,8 @@
 import { useContentStore, SortKey } from "@/store/contentStore";
 import { useState, useMemo } from "react";
-import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers } from "lucide-react";
+import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers, LayoutGrid, List } from "lucide-react";
 import { ContentType } from "@/types/content";
+import { useViewMode } from "@/hooks/useViewMode";
 
 const typeOptions: { value: ContentType; label: string; icon: React.ReactNode }[] = [
   { value: "film", label: "Films", icon: <Film className="w-3.5 h-3.5" /> },
@@ -27,6 +28,7 @@ const AdvancedFilters = () => {
   } = useContentStore();
 
   const [open, setOpen] = useState(false);
+  const [viewMode, setViewMode] = useViewMode();
 
   const allTags = useMemo(() => {
     const set = new Set<string>();
@@ -63,6 +65,26 @@ const AdvancedFilters = () => {
           <SlidersHorizontal className="w-3.5 h-3.5" />
           Filtres {activeCount > 0 && <span className="bg-background/30 rounded-full px-1.5">{activeCount}</span>}
         </button>
+
+        {/* Discreet view mode toggle */}
+        <div className="flex items-center gap-0.5 ml-1 p-0.5 rounded-full bg-secondary/40 border border-border/40">
+          <button
+            onClick={() => setViewMode("grid")}
+            aria-label="Affichage grille"
+            title="Grille"
+            className={`p-1.5 rounded-full transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+          </button>
+          <button
+            onClick={() => setViewMode("list")}
+            aria-label="Affichage liste"
+            title="Liste"
+            className={`p-1.5 rounded-full transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <List className="w-3.5 h-3.5" />
+          </button>
+        </div>
         {activeCount > 0 && (
           <button
             onClick={clearFilters}
