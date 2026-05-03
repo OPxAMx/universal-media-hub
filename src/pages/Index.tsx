@@ -196,6 +196,9 @@ const Index = () => {
               </section>
             )}
 
+            {/* COLLECTIONS */}
+            <CollectionsSection />
+
             {/* CAROUSELS per type */}
             {stats.map(s => (
               <Carousel key={s.type} title={s.label} items={byType[s.type] || []} icon={s.icon} />
