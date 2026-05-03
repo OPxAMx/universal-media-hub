@@ -68,9 +68,21 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
                 {inPlaylist ? <Check className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
               </button>
             </div>
-            <span className="absolute top-2 left-2 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-primary/80 text-primary-foreground backdrop-blur-sm">
+            <span className="absolute top-2 left-2 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-primary/80 text-primary-foreground backdrop-blur-sm z-10">
               {item.type}
             </span>
+
+            {/* Fade-in description overlay (matches Collections) */}
+            <div
+              className={`absolute inset-0 bg-background/95 backdrop-blur-sm p-3 flex flex-col justify-center transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 ${
+                tapped ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto"
+              }`}
+            >
+              <h4 className="font-heading font-bold text-sm text-foreground mb-2 line-clamp-2">{item.title}</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed line-clamp-[10]">
+                {item.description || "Aucune description disponible."}
+              </p>
+            </div>
           </div>
           <div className="p-3 relative">
             <h3 className="font-heading font-semibold text-sm text-foreground truncate group-hover/card:text-primary transition-colors">{item.title}</h3>
