@@ -17,10 +17,21 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
   const inPlaylist = playlist.includes(item.id);
   const navigate = useNavigate();
   const { ref, isVisible } = useLazyLoad();
+  const [tapped, setTapped] = useState(false);
 
   const handleView = () => {
     if (onView) onView();
     else navigate(`/viewer/${item.id}`);
+  };
+
+  const handleTap = (e: React.MouseEvent) => {
+    // On mobile (no hover) first tap reveals description, second navigates
+    if (window.matchMedia("(hover: none)").matches && !tapped) {
+      e.stopPropagation();
+      setTapped(true);
+      return;
+    }
+    handleView();
   };
 
   return (
