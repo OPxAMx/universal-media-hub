@@ -27,8 +27,7 @@ const AdvancedFilters = () => {
     searchQuery,
   } = useContentStore();
 
-  const [open, setOpen] = useState(false);
-  const [viewMode, setViewMode] = useViewMode();
+  const [open] = useFiltersOpen();
 
   const allTags = useMemo(() => {
     const set = new Set<string>();
@@ -51,63 +50,36 @@ const AdvancedFilters = () => {
     { key: "date", label: "Date", icon: <Calendar className="w-3.5 h-3.5" /> },
   ];
 
+  if (!open) return null;
+
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-2 flex-wrap">
-        <button
-          onClick={() => setOpen(!open)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-            open || activeCount > 0
-              ? "bg-primary text-primary-foreground"
-              : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-          }`}
-        >
-          <SlidersHorizontal className="w-3.5 h-3.5" />
-          Filtres {activeCount > 0 && <span className="bg-background/30 rounded-full px-1.5">{activeCount}</span>}
-        </button>
-
-        {/* Discreet view mode toggle */}
-        <div className="flex items-center gap-0.5 ml-1 p-0.5 rounded-full bg-secondary/40 border border-border/40">
-          <button
-            onClick={() => setViewMode("grid")}
-            aria-label="Affichage grille"
-            title="Grille"
-            className={`p-1.5 rounded-full transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
-          >
-            <LayoutGrid className="w-3.5 h-3.5" />
-          </button>
-          <button
-            onClick={() => setViewMode("list")}
-            aria-label="Affichage liste"
-            title="Liste"
-            className={`p-1.5 rounded-full transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
-          >
-            <List className="w-3.5 h-3.5" />
-          </button>
+      {(activeType || activeCount > 0) && (
+        <div className="flex items-center gap-2 flex-wrap">
+          {activeType && (
+            <span className="text-[10px] px-2 py-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+              Type: {typeOptions.find(t => t.value === activeType)?.label || activeType}
+            </span>
+          )}
+          {activeCount > 0 && (
+            <button
+              onClick={clearFilters}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs bg-destructive/20 text-destructive hover:bg-destructive/30 transition-colors"
+            >
+              <X className="w-3 h-3" /> Effacer
+            </button>
+          )}
         </div>
-        {activeCount > 0 && (
-          <button
-            onClick={clearFilters}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs bg-destructive/20 text-destructive hover:bg-destructive/30 transition-colors"
-          >
-            <X className="w-3 h-3" /> Effacer
-          </button>
-        )}
-        {/* Active type chip summary */}
-        {activeType && (
-          <span className="text-[10px] px-2 py-1 rounded-full bg-primary/15 text-primary border border-primary/30">
-            Type: {typeOptions.find(t => t.value === activeType)?.label || activeType}
-          </span>
-        )}
-      </div>
+      )}
 
       {open && (
         <div className="rounded-xl p-4 space-y-4 border border-border/40 bg-card/40 backdrop-blur-sm fade-up">
-          {/* Type filter (moved here from FilterBar) */}
+          {/* Type filter */}
           <div className="space-y-1.5">
             <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Layers className="w-3 h-3" />Type de contenu</label>
             <div className="flex items-center gap-2 flex-wrap">
               {typeOptions.map(t => (
+
                 <button
                   key={t.value}
                   onClick={() => setActiveType(activeType === t.value ? null : t.value)}
