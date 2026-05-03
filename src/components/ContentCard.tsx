@@ -38,8 +38,8 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
     <div ref={ref} className="min-h-[280px] relative">
       {isVisible ? (
         <div
-          className="card-3d group/card relative rounded-lg bg-card border border-border cursor-pointer h-full transition-all duration-300 hover:z-30 hover:scale-[1.06] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40"
-          onClick={handleView}
+          className={`card-3d group/card relative rounded-lg bg-card border border-border cursor-pointer h-full transition-all duration-300 hover:z-30 hover:scale-[1.06] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 ${tapped ? "is-tapped z-30" : ""}`}
+          onClick={handleTap}
         >
           <div className="relative aspect-[2/3] overflow-hidden rounded-t-lg">
             <img
