@@ -6,6 +6,7 @@ import ContentGrid from "@/components/ContentGrid";
 import { useContentStore } from "@/store/contentStore";
 import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight, Clock, AlertTriangle } from "lucide-react";
 import { useMemo, useRef, useEffect, useState } from "react";
+import { useViewMode } from "@/hooks/useViewMode";
 
 const stats = [
   { type: "film", label: "Films", icon: <Film className="w-5 h-5" /> },
