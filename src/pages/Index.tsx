@@ -120,24 +120,10 @@ const Index = () => {
       <div className="space-y-12">
         <AdvancedFilters />
         {isFiltering ? (
-          <div className="space-y-6">
-            <h2 className="font-heading text-xl font-bold text-foreground">
-              {searchQuery ? `Résultats pour "${searchQuery}"` : "Résultats filtrés"} ({filtered.length})
-            </h2>
-            {filtered.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-                {filtered.map((item, i) => (
-                  <div key={item.id} className="fade-up" style={{ animationDelay: `${Math.min(i, 10) * 50}ms` }}>
-                    <ContentCard item={item} />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground">Aucun contenu trouvé</p>
-              </div>
-            )}
-          </div>
+          <ContentGrid
+            items={filtered}
+            title={`${searchQuery ? `Résultats pour "${searchQuery}"` : "Résultats filtrés"} (${filtered.length})`}
+          />
         ) : (
           <>
             {/* HERO CINEMATIC */}
