@@ -6,6 +6,7 @@ import ContentGrid from "@/components/ContentGrid";
 import { useContentStore } from "@/store/contentStore";
 import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight, Clock, AlertTriangle } from "lucide-react";
 import { useMemo, useRef, useEffect, useState } from "react";
+import { useViewMode } from "@/hooks/useViewMode";
 
 const stats = [
   { type: "film", label: "Films", icon: <Film className="w-5 h-5" /> },
@@ -90,6 +91,7 @@ const Carousel = ({ title, items, icon }: { title: string; items: any[]; icon: R
 const Index = () => {
   const { items, filteredItems, favorites, history, searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey } = useContentStore();
   const filtered = filteredItems();
+  const [viewMode] = useViewMode();
 
   const counts = useMemo(() => {
     const map: Record<string, number> = {};
@@ -119,12 +121,17 @@ const Index = () => {
     <Layout>
       <div className="space-y-12">
         <AdvancedFilters />
-        {isFiltering ? (
+        {isFiltering || viewMode === "list" ? (
           <ContentGrid
-            items={filtered}
-            title={`${searchQuery ? `Résultats pour "${searchQuery}"` : "Résultats filtrés"} (${filtered.length})`}
+            items={isFiltering ? filtered : items}
+            title={
+              isFiltering
+                ? `${searchQuery ? `Résultats pour "${searchQuery}"` : "Résultats filtrés"} (${filtered.length})`
+                : `Tous les contenus (${items.length})`
+            }
           />
         ) : (
+
           <>
             {/* HERO CINEMATIC */}
             <section className="relative text-center py-20 overflow-hidden">

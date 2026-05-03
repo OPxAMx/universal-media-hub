@@ -1,8 +1,9 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Film, Tv, Music, Mic, Code, Image, Heart, Home, ListMusic, Clock, Radio } from "lucide-react";
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NeonBeams from "./NeonBeams";
+import HeaderToolbar from "./HeaderToolbar";
 import { useRef, useEffect, useState } from "react";
 
 const navItems = [
@@ -23,7 +24,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const headerRef = useRef<HTMLElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [shrunk, setShrunk] = useState(false);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -36,31 +36,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     return () => header.removeEventListener("mousemove", handler);
   }, []);
 
-  useEffect(() => {
-    let lastY = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (y > lastY && y > 80) setShrunk(true);
-      else if (y < lastY) setShrunk(false);
-      lastY = y;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background relative">
       <NeonBeams />
 
       <header
         ref={headerRef}
-        className={`sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
-          shrunk ? "py-0" : "py-1"
-        }`}
-        style={{ background: "hsl(var(--background) / 0.75)" }}
+        className="sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden"
+        style={{ background: "hsl(var(--background) / 0.85)" }}
       >
         <div
-          className="absolute pointer-events-none transition-opacity duration-300"
+          className="absolute pointer-events-none"
           style={{
             left: mousePos.x - 100,
             top: mousePos.y - 100,
@@ -71,19 +57,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           }}
         />
 
-        <div className={`container flex items-center justify-between relative z-10 transition-all duration-300 ${shrunk ? "h-12" : "h-16"}`}>
+        <div className="container flex items-center gap-3 h-16 relative z-10">
           <ThemeSwitcher />
           <div className="hidden md:flex flex-1 justify-center px-4">
             <SearchBar />
           </div>
-          <div className="w-[88px]" />
+          <div className="flex-1 md:flex-none flex justify-end">
+            <HeaderToolbar />
+          </div>
         </div>
 
-        <nav
-          className={`container overflow-x-auto relative z-10 transition-all duration-300 ${
-            shrunk ? "max-h-0 opacity-0 pointer-events-none" : "max-h-20 opacity-100"
-          }`}
-        >
+        <nav className="container overflow-x-auto relative z-10">
           <div className="flex items-center gap-1 pb-2">
             {navItems.map(n => (
               <Link
@@ -100,7 +84,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             ))}
           </div>
         </nav>
-        <div className={`md:hidden container relative z-10 transition-all duration-300 ${shrunk ? "max-h-0 opacity-0 overflow-hidden" : "max-h-20 opacity-100 pb-3"}`}>
+        <div className="md:hidden container relative z-10 pb-3">
           <SearchBar />
         </div>
       </header>
