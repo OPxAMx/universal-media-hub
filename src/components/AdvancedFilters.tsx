@@ -1,7 +1,8 @@
 import { useContentStore, SortKey } from "@/store/contentStore";
 import { useState, useMemo } from "react";
-import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers } from "lucide-react";
+import { SlidersHorizontal, X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers, LayoutGrid, List } from "lucide-react";
 import { ContentType } from "@/types/content";
+import { useViewMode } from "@/hooks/useViewMode";
 
 const typeOptions: { value: ContentType; label: string; icon: React.ReactNode }[] = [
   { value: "film", label: "Films", icon: <Film className="w-3.5 h-3.5" /> },
