@@ -65,6 +65,26 @@ const AdvancedFilters = () => {
           <SlidersHorizontal className="w-3.5 h-3.5" />
           Filtres {activeCount > 0 && <span className="bg-background/30 rounded-full px-1.5">{activeCount}</span>}
         </button>
+
+        {/* Discreet view mode toggle */}
+        <div className="flex items-center gap-0.5 ml-1 p-0.5 rounded-full bg-secondary/40 border border-border/40">
+          <button
+            onClick={() => setViewMode("grid")}
+            aria-label="Affichage grille"
+            title="Grille"
+            className={`p-1.5 rounded-full transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+          </button>
+          <button
+            onClick={() => setViewMode("list")}
+            aria-label="Affichage liste"
+            title="Liste"
+            className={`p-1.5 rounded-full transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            <List className="w-3.5 h-3.5" />
+          </button>
+        </div>
         {activeCount > 0 && (
           <button
             onClick={clearFilters}
