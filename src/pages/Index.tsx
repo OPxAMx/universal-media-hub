@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
 import ContentCard from "@/components/ContentCard";
 import AdvancedFilters from "@/components/AdvancedFilters";
+import CollectionsSection from "@/components/CollectionsSection";
+import ContentGrid from "@/components/ContentGrid";
 import { useContentStore } from "@/store/contentStore";
 import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight, Clock, AlertTriangle } from "lucide-react";
 import { useMemo, useRef, useEffect, useState } from "react";
