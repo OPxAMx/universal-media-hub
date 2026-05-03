@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import { Film, Tv, Music, Mic, Code, Image, Heart, Home, Plus, ListMusic, Clock, Upload, Radio } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Film, Tv, Music, Mic, Code, Image, Heart, Home, ListMusic, Clock, Radio } from "lucide-react";
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NeonBeams from "./NeonBeams";
@@ -23,6 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const headerRef = useRef<HTMLElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [shrunk, setShrunk] = useState(false);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -35,19 +36,29 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     return () => header.removeEventListener("mousemove", handler);
   }, []);
 
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > lastY && y > 80) setShrunk(true);
+      else if (y < lastY) setShrunk(false);
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Global neon ambient beams (scroll-reactive) */}
       <NeonBeams />
 
       <header
         ref={headerRef}
-        className="sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden"
-        style={{
-          background: "hsl(var(--background) / 0.75)",
-        }}
+        className={`sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
+          shrunk ? "py-0" : "py-1"
+        }`}
+        style={{ background: "hsl(var(--background) / 0.75)" }}
       >
-        {/* Cursor light follower */}
         <div
           className="absolute pointer-events-none transition-opacity duration-300"
           style={{
@@ -60,20 +71,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           }}
         />
 
-        <div className="container flex items-center justify-between h-16 relative z-10">
+        <div className={`container flex items-center justify-between relative z-10 transition-all duration-300 ${shrunk ? "h-12" : "h-16"}`}>
           <ThemeSwitcher />
-          <div className="hidden md:flex">
+          <div className="hidden md:flex flex-1 justify-center px-4">
             <SearchBar />
           </div>
-          {/* Neon Add button */}
-          <Link
-            to="/editor"
-            className="neon-btn flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all"
-          >
-            <Plus className="w-3.5 h-3.5" /> Ajouter
-          </Link>
+          <div className="w-[88px]" />
         </div>
-        <nav className="container overflow-x-auto relative z-10">
+
+        <nav
+          className={`container overflow-x-auto relative z-10 transition-all duration-300 ${
+            shrunk ? "max-h-0 opacity-0 pointer-events-none" : "max-h-20 opacity-100"
+          }`}
+        >
           <div className="flex items-center gap-1 pb-2">
             {navItems.map(n => (
               <Link
@@ -90,7 +100,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             ))}
           </div>
         </nav>
-        <div className="md:hidden container pb-3 relative z-10">
+        <div className={`md:hidden container relative z-10 transition-all duration-300 ${shrunk ? "max-h-0 opacity-0 overflow-hidden" : "max-h-20 opacity-100 pb-3"}`}>
           <SearchBar />
         </div>
       </header>
