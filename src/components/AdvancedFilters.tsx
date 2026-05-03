@@ -28,6 +28,7 @@ const AdvancedFilters = () => {
   } = useContentStore();
 
   const [open, setOpen] = useState(false);
+  const [viewMode, setViewMode] = useViewMode();
 
   const allTags = useMemo(() => {
     const set = new Set<string>();
