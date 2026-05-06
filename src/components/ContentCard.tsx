@@ -4,7 +4,7 @@ import { useContentStore } from "@/store/contentStore";
 import { getTagColor } from "@/lib/colors";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
-import { useState } from "react";
+
 
 interface ContentCardProps {
   item: ContentItem;
@@ -17,29 +17,18 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
   const inPlaylist = playlist.includes(item.id);
   const navigate = useNavigate();
   const { ref, isVisible } = useLazyLoad();
-  const [tapped, setTapped] = useState(false);
 
   const handleView = () => {
     if (onView) onView();
     else navigate(`/viewer/${item.id}`);
   };
 
-  const handleTap = (e: React.MouseEvent) => {
-    // On mobile (no hover) first tap reveals description, second navigates
-    if (window.matchMedia("(hover: none)").matches && !tapped) {
-      e.stopPropagation();
-      setTapped(true);
-      return;
-    }
-    handleView();
-  };
-
   return (
     <div ref={ref} className="min-h-[280px] relative">
       {isVisible ? (
         <div
-          className={`card-3d group/card relative rounded-lg bg-card border border-border cursor-pointer h-full transition-all duration-300 hover:z-30 hover:scale-[1.06] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 ${tapped ? "is-tapped z-30" : ""}`}
-          onClick={handleTap}
+          className="card-3d group/card relative rounded-lg bg-card border border-border cursor-pointer h-full transition-all duration-300 hover:z-30 hover:scale-[1.06] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40"
+          onClick={handleView}
         >
           <div className="relative aspect-[2/3] overflow-hidden rounded-t-lg">
             <img
@@ -71,31 +60,9 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
             <span className="absolute top-2 left-2 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-primary/80 text-primary-foreground backdrop-blur-sm z-10">
               {item.type}
             </span>
-
-            {/* Fade-in description overlay (matches Collections) */}
-            <div
-              className={`absolute inset-0 bg-background/95 backdrop-blur-sm p-3 flex flex-col justify-center transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 ${
-                tapped ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto"
-              }`}
-            >
-              <h4 className="font-heading font-bold text-sm text-foreground mb-2 line-clamp-2">{item.title}</h4>
-              <p className="text-xs text-muted-foreground leading-relaxed line-clamp-[10]">
-                {item.description || "Aucune description disponible."}
-              </p>
-            </div>
           </div>
           <div className="p-3 relative">
             <h3 className="font-heading font-semibold text-sm text-foreground truncate group-hover/card:text-primary transition-colors">{item.title}</h3>
-            {/* Collapsed description */}
-            <p className="text-xs text-muted-foreground mt-1 line-clamp-2 group-hover/card:hidden">
-              {item.description}
-            </p>
-            {/* Expanded description on hover */}
-            <div className="hidden group-hover/card:block">
-              <p className="text-xs text-foreground/90 mt-1 leading-relaxed max-h-48 overflow-y-auto pr-1">
-                {item.description}
-              </p>
-            </div>
             <div className="flex flex-wrap gap-1 mt-2">
               {(item.tags || []).slice(0, 3).map(tag => (
                 <span key={tag} className={`text-[10px] px-1.5 py-0.5 rounded-full ${getTagColor(tag)}`}>{tag}</span>
