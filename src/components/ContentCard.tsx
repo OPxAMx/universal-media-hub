@@ -4,7 +4,7 @@ import { useContentStore } from "@/store/contentStore";
 import { getTagColor } from "@/lib/colors";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
-import { useState } from "react";
+
 
 interface ContentCardProps {
   item: ContentItem;
