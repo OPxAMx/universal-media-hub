@@ -60,6 +60,14 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
             <span className="absolute top-2 left-2 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-primary/80 text-primary-foreground backdrop-blur-sm z-10">
               {item.type}
             </span>
+
+            {/* Description visible uniquement au survol (desktop) */}
+            <div className="absolute inset-0 bg-background/95 backdrop-blur-sm p-3 flex flex-col justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <h4 className="font-heading font-bold text-sm text-foreground mb-2 line-clamp-2">{item.title}</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed line-clamp-[10]">
+                {item.description || "Aucune description disponible."}
+              </p>
+            </div>
           </div>
           <div className="p-3 relative">
             <h3 className="font-heading font-semibold text-sm text-foreground truncate group-hover/card:text-primary transition-colors">{item.title}</h3>
