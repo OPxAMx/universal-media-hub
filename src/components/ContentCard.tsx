@@ -63,16 +63,6 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
           </div>
           <div className="p-3 relative">
             <h3 className="font-heading font-semibold text-sm text-foreground truncate group-hover/card:text-primary transition-colors">{item.title}</h3>
-            {/* Collapsed description */}
-            <p className="text-xs text-muted-foreground mt-1 line-clamp-2 group-hover/card:hidden">
-              {item.description}
-            </p>
-            {/* Expanded description on hover */}
-            <div className="hidden group-hover/card:block">
-              <p className="text-xs text-foreground/90 mt-1 leading-relaxed max-h-48 overflow-y-auto pr-1">
-                {item.description}
-              </p>
-            </div>
             <div className="flex flex-wrap gap-1 mt-2">
               {(item.tags || []).slice(0, 3).map(tag => (
                 <span key={tag} className={`text-[10px] px-1.5 py-0.5 rounded-full ${getTagColor(tag)}`}>{tag}</span>
