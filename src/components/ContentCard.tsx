@@ -17,29 +17,18 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
   const inPlaylist = playlist.includes(item.id);
   const navigate = useNavigate();
   const { ref, isVisible } = useLazyLoad();
-  const [tapped, setTapped] = useState(false);
 
   const handleView = () => {
     if (onView) onView();
     else navigate(`/viewer/${item.id}`);
   };
 
-  const handleTap = (e: React.MouseEvent) => {
-    // On mobile (no hover) first tap reveals description, second navigates
-    if (window.matchMedia("(hover: none)").matches && !tapped) {
-      e.stopPropagation();
-      setTapped(true);
-      return;
-    }
-    handleView();
-  };
-
   return (
     <div ref={ref} className="min-h-[280px] relative">
       {isVisible ? (
         <div
-          className={`card-3d group/card relative rounded-lg bg-card border border-border cursor-pointer h-full transition-all duration-300 hover:z-30 hover:scale-[1.06] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 ${tapped ? "is-tapped z-30" : ""}`}
-          onClick={handleTap}
+          className="card-3d group/card relative rounded-lg bg-card border border-border cursor-pointer h-full transition-all duration-300 hover:z-30 hover:scale-[1.06] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40"
+          onClick={handleView}
         >
           <div className="relative aspect-[2/3] overflow-hidden rounded-t-lg">
             <img
