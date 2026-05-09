@@ -1,6 +1,6 @@
 import { Bookmark, Heart, Plus, Film } from "lucide-react";
-import { useState } from "react";
 import collections from "@/data/collections.json";
+import { useContentStore } from "@/store/contentStore";
 
 interface Poster { src: string; alt: string }
 interface Collection {
