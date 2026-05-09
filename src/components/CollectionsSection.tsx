@@ -1,6 +1,6 @@
 import { Bookmark, Heart, Plus, Film } from "lucide-react";
-import { useState } from "react";
 import collections from "@/data/collections.json";
+import { useContentStore } from "@/store/contentStore";
 
 interface Poster { src: string; alt: string }
 interface Collection {
@@ -16,12 +16,18 @@ interface Collection {
 const data = collections as Collection[];
 
 const CollectionCard = ({ c }: { c: Collection }) => {
-  const [tapped, setTapped] = useState(false);
+  const setSearchQuery = useContentStore(s => s.setSearchQuery);
+
+  const handleClick = () => {
+    const query = c.title.replace(/\s*-\s*Saga\s*$/i, "").trim();
+    setSearchQuery(query);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div
       className="group relative rounded-xl overflow-hidden border border-border/50 bg-card/50 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
-      onClick={() => setTapped(t => !t)}
+      onClick={handleClick}
     >
       <div className="relative aspect-[16/9] overflow-hidden">
         <img
@@ -41,9 +47,7 @@ const CollectionCard = ({ c }: { c: Collection }) => {
 
         {/* Description overlay (desktop hover / mobile tap) */}
         <div
-          className={`absolute inset-0 bg-background/95 backdrop-blur-sm p-4 flex flex-col justify-center transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100 ${
-            tapped ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto"
-          }`}
+          className="absolute inset-0 bg-background/95 backdrop-blur-sm p-4 flex flex-col justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
         >
           <h3 className="font-heading font-bold text-foreground mb-2">{c.title}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-6">
