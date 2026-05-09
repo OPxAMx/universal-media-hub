@@ -43,7 +43,7 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
                 <Play className="w-6 h-6 text-primary-foreground ml-1" />
               </div>
             </div>
-            <div className="absolute top-2 right-2 flex gap-1.5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
+            <div className="absolute top-2 right-2 flex gap-1.5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200 z-20">
               <button
                 onClick={(e) => { e.stopPropagation(); toggleFavorite(item.id); }}
                 className={`p-1.5 rounded-full backdrop-blur-sm transition-colors ${isFav ? "bg-primary text-primary-foreground" : "bg-background/50 text-foreground hover:bg-background/80"}`}
