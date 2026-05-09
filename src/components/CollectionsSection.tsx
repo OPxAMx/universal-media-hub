@@ -47,9 +47,7 @@ const CollectionCard = ({ c }: { c: Collection }) => {
 
         {/* Description overlay (desktop hover / mobile tap) */}
         <div
-          className={`absolute inset-0 bg-background/95 backdrop-blur-sm p-4 flex flex-col justify-center transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100 ${
-            tapped ? "opacity-100" : "opacity-0 pointer-events-none md:pointer-events-auto"
-          }`}
+          className="absolute inset-0 bg-background/95 backdrop-blur-sm p-4 flex flex-col justify-center transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
         >
           <h3 className="font-heading font-bold text-foreground mb-2">{c.title}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-6">
