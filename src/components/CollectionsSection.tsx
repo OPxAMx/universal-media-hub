@@ -16,12 +16,18 @@ interface Collection {
 const data = collections as Collection[];
 
 const CollectionCard = ({ c }: { c: Collection }) => {
-  const [tapped, setTapped] = useState(false);
+  const setSearchQuery = useContentStore(s => s.setSearchQuery);
+
+  const handleClick = () => {
+    const query = c.title.replace(/\s*-\s*Saga\s*$/i, "").trim();
+    setSearchQuery(query);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div
       className="group relative rounded-xl overflow-hidden border border-border/50 bg-card/50 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10"
-      onClick={() => setTapped(t => !t)}
+      onClick={handleClick}
     >
       <div className="relative aspect-[16/9] overflow-hidden">
         <img
