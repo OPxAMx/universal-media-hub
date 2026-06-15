@@ -191,9 +191,26 @@ const JsonUploader = () => {
           onChange={(e) => handleFiles(e.target.files)}
         />
         {verifying ? (
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-3">
             <Loader2 className="w-10 h-10 text-primary animate-spin" />
-            <p className="text-sm font-medium text-foreground">Vérification via TMDB en cours…</p>
+            <p className="text-sm font-medium text-foreground">
+              Analyse en cours… {progress.current}/{progress.total}
+            </p>
+            {progress.currentTitle && (
+              <p className="text-xs text-muted-foreground truncate max-w-full px-4">
+                → {progress.currentTitle}
+              </p>
+            )}
+            <div className="w-full max-w-xs h-1.5 rounded-full bg-secondary overflow-hidden">
+              <div
+                className="h-full bg-primary transition-all duration-200"
+                style={{
+                  width: progress.total
+                    ? `${(progress.current / progress.total) * 100}%`
+                    : "0%",
+                }}
+              />
+            </div>
           </div>
         ) : (
           <>
@@ -202,6 +219,7 @@ const JsonUploader = () => {
             <p className="text-xs text-muted-foreground mt-1">ou cliquez pour sélectionner — vérification TMDB automatique</p>
           </>
         )}
+
         <div className="mt-4 p-3 rounded-lg bg-secondary/50 text-left">
           <p className="text-xs text-muted-foreground flex items-center gap-1.5 mb-1">
             <FileJson className="w-3.5 h-3.5" /> Format attendu :
