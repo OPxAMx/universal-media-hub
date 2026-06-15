@@ -17,10 +17,16 @@ const JsonUploader = () => {
   const [dragOver, setDragOver] = useState(false);
   const [verifying, setVerifying] = useState(false);
   const [results, setResults] = useState<VerificationResult[]>([]);
+  const [progress, setProgress] = useState<{ current: number; total: number; currentTitle: string }>({
+    current: 0,
+    total: 0,
+    currentTitle: "",
+  });
   const fileRef = useRef<HTMLInputElement>(null);
 
   const validateItem = (obj: any): obj is ContentItem => {
     return (
+      obj &&
       typeof obj.id === "string" &&
       typeof obj.type === "string" &&
       typeof obj.title === "string" &&
@@ -66,18 +72,33 @@ const JsonUploader = () => {
     const entries: any[] = Array.isArray(parsed) ? parsed : [parsed];
     const verificationResults: VerificationResult[] = [];
 
+    // Existing IDs in the store (lookup O(1))
+    const existingIds = new Set(items.map(i => i.id));
+    // IDs already encountered within THIS upload (intra-file duplicates)
+    const seenInFile = new Set<string>();
+
     setVerifying(true);
     setResults([]);
+    setProgress({ current: 0, total: entries.length, currentTitle: "" });
 
-    for (const entry of entries) {
+    for (let i = 0; i < entries.length; i++) {
+      const entry = entries[i];
+      const title = entry?.title || `Entrée #${i + 1}`;
+      setProgress({ current: i + 1, total: entries.length, currentTitle: title });
+
       if (!validateItem(entry)) {
         verificationResults.push({ item: entry as ContentItem, status: "invalid" });
+        setResults([...verificationResults]);
         continue;
       }
-      if (items.some(i => i.id === entry.id)) {
+
+      // Duplicate: already in store OR already seen earlier in this same file
+      if (existingIds.has(entry.id) || seenInFile.has(entry.id)) {
         verificationResults.push({ item: entry, status: "duplicate" });
+        setResults([...verificationResults]);
         continue;
       }
+      seenInFile.add(entry.id);
 
       // Verify against TMDB for films and series
       if (entry.type === "film" || entry.type === "series") {
@@ -90,18 +111,21 @@ const JsonUploader = () => {
       } else {
         verificationResults.push({ item: entry, status: "skipped" });
       }
+      setResults([...verificationResults]);
     }
 
-    setResults(verificationResults);
     setVerifying(false);
   };
 
+
   const importResults = () => {
     let added = 0;
+    const addedIds = new Set(items.map(i => i.id));
     for (const r of results) {
       if (r.status === "valid" || r.status === "skipped" || r.status === "not_found") {
-        if (!items.some(i => i.id === r.item.id)) {
+        if (!addedIds.has(r.item.id)) {
           addItem(r.item);
+          addedIds.add(r.item.id);
           added++;
         }
       }
@@ -114,6 +138,7 @@ const JsonUploader = () => {
     });
     setResults([]);
   };
+
 
   const handleFiles = (files: FileList | null) => {
     if (!files) return;
@@ -166,9 +191,26 @@ const JsonUploader = () => {
           onChange={(e) => handleFiles(e.target.files)}
         />
         {verifying ? (
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-3">
             <Loader2 className="w-10 h-10 text-primary animate-spin" />
-            <p className="text-sm font-medium text-foreground">Vérification via TMDB en cours…</p>
+            <p className="text-sm font-medium text-foreground">
+              Analyse en cours… {progress.current}/{progress.total}
+            </p>
+            {progress.currentTitle && (
+              <p className="text-xs text-muted-foreground truncate max-w-full px-4">
+                → {progress.currentTitle}
+              </p>
+            )}
+            <div className="w-full max-w-xs h-1.5 rounded-full bg-secondary overflow-hidden">
+              <div
+                className="h-full bg-primary transition-all duration-200"
+                style={{
+                  width: progress.total
+                    ? `${(progress.current / progress.total) * 100}%`
+                    : "0%",
+                }}
+              />
+            </div>
           </div>
         ) : (
           <>
@@ -177,6 +219,7 @@ const JsonUploader = () => {
             <p className="text-xs text-muted-foreground mt-1">ou cliquez pour sélectionner — vérification TMDB automatique</p>
           </>
         )}
+
         <div className="mt-4 p-3 rounded-lg bg-secondary/50 text-left">
           <p className="text-xs text-muted-foreground flex items-center gap-1.5 mb-1">
             <FileJson className="w-3.5 h-3.5" /> Format attendu :
