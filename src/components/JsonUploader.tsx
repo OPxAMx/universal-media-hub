@@ -17,10 +17,16 @@ const JsonUploader = () => {
   const [dragOver, setDragOver] = useState(false);
   const [verifying, setVerifying] = useState(false);
   const [results, setResults] = useState<VerificationResult[]>([]);
+  const [progress, setProgress] = useState<{ current: number; total: number; currentTitle: string }>({
+    current: 0,
+    total: 0,
+    currentTitle: "",
+  });
   const fileRef = useRef<HTMLInputElement>(null);
 
   const validateItem = (obj: any): obj is ContentItem => {
     return (
+      obj &&
       typeof obj.id === "string" &&
       typeof obj.type === "string" &&
       typeof obj.title === "string" &&
@@ -66,18 +72,33 @@ const JsonUploader = () => {
     const entries: any[] = Array.isArray(parsed) ? parsed : [parsed];
     const verificationResults: VerificationResult[] = [];
 
+    // Existing IDs in the store (lookup O(1))
+    const existingIds = new Set(items.map(i => i.id));
+    // IDs already encountered within THIS upload (intra-file duplicates)
+    const seenInFile = new Set<string>();
+
     setVerifying(true);
     setResults([]);
+    setProgress({ current: 0, total: entries.length, currentTitle: "" });
 
-    for (const entry of entries) {
+    for (let i = 0; i < entries.length; i++) {
+      const entry = entries[i];
+      const title = entry?.title || `Entrée #${i + 1}`;
+      setProgress({ current: i + 1, total: entries.length, currentTitle: title });
+
       if (!validateItem(entry)) {
         verificationResults.push({ item: entry as ContentItem, status: "invalid" });
+        setResults([...verificationResults]);
         continue;
       }
-      if (items.some(i => i.id === entry.id)) {
+
+      // Duplicate: already in store OR already seen earlier in this same file
+      if (existingIds.has(entry.id) || seenInFile.has(entry.id)) {
         verificationResults.push({ item: entry, status: "duplicate" });
+        setResults([...verificationResults]);
         continue;
       }
+      seenInFile.add(entry.id);
 
       // Verify against TMDB for films and series
       if (entry.type === "film" || entry.type === "series") {
@@ -90,11 +111,12 @@ const JsonUploader = () => {
       } else {
         verificationResults.push({ item: entry, status: "skipped" });
       }
+      setResults([...verificationResults]);
     }
 
-    setResults(verificationResults);
     setVerifying(false);
   };
+
 
   const importResults = () => {
     let added = 0;
