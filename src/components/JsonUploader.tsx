@@ -120,10 +120,12 @@ const JsonUploader = () => {
 
   const importResults = () => {
     let added = 0;
+    const addedIds = new Set(items.map(i => i.id));
     for (const r of results) {
       if (r.status === "valid" || r.status === "skipped" || r.status === "not_found") {
-        if (!items.some(i => i.id === r.item.id)) {
+        if (!addedIds.has(r.item.id)) {
           addItem(r.item);
+          addedIds.add(r.item.id);
           added++;
         }
       }
@@ -136,6 +138,7 @@ const JsonUploader = () => {
     });
     setResults([]);
   };
+
 
   const handleFiles = (files: FileList | null) => {
     if (!files) return;
