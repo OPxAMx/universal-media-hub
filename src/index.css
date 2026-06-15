@@ -6,57 +6,58 @@
 
 @layer base {
   :root {
-    --background: 220 20% 6%;
-    --foreground: 210 20% 92%;
+    /* Netflix-inspired palette */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 20% 92%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 20% 92%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 350 80% 55%;
+    --primary: 357 92% 47%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 16% 16%;
-    --secondary-foreground: 210 20% 85%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 220 14% 14%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 260 60% 55%;
+    --accent: 357 92% 47%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 18%;
-    --input: 220 14% 18%;
-    --ring: 350 80% 55%;
+    --border: 0 0% 18%;
+    --input: 0 0% 14%;
+    --ring: 357 92% 47%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(350 80% 55%), hsl(280 70% 50%));
-    --gradient-card: linear-gradient(145deg, hsl(220 18% 12%), hsl(220 18% 8%));
-    --gradient-hero: linear-gradient(180deg, hsl(220 20% 6%) 0%, hsl(220 25% 10%) 50%, hsl(220 20% 6%) 100%);
-    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 20px hsl(350 80% 55% / 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(357 92% 47%), hsl(357 92% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 11%), hsl(0 0% 7%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 0% / 0) 0%, hsl(0 0% 0% / 0.6) 60%, hsl(0 0% 0%) 100%);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 30px hsl(357 92% 47% / 0.4);
 
-    --tag-film: 350 80% 55%;
-    --tag-series: 200 80% 50%;
-    --tag-music: 140 60% 45%;
-    --tag-podcast: 30 90% 55%;
-    --tag-code: 260 60% 55%;
-    --tag-gallery: 180 60% 45%;
+    --tag-film: 357 92% 47%;
+    --tag-series: 357 92% 47%;
+    --tag-music: 0 0% 60%;
+    --tag-podcast: 0 0% 60%;
+    --tag-code: 0 0% 60%;
+    --tag-gallery: 0 0% 60%;
 
-    --sidebar-background: 220 18% 8%;
-    --sidebar-foreground: 210 20% 85%;
-    --sidebar-primary: 350 80% 55%;
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 357 92% 47%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 16% 16%;
-    --sidebar-accent-foreground: 210 20% 85%;
-    --sidebar-border: 220 14% 18%;
-    --sidebar-ring: 350 80% 55%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 357 92% 47%;
   }
 
   /* Dark Ocean */
