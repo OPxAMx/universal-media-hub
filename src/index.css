@@ -192,13 +192,11 @@
 
 @layer components {
   .card-3d {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, filter 0.4s ease;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease, filter 0.3s ease;
   }
   .card-3d:hover {
-    transform: rotateY(-3deg) rotateX(3deg) scale(1.05);
-    box-shadow: var(--shadow-glow), 0 20px 40px hsl(0 0% 0% / 0.4);
+    transform: scale(1.08);
+    box-shadow: 0 12px 40px hsl(0 0% 0% / 0.8);
     z-index: 10;
   }
   .gradient-text {
