@@ -250,13 +250,14 @@
   /* ─────────── Global neon ambient beams ─────────── */
   /* Scroll-reactive vars set in JS: --scroll-hue (deg) and --scroll-progress (0..1) */
   .neon-beams {
+    display: none;
+  }
+  .neon-beams-disabled {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
-    mix-blend-mode: screen;
-    opacity: 0.9;
   }
   .neon-beams::before,
   .neon-beams::after {
