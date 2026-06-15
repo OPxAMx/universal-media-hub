@@ -42,44 +42,58 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <header
         ref={headerRef}
-        className="sticky top-0 z-40 border-b border-border/50 backdrop-blur-xl overflow-hidden"
-        style={{ background: "hsl(var(--background) / 0.85)" }}
+        className="sticky top-0 z-40 backdrop-blur-md"
+        style={{ background: "linear-gradient(180deg, hsl(0 0% 0% / 0.95) 0%, hsl(0 0% 0% / 0.85) 100%)" }}
       >
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            left: mousePos.x - 100,
-            top: mousePos.y - 100,
-            width: 200,
-            height: 200,
-            background: "radial-gradient(circle, hsl(var(--primary) / 0.07) 0%, transparent 70%)",
-            borderRadius: "50%",
-          }}
-        />
+        <div className="container flex items-center gap-6 h-16 relative z-10">
+          <Link to="/" className="flex items-center shrink-0">
+            <span
+              className="font-heading font-black tracking-tighter text-2xl md:text-3xl text-primary"
+              style={{ letterSpacing: "-0.05em" }}
+            >
+              UEM
+            </span>
+          </Link>
 
-        <div className="container flex items-center gap-3 h-16 relative z-10">
-          <ThemeSwitcher />
-          <div className="hidden md:flex flex-1 justify-center px-4">
+          <nav className="hidden md:flex items-center gap-5 overflow-x-auto scrollbar-hide flex-1">
+            {navItems.map(n => (
+              <Link
+                key={n.to}
+                to={n.to}
+                className={`text-sm whitespace-nowrap transition-colors ${
+                  location.pathname === n.to
+                    ? "text-foreground font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden md:block w-64">
             <SearchBar />
           </div>
           <div className="flex-1 md:flex-none flex justify-end">
             <HeaderToolbar />
           </div>
+          <ThemeSwitcher />
         </div>
 
-        <nav className="container overflow-x-auto relative z-10">
-          <div className="flex items-center gap-1 pb-2">
+        {/* Mobile nav */}
+        <nav className="md:hidden container overflow-x-auto scrollbar-hide relative z-10">
+          <div className="flex items-center gap-4 pb-2">
             {navItems.map(n => (
               <Link
                 key={n.to}
                 to={n.to}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                className={`text-xs whitespace-nowrap transition-colors ${
                   location.pathname === n.to
-                    ? "bg-primary/20 text-primary border border-primary/30"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    ? "text-foreground font-semibold"
+                    : "text-muted-foreground"
                 }`}
               >
-                {n.icon} {n.label}
+                {n.label}
               </Link>
             ))}
           </div>
