@@ -66,14 +66,14 @@ const loadHistory = (): HistoryEntry[] => {
 const loadItems = (): ContentItem[] => {
   try {
     const extras: ContentItem[] = JSON.parse(localStorage.getItem("uem-items") || "[]");
-    const existing = new Set(sampleContent.map(i => i.id));
-    const merged = [...sampleContent];
+    const existing = new Set(baseContent.map(i => i.id));
+    const merged = [...baseContent];
     for (const it of extras) if (!existing.has(it.id)) { merged.push(it); existing.add(it.id); }
     return merged;
   } catch { return sampleContent; }
 };
 const persistExtras = (items: ContentItem[]) => {
-  const baseIds = new Set(sampleContent.map(i => i.id));
+  const baseIds = new Set(baseContent.map(i => i.id));
   const extras = items.filter(i => !baseIds.has(i.id));
   try { localStorage.setItem("uem-items", JSON.stringify(extras)); } catch {}
 };
