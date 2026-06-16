@@ -46,6 +46,7 @@ interface ContentStore {
   toggleFavorite: (id: string) => void;
   addToPlaylist: (id: string) => void;
   removeFromPlaylist: (id: string) => void;
+  setPlaylist: (ids: string[]) => void;
   updateItem: (item: ContentItem) => void;
   addItem: (item: ContentItem) => void;
   addToHistory: (id: string) => void;
