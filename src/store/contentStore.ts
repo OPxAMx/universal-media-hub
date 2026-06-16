@@ -51,9 +51,23 @@ const loadPlaylist = (): string[] => {
 const loadHistory = (): HistoryEntry[] => {
   try { return JSON.parse(localStorage.getItem("uem-history") || "[]"); } catch { return []; }
 };
+const loadItems = (): ContentItem[] => {
+  try {
+    const extras: ContentItem[] = JSON.parse(localStorage.getItem("uem-items") || "[]");
+    const existing = new Set(sampleContent.map(i => i.id));
+    const merged = [...sampleContent];
+    for (const it of extras) if (!existing.has(it.id)) { merged.push(it); existing.add(it.id); }
+    return merged;
+  } catch { return sampleContent; }
+};
+const persistExtras = (items: ContentItem[]) => {
+  const baseIds = new Set(sampleContent.map(i => i.id));
+  const extras = items.filter(i => !baseIds.has(i.id));
+  try { localStorage.setItem("uem-items", JSON.stringify(extras)); } catch {}
+};
 
 export const useContentStore = create<ContentStore>((set, get) => ({
-  items: sampleContent,
+  items: loadItems(),
   favorites: loadFavorites(),
   playlist: loadPlaylist(),
   history: loadHistory(),
