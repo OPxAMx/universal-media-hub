@@ -1,6 +1,11 @@
-import { Bookmark, Heart, Plus, Film } from "lucide-react";
+import { Bookmark, Heart, Plus, Film, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import collections from "@/data/collections.json";
 import { useContentStore } from "@/store/contentStore";
+
+const TMDB_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NDAwODY3YWVmNGU1OWZhM2IyMjUxNWEzYmE0MzA4YiIsIm5iZiI6MTc3NjI4NDk3OS4zNjMwMDAyLCJzdWIiOiI2OWRmZjUzMzQxMzA0YTM0ZGQzOTQ4NTYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.6bfDm-Rdmk7K5-teBKkZTKmfBX-8WTN2IvZlr2OxAR0";
 
 interface Poster { src: string; alt: string }
 interface Collection {
@@ -16,12 +21,36 @@ interface Collection {
 const data = collections as Collection[];
 
 const CollectionCard = ({ c }: { c: Collection }) => {
-  const setSearchQuery = useContentStore(s => s.setSearchQuery);
+  const items = useContentStore(s => s.items);
+  const setPlaylist = useContentStore(s => s.setPlaylist);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const handleClick = () => {
-    const query = c.title.replace(/\s*-\s*Saga\s*$/i, "").trim();
-    setSearchQuery(query);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleClick = async () => {
+    if (loading) return;
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/collection/${c.id}?language=fr-FR`,
+        { headers: { Authorization: `Bearer ${TMDB_TOKEN}` } }
+      );
+      if (!res.ok) throw new Error("TMDB error");
+      const json = await res.json();
+      const parts: Array<{ id: number; release_date?: string }> = json.parts || [];
+      const sorted = [...parts].sort((a, b) => (a.release_date || "").localeCompare(b.release_date || ""));
+      const ids = sorted.map(p => String(p.id)).filter(id => items.some(i => i.id === id));
+      if (ids.length === 0) {
+        toast.error(`Aucun film de "${c.title}" trouvé dans la bibliothèque. Importez d'abord AllCollection.json.`);
+        return;
+      }
+      setPlaylist(ids);
+      toast.success(`${ids.length} films chargés depuis ${c.title}`);
+      navigate("/player");
+    } catch (e) {
+      toast.error("Impossible de charger la collection depuis TMDB.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -54,6 +83,12 @@ const CollectionCard = ({ c }: { c: Collection }) => {
             {c.description || "Aucune description disponible."}
           </p>
         </div>
+
+        {loading && (
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-10">
+            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+          </div>
+        )}
       </div>
 
       <div className="p-3 space-y-3">

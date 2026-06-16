@@ -1,6 +1,18 @@
 import { create } from "zustand";
 import { ContentItem } from "@/types/content";
 import { sampleContent } from "@/data/sampleContent";
+import allCollectionFilms from "@/data/allCollectionFilms.json";
+
+const baseContent: ContentItem[] = (() => {
+  const seen = new Set<string>();
+  const out: ContentItem[] = [];
+  for (const it of [...sampleContent, ...(allCollectionFilms as ContentItem[])]) {
+    if (seen.has(it.id)) continue;
+    seen.add(it.id);
+    out.push(it);
+  }
+  return out;
+})();
 
 interface HistoryEntry {
   id: string;
@@ -34,6 +46,7 @@ interface ContentStore {
   toggleFavorite: (id: string) => void;
   addToPlaylist: (id: string) => void;
   removeFromPlaylist: (id: string) => void;
+  setPlaylist: (ids: string[]) => void;
   updateItem: (item: ContentItem) => void;
   addItem: (item: ContentItem) => void;
   addToHistory: (id: string) => void;
@@ -54,14 +67,14 @@ const loadHistory = (): HistoryEntry[] => {
 const loadItems = (): ContentItem[] => {
   try {
     const extras: ContentItem[] = JSON.parse(localStorage.getItem("uem-items") || "[]");
-    const existing = new Set(sampleContent.map(i => i.id));
-    const merged = [...sampleContent];
+    const existing = new Set(baseContent.map(i => i.id));
+    const merged = [...baseContent];
     for (const it of extras) if (!existing.has(it.id)) { merged.push(it); existing.add(it.id); }
     return merged;
-  } catch { return sampleContent; }
+  } catch { return baseContent; }
 };
 const persistExtras = (items: ContentItem[]) => {
-  const baseIds = new Set(sampleContent.map(i => i.id));
+  const baseIds = new Set(baseContent.map(i => i.id));
   const extras = items.filter(i => !baseIds.has(i.id));
   try { localStorage.setItem("uem-items", JSON.stringify(extras)); } catch {}
 };
@@ -104,6 +117,10 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     const next = s.playlist.filter(p => p !== id);
     localStorage.setItem("uem-playlist", JSON.stringify(next));
     return { playlist: next };
+  }),
+  setPlaylist: (ids) => set(() => {
+    localStorage.setItem("uem-playlist", JSON.stringify(ids));
+    return { playlist: ids };
   }),
   updateItem: (item) => set((s) => {
     const next = s.items.map(i => i.id === item.id ? item : i);
