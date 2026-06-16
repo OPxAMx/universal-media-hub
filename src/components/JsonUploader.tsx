@@ -152,6 +152,19 @@ const JsonUploader = () => {
     reader.readAsText(file);
   };
 
+  const exportSampleContent = () => {
+    const json = JSON.stringify(items, null, 2);
+    const ts = `import { ContentItem } from "@/types/content";\n\nexport const sampleContent: ContentItem[] = ${json};\n`;
+    const blob = new Blob([ts], { type: "text/typescript" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "sampleContent.ts";
+    a.click();
+    URL.revokeObjectURL(url);
+    toast({ title: "Export prêt", description: `${items.length} éléments exportés. Remplacez src/data/sampleContent.ts dans votre projet.` });
+  };
+
   const statusIcon = (status: VerificationResult["status"]) => {
     switch (status) {
       case "valid": return <CheckCircle className="w-4 h-4 text-green-500" />;
