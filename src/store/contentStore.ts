@@ -70,7 +70,7 @@ const loadItems = (): ContentItem[] => {
     const merged = [...baseContent];
     for (const it of extras) if (!existing.has(it.id)) { merged.push(it); existing.add(it.id); }
     return merged;
-  } catch { return sampleContent; }
+  } catch { return baseContent; }
 };
 const persistExtras = (items: ContentItem[]) => {
   const baseIds = new Set(baseContent.map(i => i.id));
