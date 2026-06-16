@@ -187,6 +187,18 @@ const JsonUploader = () => {
 
   return (
     <div className="space-y-4">
+      <div className="flex items-center justify-between gap-2 px-1">
+        <p className="text-xs text-muted-foreground">
+          Bibliothèque actuelle : <span className="font-semibold text-foreground">{items.length}</span> éléments (persistés localement)
+        </p>
+        <button
+          onClick={exportSampleContent}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-secondary-foreground text-xs font-semibold transition-colors"
+          title="Télécharge un sampleContent.ts à jour pour committer dans le repo"
+        >
+          <Download className="w-3.5 h-3.5" /> Exporter sampleContent.ts
+        </button>
+      </div>
       <div
         className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-colors cursor-pointer ${
           dragOver ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"
