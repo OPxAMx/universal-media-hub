@@ -1,6 +1,18 @@
 import { create } from "zustand";
 import { ContentItem } from "@/types/content";
 import { sampleContent } from "@/data/sampleContent";
+import allCollectionFilms from "@/data/allCollectionFilms.json";
+
+const baseContent: ContentItem[] = (() => {
+  const seen = new Set<string>();
+  const out: ContentItem[] = [];
+  for (const it of [...sampleContent, ...(allCollectionFilms as ContentItem[])]) {
+    if (seen.has(it.id)) continue;
+    seen.add(it.id);
+    out.push(it);
+  }
+  return out;
+})();
 
 interface HistoryEntry {
   id: string;
