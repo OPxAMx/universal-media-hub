@@ -105,8 +105,17 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     localStorage.setItem("uem-playlist", JSON.stringify(next));
     return { playlist: next };
   }),
-  updateItem: (item) => set((s) => ({ items: s.items.map(i => i.id === item.id ? item : i) })),
-  addItem: (item) => set((s) => ({ items: [...s.items, item] })),
+  updateItem: (item) => set((s) => {
+    const next = s.items.map(i => i.id === item.id ? item : i);
+    persistExtras(next);
+    return { items: next };
+  }),
+  addItem: (item) => set((s) => {
+    if (s.items.some(i => i.id === item.id)) return s;
+    const next = [...s.items, item];
+    persistExtras(next);
+    return { items: next };
+  }),
   addToHistory: (id) => set((s) => {
     const entry: HistoryEntry = { id, watchedAt: new Date().toISOString() };
     const filtered = s.history.filter(h => h.id !== id);
