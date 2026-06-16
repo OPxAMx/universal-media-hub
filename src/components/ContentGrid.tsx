@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import ContentCard from "./ContentCard";
 import { ContentItem } from "@/types/content";
 import { useViewMode } from "@/hooks/useViewMode";
@@ -7,6 +8,8 @@ interface ContentGridProps {
   items: ContentItem[];
   title?: string;
 }
+
+const PAGE_SIZE = 20;
 
 const ListRow = ({ item }: { item: ContentItem }) => {
   const navigate = useNavigate();
@@ -36,6 +39,12 @@ const ListRow = ({ item }: { item: ContentItem }) => {
 
 const ContentGrid = ({ items, title }: ContentGridProps) => {
   const [viewMode] = useViewMode();
+  const [visible, setVisible] = useState(PAGE_SIZE);
+
+  // Reset visible count when the filtered list changes (search/filters)
+  useEffect(() => {
+    setVisible(PAGE_SIZE);
+  }, [items]);
 
   if (!items.length) {
     return (
@@ -45,12 +54,15 @@ const ContentGrid = ({ items, title }: ContentGridProps) => {
     );
   }
 
+  const shown = items.slice(0, visible);
+  const remaining = items.length - shown.length;
+
   return (
     <section>
       {title && <h2 className="font-heading text-xl font-bold text-foreground mb-4">{title}</h2>}
       {viewMode === "list" ? (
         <div className="flex flex-col gap-3">
-          {items.map((item, i) => (
+          {shown.map((item, i) => (
             <div key={item.id} className="fade-up" style={{ animationDelay: `${Math.min(i, 10) * 30}ms` }}>
               <ListRow item={item} />
             </div>
@@ -58,11 +70,33 @@ const ContentGrid = ({ items, title }: ContentGridProps) => {
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-          {items.map((item, i) => (
+          {shown.map((item, i) => (
             <div key={item.id} className="fade-up" style={{ animationDelay: `${Math.min(i, 10) * 50}ms` }}>
               <ContentCard item={item} />
             </div>
           ))}
+        </div>
+      )}
+
+      {remaining > 0 && (
+        <div className="flex flex-col items-center gap-2 mt-8">
+          <p className="text-xs text-muted-foreground">
+            {shown.length} sur {items.length} affichés
+          </p>
+          <button
+            onClick={() => setVisible(v => v + PAGE_SIZE)}
+            className="px-6 py-2.5 rounded-md bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+          >
+            Charger {Math.min(PAGE_SIZE, remaining)} de plus
+          </button>
+          {remaining > PAGE_SIZE && (
+            <button
+              onClick={() => setVisible(items.length)}
+              className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2"
+            >
+              Tout afficher ({remaining} restants)
+            </button>
+          )}
         </div>
       )}
     </section>

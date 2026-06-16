@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useContentStore } from "@/store/contentStore";
 import { ContentItem } from "@/types/content";
-import { Upload, FileJson, Search, Loader2, CheckCircle, XCircle } from "lucide-react";
+import { Upload, FileJson, Search, Loader2, CheckCircle, XCircle, Download } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 const TMDB_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NDAwODY3YWVmNGU1OWZhM2IyMjUxNWEzYmE0MzA4YiIsIm5iZiI6MTc3NjI4NDk3OS4zNjMwMDAyLCJzdWIiOiI2OWRmZjUzMzQxMzA0YTM0ZGQzOTQ4NTYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.6bfDm-Rdmk7K5-teBKkZTKmfBX-8WTN2IvZlr2OxAR0";
@@ -152,6 +152,19 @@ const JsonUploader = () => {
     reader.readAsText(file);
   };
 
+  const exportSampleContent = () => {
+    const json = JSON.stringify(items, null, 2);
+    const ts = `import { ContentItem } from "@/types/content";\n\nexport const sampleContent: ContentItem[] = ${json};\n`;
+    const blob = new Blob([ts], { type: "text/typescript" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "sampleContent.ts";
+    a.click();
+    URL.revokeObjectURL(url);
+    toast({ title: "Export prêt", description: `${items.length} éléments exportés. Remplacez src/data/sampleContent.ts dans votre projet.` });
+  };
+
   const statusIcon = (status: VerificationResult["status"]) => {
     switch (status) {
       case "valid": return <CheckCircle className="w-4 h-4 text-green-500" />;
@@ -174,6 +187,18 @@ const JsonUploader = () => {
 
   return (
     <div className="space-y-4">
+      <div className="flex items-center justify-between gap-2 px-1">
+        <p className="text-xs text-muted-foreground">
+          Bibliothèque actuelle : <span className="font-semibold text-foreground">{items.length}</span> éléments (persistés localement)
+        </p>
+        <button
+          onClick={exportSampleContent}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary hover:bg-secondary/80 text-secondary-foreground text-xs font-semibold transition-colors"
+          title="Télécharge un sampleContent.ts à jour pour committer dans le repo"
+        >
+          <Download className="w-3.5 h-3.5" /> Exporter sampleContent.ts
+        </button>
+      </div>
       <div
         className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-colors cursor-pointer ${
           dragOver ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"
