@@ -83,6 +83,12 @@ const CollectionCard = ({ c }: { c: Collection }) => {
             {c.description || "Aucune description disponible."}
           </p>
         </div>
+
+        {loading && (
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-10">
+            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+          </div>
+        )}
       </div>
 
       <div className="p-3 space-y-3">
