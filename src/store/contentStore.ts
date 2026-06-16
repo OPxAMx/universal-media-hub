@@ -118,6 +118,10 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     localStorage.setItem("uem-playlist", JSON.stringify(next));
     return { playlist: next };
   }),
+  setPlaylist: (ids) => set(() => {
+    localStorage.setItem("uem-playlist", JSON.stringify(ids));
+    return { playlist: ids };
+  }),
   updateItem: (item) => set((s) => {
     const next = s.items.map(i => i.id === item.id ? item : i);
     persistExtras(next);
