@@ -9,7 +9,7 @@ interface ContentGridProps {
   title?: string;
 }
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 50;
 
 const ListRow = ({ item }: { item: ContentItem }) => {
   const navigate = useNavigate();
