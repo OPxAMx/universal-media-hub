@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, X, Pencil, Play, Image as ImageIcon } from "
 import { useNavigate } from "react-router-dom";
 import { ContentItem } from "@/types/content";
 import { useContentStore } from "@/store/contentStore";
-import { galleryImages } from "@/data/sampleContent";
+const galleryImages: Record<string, string[]> = {};
 
 interface GalleryViewerProps {
   gallery: ContentItem;
