@@ -1,3 +1,43 @@
+Résumé rapide
+Le script 
+"check_json_duplicates.py"
+permet de :
+
+scanner des fichiers JSON ;
+détecter les doublons ;
+supprimer les doublons en gardant la version la plus riche ;
+fusionner plusieurs fichiers JSON en un seul ;
+nettoyer les titres en style “Title Case” ;
+écrire le résultat dans un fichier de sortie.
+
+-----------------------------------Commandes principales---------------------------------------------
+
+1.Analyser un dossier /> 
+python check_json_duplicates.py --folder "C:\Users\opxam\Projects\v3\test-doublon"
+
+2.Détecter les doublons sur un champ précis /> 
+python check_json_duplicates.py --folder "C:\Users\opxam\Projects\v3\test-doublon" --field id
+
+3.Supprimer les doublons dans les fichiers
+python check_json_duplicates.py --folder "C:\Users\opxam\Projects\v3\test-doublon" --field id --deduplicate --write
+
+4.Fusionner tous les JSON d’un dossier en un seul fichier
+python check_json_duplicates.py --merge-folder "C:\Users\opxam\Projects\v3\test-doublon" --field id --output "C:\Users\opxam\Projects\v3\test-doublon\merged.json"
+
+5.Fusionner des fichiers précis
+python check_json_duplicates.py --merge "file1.json" "file2.json" --field id --output "merged.json"
+
+---------------------------------------------------------------------------------------------------------------------
+
+Ce que le script fait automatiquement
+compare les objets par id si vous utilisez --field id ;
+garde la version la plus complète lorsqu’il trouve un doublon ;
+écrit le résultat fusionné dans le fichier indiqué par --output ;
+met les titres en majuscule au début de chaque mot.
+
+/|/|/|/||/|//|/|/|/||/|//|/|/|/||/|//|/|/|/||/|//|/|/|/||/|//|/|/|/||/|//|/|/|/||/|//|/|/|/||/|/
+
+
 🚨 PROMPT LOVABLE – MODE NO‑ESCAPE (FULL PROJECT FORCÉ)
 Génère immédiatement un projet COMPLET nommé Universal Embed Manager.
 Tu dois créer 100% des fichiers, 100% des pages, 100% des composants, 100% des scripts, 100% des styles.
@@ -93,48 +133,3 @@ Code
     "source": ""
   }
 }
-🧱 Composants OBLIGATOIRES (code complet exigé)
-ContentCard : miniature + titre + tags + bouton “voir”
-EmbedViewer : modal fullscreen avec iframe
-GalleryViewer : carrousel photo responsive
-CodePenViewer : embed CodePen propre
-TagList : tags cliquables
-SearchBar : recherche instantanée
-FilterBar : filtres dynamiques
-ContentEditor : édition JSON complète + sauvegarde
-Chaque composant doit être généré avec HTML + CSS + JS si nécessaire.
-
-📄 Pages OBLIGATOIRES (avec layout + contenu)
-index
-movies
-series
-music
-podcasts
-code
-gallery
-favorites
-viewer?id=xxx
-editor?id=xxx
-
-Chaque page doit être générée avec structure complète, sections, composants intégrés.
-
-⚙️ Fonctionnalités OBLIGATOIRES (implémentation complète)
-Chargement automatique des JSON depuis /content/
-Filtrage par type, tags, source
-Recherche instantanée
-Visionnage fullscreen (modal)
-Édition + sauvegarde JSON
-Système de favoris
-Partage via URL unique
-Playlist
-Dashboard simple
-Aucune fonctionnalité ne doit être ignorée.
-
-🎨 Style OBLIGATOIRE
-Dark mode
-Animations subtiles
-Hover 3D sur les cartes
-Modals cinématiques
-Grille responsive
-Typographie premium
-Tu dois générer le CSS complet.
