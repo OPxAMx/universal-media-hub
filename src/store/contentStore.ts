@@ -184,3 +184,14 @@ export const useContentStore = create<ContentStore>((set, get) => ({
   },
   getItem: (id) => get().items.find(i => i.id === id),
 }));
+
+// Hydrate the large dataset asynchronously (hosted as an external asset).
+loadSampleContent().then(sample => {
+  baseContent = buildBase(sample);
+  const state = useContentStore.getState();
+  const existing = new Set(state.items.map(i => i.id));
+  const merged = [...state.items];
+  for (const it of baseContent) if (!existing.has(it.id)) merged.push(it);
+  useContentStore.setState({ items: merged });
+});
+
