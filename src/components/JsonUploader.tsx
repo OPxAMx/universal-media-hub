@@ -24,18 +24,77 @@ const JsonUploader = () => {
   });
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const validateItem = (obj: any): obj is ContentItem => {
-    return (
-      obj &&
-      typeof obj.id === "string" &&
-      typeof obj.type === "string" &&
-      typeof obj.title === "string" &&
-      typeof obj.description === "string" &&
-      Array.isArray(obj.tags) &&
-      typeof obj.thumbnail === "string" &&
-      obj.embed && typeof obj.embed.iframe === "string" &&
-      obj.meta && typeof obj.meta.date_added === "string"
-    );
+  /**
+   * Normalize entry to ContentItem shape. Accepts:
+   *  - format 1 (canonical UEM)
+   *  - format 2 (TMDB-enriched with extra fields like cast, director, runtime…)
+   * Missing fields are filled with sensible defaults.
+   */
+  const normalizeItem = (raw: any): ContentItem | null => {
+    if (!raw || typeof raw !== "object") return null;
+    const id = raw.id != null ? String(raw.id) : "";
+    if (!id) return null;
+    const embedSrc = raw.embed && typeof raw.embed === "object" ? raw.embed : {};
+    const metaSrc = raw.meta && typeof raw.meta === "object" ? raw.meta : {};
+    const tags = Array.isArray(raw.tags)
+      ? raw.tags.map(String)
+      : Array.isArray(raw.genres) ? raw.genres.map(String) : [];
+    return {
+      id,
+      type: (raw.type || "film") as ContentItem["type"],
+      title: String(raw.title || raw.original_title || ""),
+      description: String(raw.description || raw.description_fr || raw.overview || ""),
+      tags,
+      thumbnail: String(raw.thumbnail || raw.poster || raw.backdrop || ""),
+      embed: {
+        provider: String(embedSrc.provider || ""),
+        iframe: String(embedSrc.iframe || ""),
+        url: String(embedSrc.url || ""),
+        iframe_fr: embedSrc.iframe_fr ? String(embedSrc.iframe_fr) : undefined,
+        url_fr: embedSrc.url_fr ? String(embedSrc.url_fr) : undefined,
+      },
+      meta: {
+        duration: String(metaSrc.duration || (raw.runtime ? `${raw.runtime}min` : "")),
+        author: String(metaSrc.author || raw.director || ""),
+        date_added: String(metaSrc.date_added || raw.release_date || new Date().toISOString().slice(0, 10)),
+        source: String(metaSrc.source || raw.source || ""),
+      },
+    };
+  };
+
+  /** Tolerant parser: handles JSON arrays, single objects, NDJSON, and concatenated objects with/without commas. */
+  const parseTolerant = (text: string): any[] => {
+    const trimmed = text.trim();
+    if (!trimmed) return [];
+    try {
+      const j = JSON.parse(trimmed);
+      return Array.isArray(j) ? j : [j];
+    } catch { /* fallthrough */ }
+    // Try wrapping as array (inserts commas between objects)
+    try {
+      const wrapped = "[" + trimmed.replace(/}\s*{/g, "},{") + "]";
+      const j = JSON.parse(wrapped);
+      if (Array.isArray(j)) return j;
+    } catch { /* fallthrough */ }
+    // Brace-walker: extract top-level {...} blocks
+    const objects: any[] = [];
+    let depth = 0, start = -1, inStr = false, esc = false;
+    for (let i = 0; i < trimmed.length; i++) {
+      const c = trimmed[i];
+      if (esc) { esc = false; continue; }
+      if (c === "\\") { esc = true; continue; }
+      if (c === '"') { inStr = !inStr; continue; }
+      if (inStr) continue;
+      if (c === "{") { if (depth === 0) start = i; depth++; }
+      else if (c === "}") {
+        depth--;
+        if (depth === 0 && start !== -1) {
+          try { objects.push(JSON.parse(trimmed.slice(start, i + 1))); } catch {}
+          start = -1;
+        }
+      }
+    }
+    return objects;
   };
 
   const searchTMDB = async (title: string, type: string): Promise<VerificationResult["tmdbData"] | null> => {
