@@ -119,22 +119,34 @@ const JsonUploader = () => {
 
 
   const importResults = () => {
-    let added = 0;
-    const addedIds = new Set(items.map(i => i.id));
+    // Merge valid new items WITHOUT writing to localStorage — generate an updated
+    // sampleContent.ts file directly so the user can commit it to the repo.
+    const existingIds = new Set(items.map(i => i.id));
+    const toAdd: ContentItem[] = [];
     for (const r of results) {
       if (r.status === "valid" || r.status === "skipped" || r.status === "not_found") {
-        if (!addedIds.has(r.item.id)) {
-          addItem(r.item);
-          addedIds.add(r.item.id);
-          added++;
+        if (!existingIds.has(r.item.id)) {
+          toAdd.push(r.item);
+          existingIds.add(r.item.id);
         }
       }
     }
+    const merged = [...items, ...toAdd];
+    const json = JSON.stringify(merged, null, 2);
+    const ts = `import { ContentItem } from "@/types/content";\n\nexport const sampleContent: ContentItem[] = ${json};\n`;
+    const blob = new Blob([ts], { type: "text/typescript" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "sampleContent.ts";
+    a.click();
+    URL.revokeObjectURL(url);
+
     const duplicates = results.filter(r => r.status === "duplicate").length;
     const invalid = results.filter(r => r.status === "invalid").length;
     toast({
-      title: `Import terminé`,
-      description: `${added} ajouté(s), ${duplicates} doublon(s), ${invalid} invalide(s)`,
+      title: `Fichier généré`,
+      description: `${toAdd.length} ajouté(s), ${duplicates} doublon(s), ${invalid} invalide(s). Remplacez src/data/sampleContent.ts dans le repo.`,
     });
     setResults([]);
   };
