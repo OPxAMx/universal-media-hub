@@ -41,10 +41,13 @@ const ContentGrid = ({ items, title }: ContentGridProps) => {
   const [viewMode] = useViewMode();
   const [visible, setVisible] = useState(PAGE_SIZE);
 
-  // Reset visible count when the filtered list changes (search/filters)
+  // Reset visible count only when the filtered list identity changes (search/filters),
+  // not when items reference changes due to unrelated store updates (favorites, playlist).
+  const signature = `${items.length}|${items[0]?.id ?? ""}|${items[items.length - 1]?.id ?? ""}`;
   useEffect(() => {
     setVisible(PAGE_SIZE);
-  }, [items]);
+  }, [signature]);
+
 
   if (!items.length) {
     return (
