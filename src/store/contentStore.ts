@@ -1,18 +1,21 @@
 import { create } from "zustand";
 import { ContentItem } from "@/types/content";
-import { sampleContent } from "@/data/sampleContent";
+import { sampleContent, loadSampleContent } from "@/data/sampleContent";
 import allCollectionFilms from "@/data/allCollectionFilms.json";
 
-const baseContent: ContentItem[] = (() => {
+const buildBase = (sample: ContentItem[]): ContentItem[] => {
   const seen = new Set<string>();
   const out: ContentItem[] = [];
-  for (const it of [...sampleContent, ...(allCollectionFilms as ContentItem[])]) {
-    if (seen.has(it.id)) continue;
+  for (const it of [...sample, ...(allCollectionFilms as ContentItem[])]) {
+    if (!it || !it.id || seen.has(it.id)) continue;
     seen.add(it.id);
     out.push(it);
   }
   return out;
-})();
+};
+
+let baseContent: ContentItem[] = buildBase(sampleContent);
+
 
 interface HistoryEntry {
   id: string;
@@ -181,3 +184,14 @@ export const useContentStore = create<ContentStore>((set, get) => ({
   },
   getItem: (id) => get().items.find(i => i.id === id),
 }));
+
+// Hydrate the large dataset asynchronously (hosted as an external asset).
+loadSampleContent().then(sample => {
+  baseContent = buildBase(sample);
+  const state = useContentStore.getState();
+  const existing = new Set(state.items.map(i => i.id));
+  const merged = [...state.items];
+  for (const it of baseContent) if (!existing.has(it.id)) merged.push(it);
+  useContentStore.setState({ items: merged });
+});
+
