@@ -120,15 +120,12 @@ const JsonUploader = () => {
   };
 
   const processAndVerify = async (text: string, fileName: string) => {
-    let parsed: any;
-    try {
-      parsed = JSON.parse(text);
-    } catch {
-      toast({ title: "Erreur de parsing", description: `${fileName} n'est pas un JSON valide.`, variant: "destructive" });
+    const rawEntries = parseTolerant(text);
+    if (rawEntries.length === 0) {
+      toast({ title: "Erreur de parsing", description: `${fileName} ne contient aucun objet JSON exploitable.`, variant: "destructive" });
       return;
     }
 
-    const entries: any[] = Array.isArray(parsed) ? parsed : [parsed];
     const verificationResults: VerificationResult[] = [];
 
     // Existing IDs in the store (lookup O(1))
@@ -138,15 +135,16 @@ const JsonUploader = () => {
 
     setVerifying(true);
     setResults([]);
-    setProgress({ current: 0, total: entries.length, currentTitle: "" });
+    setProgress({ current: 0, total: rawEntries.length, currentTitle: "" });
 
-    for (let i = 0; i < entries.length; i++) {
-      const entry = entries[i];
-      const title = entry?.title || `Entrée #${i + 1}`;
-      setProgress({ current: i + 1, total: entries.length, currentTitle: title });
+    for (let i = 0; i < rawEntries.length; i++) {
+      const raw = rawEntries[i];
+      const title = raw?.title || raw?.original_title || `Entrée #${i + 1}`;
+      setProgress({ current: i + 1, total: rawEntries.length, currentTitle: title });
 
-      if (!validateItem(entry)) {
-        verificationResults.push({ item: entry as ContentItem, status: "invalid" });
+      const entry = normalizeItem(raw);
+      if (!entry) {
+        verificationResults.push({ item: raw as ContentItem, status: "invalid" });
         setResults([...verificationResults]);
         continue;
       }
