@@ -36,6 +36,7 @@ const App = () => (
           <Route path="/player" element={<ContinuousPlayerPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/livetv" element={<LiveTVPage />} />
+          <Route path="/import" element={<ImportPage />} />
           <Route path="/viewer/:id" element={<ViewerPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/editor/:id" element={<EditorPage />} />
