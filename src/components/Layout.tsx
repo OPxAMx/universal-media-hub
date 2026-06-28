@@ -18,6 +18,7 @@ const navItems = [
   { to: "/favorites", label: "Favoris", icon: <Heart className="w-4 h-4" /> },
   { to: "/playlist", label: "Playlist", icon: <ListMusic className="w-4 h-4" /> },
   { to: "/history", label: "Historique", icon: <Clock className="w-4 h-4" /> },
+  { to: "/import", label: "Import", icon: <Upload className="w-4 h-4" /> },
 ];
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
