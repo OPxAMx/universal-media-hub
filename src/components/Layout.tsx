@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Film, Tv, Music, Mic, Code, Image, Heart, Home, ListMusic, Clock, Radio, Plus, X } from "lucide-react";
+import { Film, Tv, Music, Mic, Code, Image, Heart, Home, ListMusic, Clock, Radio, Plus, X, Upload } from "lucide-react";
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NeonBeams from "./NeonBeams";
