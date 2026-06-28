@@ -13,6 +13,7 @@ import EditorPage from "./pages/EditorPage";
 import HistoryPage from "./pages/HistoryPage";
 import ContinuousPlayerPage from "./pages/ContinuousPlayerPage";
 import LiveTVPage from "./pages/LiveTVPage";
+import ImportPage from "./pages/ImportPage";
 
 const queryClient = new QueryClient();
 
