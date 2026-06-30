@@ -79,7 +79,13 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
           <div className="p-3">
             <h3 className="font-heading font-semibold text-sm text-foreground truncate">{item.title}</h3>
             <div className="flex flex-wrap gap-1 mt-2">
-              {(item.tags || []).slice(0, 3).map(tag => (
+              {extractYear(item) && (
+                <span className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-sm bg-primary/15 text-primary font-semibold">
+                  <Calendar className="w-2.5 h-2.5" />
+                  {extractYear(item)}
+                </span>
+              )}
+              {visibleTags(item.tags).slice(0, 2).map(tag => (
                 <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded-sm bg-secondary text-secondary-foreground">{tag}</span>
               ))}
             </div>
