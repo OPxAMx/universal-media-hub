@@ -34,8 +34,27 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
     return match ? match[1] : fallbackUrl || "";
   };
 
+  const backdrop = item.meta?.backdrop;
+  const vote = item.meta?.vote_average;
+  const cast = toList(item.meta?.cast);
+  const producers = toList(item.meta?.producers);
+  const companies = toList(item.meta?.production_companies);
+
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-xl overflow-y-auto py-6" onClick={onClose}>
+      {/* Backdrop image (low opacity) */}
+      {backdrop && (
+        <div
+          className="fixed inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `url("${backdrop}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.18,
+            filter: "blur(2px)",
+          }}
+        />
+      )}
       {/* Ambient glow background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
