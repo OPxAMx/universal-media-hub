@@ -1,8 +1,15 @@
 import { ContentItem } from "@/types/content";
-import { X, Heart, ExternalLink, ListPlus, Star, Languages, Pencil, Calendar, Clock, User, Tag, Info, Globe } from "lucide-react";
+import { X, Heart, ExternalLink, ListPlus, Star, Languages, Pencil, Calendar, Clock, User, Tag, Info, Globe, Building2, Users, Megaphone, Clapperboard } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+const toList = (v: unknown): string[] => {
+  if (!v) return [];
+  if (Array.isArray(v)) return v.map(x => (typeof x === "string" ? x : (x as any)?.name || "")).filter(Boolean);
+  if (typeof v === "string") return v.split(/[,;]\s*/).filter(Boolean);
+  return [];
+};
 
 interface EmbedViewerProps {
   item: ContentItem;
@@ -27,8 +34,27 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
     return match ? match[1] : fallbackUrl || "";
   };
 
+  const backdrop = item.meta?.backdrop;
+  const vote = item.meta?.vote_average;
+  const cast = toList(item.meta?.cast);
+  const producers = toList(item.meta?.producers);
+  const companies = toList(item.meta?.production_companies);
+
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-xl overflow-y-auto py-6" onClick={onClose}>
+      {/* Backdrop image (low opacity) */}
+      {backdrop && (
+        <div
+          className="fixed inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `url("${backdrop}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.18,
+            filter: "blur(2px)",
+          }}
+        />
+      )}
       {/* Ambient glow background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
@@ -152,16 +178,63 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
                 { icon: User, label: "Auteur", value: item.meta.author },
                 { icon: Calendar, label: "Ajouté le", value: item.meta.date_added },
                 { icon: Globe, label: "Source", value: item.meta.source || item.embed.provider },
-              ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="rounded-xl p-3 bg-secondary/30 border border-border/30 backdrop-blur-sm">
-                  <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
-                    <Icon className="w-3 h-3" /> {label}
+                typeof vote === "number" && vote > 0
+                  ? { icon: Star, label: "Note", value: `${vote.toFixed(1)} / 10` }
+                  : null,
+                item.meta?.director ? { icon: Clapperboard, label: "Réalisateur", value: item.meta.director as string } : null,
+              ].filter(Boolean).map((entry: any) => {
+                const { icon: Icon, label, value } = entry;
+                return (
+                  <div key={label} className="rounded-xl p-3 bg-secondary/30 border border-border/30 backdrop-blur-sm">
+                    <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                      <Icon className="w-3 h-3" /> {label}
+                    </div>
+                    <div className="text-sm font-medium text-foreground truncate" title={String(value)}>{value || "—"}</div>
                   </div>
-                  <div className="text-sm font-medium text-foreground truncate">{value || "—"}</div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
+
+          {/* Cast */}
+          {cast.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Users className="w-3.5 h-3.5" /> Distribution
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {cast.slice(0, 12).map(name => (
+                  <span key={name} className="text-[11px] px-2.5 py-1 rounded-full bg-secondary/50 text-foreground/80 border border-border/40">{name}</span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Producers */}
+          {producers.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Megaphone className="w-3.5 h-3.5" /> Producteurs
+              </h3>
+              <p className="text-sm text-foreground/90">{producers.join(", ")}</p>
+            </section>
+          )}
+
+          {/* Production companies */}
+          {companies.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Building2 className="w-3.5 h-3.5" /> Sociétés de production
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {companies.map(c => (
+                  <span key={c} className="text-[11px] px-2.5 py-1 rounded-full bg-accent/15 text-foreground/90 border border-accent/30">{c}</span>
+                ))}
+              </div>
+            </section>
+          )}
+
+
 
           {/* Tags */}
           {item.tags.length > 0 && (

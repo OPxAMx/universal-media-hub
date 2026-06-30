@@ -20,6 +20,14 @@ export interface ContentItem {
     author: string;
     date_added: string;
     source: string;
+    backdrop?: string;
+    vote_average?: number;
+    production_companies?: string[] | string;
+    cast?: string[] | string;
+    director?: string;
+    producers?: string[] | string;
+    genres?: string[];
+    [key: string]: any;
   };
   /** For type === "gallery": ordered list of media IDs (any type) included in the gallery. */
   galleryItems?: string[];

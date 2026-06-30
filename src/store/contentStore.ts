@@ -2,11 +2,12 @@ import { create } from "zustand";
 import { ContentItem } from "@/types/content";
 import { sampleContent, loadSampleContent } from "@/data/sampleContent";
 import allCollectionFilms from "@/data/allCollectionFilms.json";
+import { extraExamples } from "@/data/extraExamples";
 
 const buildBase = (sample: ContentItem[]): ContentItem[] => {
   const seen = new Set<string>();
   const out: ContentItem[] = [];
-  for (const it of [...sample, ...(allCollectionFilms as ContentItem[])]) {
+  for (const it of [...extraExamples, ...sample, ...(allCollectionFilms as ContentItem[])]) {
     if (!it || !it.id || seen.has(it.id)) continue;
     seen.add(it.id);
     out.push(it);

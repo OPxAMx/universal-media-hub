@@ -16,19 +16,22 @@ const ListRow = ({ item }: { item: ContentItem }) => {
   return (
     <div
       onClick={() => navigate(`/viewer/${item.id}`)}
-      className="flex gap-4 p-3 rounded-lg border border-border/40 bg-card/40 hover:bg-card/80 hover:border-primary/40 transition-all cursor-pointer group"
+      className="flex gap-5 p-4 rounded-lg border border-border/40 bg-card/40 hover:bg-card/80 hover:border-primary/40 transition-all cursor-pointer group"
     >
       <img
         src={item.thumbnail}
         alt={item.title}
         loading="lazy"
-        className="w-20 h-28 sm:w-24 sm:h-32 object-cover rounded-md flex-shrink-0 group-hover:scale-[1.02] transition-transform"
+        className="w-40 h-56 sm:w-48 sm:h-64 object-cover rounded-md flex-shrink-0 group-hover:scale-[1.02] transition-transform"
       />
-      <div className="flex-1 min-w-0">
-        <h3 className="font-heading font-bold text-foreground line-clamp-1">{item.title}</h3>
-        <p className="text-xs text-muted-foreground mt-1 line-clamp-3">{item.description}</p>
-        <div className="flex flex-wrap gap-1 mt-2">
-          {item.tags.slice(0, 4).map(t => (
+      <div className="flex-1 min-w-0 py-1">
+        <h3 className="font-heading font-bold text-lg text-foreground line-clamp-2">{item.title}</h3>
+        {item.meta?.author && (
+          <p className="text-xs text-muted-foreground mt-1">{item.meta.author}{item.meta.duration ? ` · ${item.meta.duration}` : ""}</p>
+        )}
+        <p className="text-sm text-muted-foreground mt-3 line-clamp-6">{item.description}</p>
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {item.tags.slice(0, 6).map(t => (
             <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-secondary/70 text-secondary-foreground">{t}</span>
           ))}
         </div>
