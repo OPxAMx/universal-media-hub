@@ -1,1 +1,978 @@
-[]
+[
+  {
+    "id": "9485",
+    "title": "Fast and Furious - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/z5A5W3WYJc3UVEWljSGwdjDgQ0j.jpg",
+    "count": "11 films",
+    "description": "Fast and Furious est une série de films d'action avec comme toile de fond les courses de rue illégales et des braquages.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/riIa9UIxyhhOBIXI8vhpWmcesGB.jpg",
+        "alt": "2 Fast 2 Furious"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/7t9FcL0wKVWCi6vq8Mv8R4tSLzj.jpg",
+        "alt": "Fast & Furious : Tokyo drift"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/gsW9S3K6oBLKVMMLuSvKwEPOKHc.jpg",
+        "alt": "Fast and Furious"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/7STjb7RLFODxHc9ZcskgQTOGdG5.jpg",
+        "alt": "Fast & Furious 5"
+      }
+    ],
+    "extra": 7
+  },
+  {
+    "id": "10",
+    "title": "Star Wars - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/iY2ujEY2m68OTTlPFTiHub9joHS.jpg",
+    "count": "9 films",
+    "description": "Luke Skywalker, la Princesse Leia, Dark Vador, C3PO, R2D2 et de nombreux autres personnages du film sont désormais des noms familiers de l'un des projets cinématographiques les plus réussis de tous les temps.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qelTNHrBSYjPvwdzsDBPVsqnNzc.jpg",
+        "alt": "La Guerre des étoiles"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qDvctAykmNWAmi9G2GrVrwWx3pr.jpg",
+        "alt": "L'Empire contre-attaque"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/tEQlCGiiWvMvfD7Sz8d99Pouy39.jpg",
+        "alt": "Le Retour du Jedi"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/fpEC910v5DrMvZteRNlKzXeHiHY.jpg",
+        "alt": "Star Wars, épisode I - La Menace fantôme"
+      }
+    ],
+    "extra": 5
+  },
+  {
+    "id": "1241",
+    "title": "Harry Potter - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/kmEsQL2vOTA0jnM28fXS45Ky8kX.jpg",
+    "count": "8 films",
+    "description": "La saga Harry Potter raconte les aventures de l'apprenti sorcier Harry Potter et de ses amis Ron Weasley et Hermione Granger à l'école de sorcellerie Poudlard, dirigée par Albus Dumbledore.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/fbxQ44VRdM2PVzHSNajUseUteem.jpg",
+        "alt": "Harry Potter à l'école des sorciers"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/8KpHRokGpiaqEGpjYe0rpywtvUx.jpg",
+        "alt": "Harry Potter et la Chambre des secrets"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/hBak1pn5pbI4ycAbrgMMn1YI7P1.jpg",
+        "alt": "Harry Potter et la Coupe de feu"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/A4WWOzWUASfUeESXxduQxVmoD7t.jpg",
+        "alt": "Harry Potter et le Prince de sang-mêlé"
+      }
+    ],
+    "extra": 4
+  },
+  {
+    "id": "87359",
+    "title": "Mission : Impossible - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/mroWh717g0Ah2c0rrPGW6f3EWMM.jpg",
+    "count": "8 films",
+    "description": "Les aventures de l'agent secret Ethan Hunt pour le compte de l'unité IMF (Impossible Missions Force).",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/RzurOKfiw5DrKkcyjXMBjQ7xHq.jpg",
+        "alt": "Mission : Impossible"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/xznT2sPZeBdpWMebdVzU34Le96F.jpg",
+        "alt": "Mission : Impossible 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/wlesOljZycfrbBCdJLdmumSiNYT.jpg",
+        "alt": "Mission : Impossible 3"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/4gkszQQ54XV08sOUumv3JVZ7UZH.jpg",
+        "alt": "Mission : Impossible - Protocole Fantôme"
+      }
+    ],
+    "extra": 4
+  },
+  {
+    "id": "8917",
+    "title": "Hellraiser - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/g0XtsgbwFcFHNZGarpk6qAOPX7T.jpg",
+    "count": "10 films",
+    "description": "L'origine de l'oeuvre est de Clive Barker. La saga repose sur un cube qui permet d'ouvrir la porte d'un monde, un enfer parallèlle ou vivent des créatures monstrueuses (les cénobytes); un monde permettant d'explorer des souffrances bien pire que ce que le plus tordu des humains pourrait imaginer.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/u2BAUhxUcz0IZgY6fheJ8fwNOyw.jpg",
+        "alt": "Hellraiser: Bloodline"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/sr5leKWWpDSWknGsZ3AOecC0P9F.jpg",
+        "alt": "Hellraiser : Le Pacte"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/2eEvQtoK7UOPRjwMMCJXxr1P1BH.jpg",
+        "alt": "Hellraiser: Hellseeker"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/tuxpYYZuXlhaZnQY25b52I12v11.jpg",
+        "alt": "Hellraiser III"
+      }
+    ],
+    "extra": 6
+  },
+  {
+    "id": "748",
+    "title": "X-Men - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/ykVHlrE3aSvHYeIXOrWDsYZ18vv.jpg",
+    "count": "7 films",
+    "description": "X-Men est une saga cinématographique de super-héros américaine.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3zgG4m8ZCaR61O6OOZNAsSDn0rv.jpg",
+        "alt": "X-Men"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/t4GcIXUiMZsPoyOuxThKjjsb76D.jpg",
+        "alt": "X-Men 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/c5oKaVtfy5Y02oI2LdCo638rg6U.jpg",
+        "alt": "X-Men : L'Affrontement final"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/6vZHDdyKXhd2CezhWLmxLT9EP4s.jpg",
+        "alt": "X-Men : Le Commencement"
+      }
+    ],
+    "extra": 3
+  },
+  {
+    "id": "328",
+    "title": "Jurassic Park - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/njFixYzIxX8jsn6KMSEtAzi4avi.jpg",
+    "count": "7 films",
+    "description": "Une série de films se déroulant sur l'île d'Isla Nublar près du Costa Rica, sur laquelle un milliardaire philanthrope et une équipe de généticiens ont créé un parc d'attractions de dinosaures clonés.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/i268GVIlp777W1Ykws5R3LYYLIw.jpg",
+        "alt": "Jurassic Park"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/7E1xABX8fPJgFMgjKXcNRq6qDZP.jpg",
+        "alt": "Le monde perdu : Jurassic Park"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/evUJpV6wfX8mHCuuHTTdCK0EiEl.jpg",
+        "alt": "Jurassic Park III"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/gUY5B8OaRqPnLUwjNxITUTrPbIN.jpg",
+        "alt": "Jurassic World"
+      }
+    ],
+    "extra": 3
+  },
+  {
+    "id": "399",
+    "title": "Predator - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/u1CTqTYRUVyLwlEd1z1VJrVBp0J.jpg",
+    "count": "6 films",
+    "description": "Une série de films d'action et de science-fiction centrée sur des guerriers extraterrestres qui viennent régulièrement sur Terre pour y chasser des êtres humains et récolter ainsi des trophées.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/lXoATMtTK3ZsICCvTtXygASHZd9.jpg",
+        "alt": "Predator"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/40hVOA8hljQI2aUDyuJxla1syDC.jpg",
+        "alt": "Predator 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qrW8Y3FyxtntpZBi7RmL5NSvf2j.jpg",
+        "alt": "Predators"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/iXLCqDuKDlezUHAYtCB6wM2D0YG.jpg",
+        "alt": "The Predator"
+      }
+    ],
+    "extra": 2
+  },
+  {
+    "id": "528",
+    "title": "Terminator - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/sCnBEw2Yu6foEjs4Xb4eMddYHRo.jpg",
+    "count": "6 films",
+    "description": "Une série de films de science-fiction sur le conflit futuriste entre les humains dirigé par John Connor et les Terminators qui sont réalisés et contrôlés par Skynet, un super ordinateur conscient de lui-même qui a déclenché Armageddon et pourrait en effet mettre fin à l’humanité pour de bon. Les produits les plus connus de Skynet dans ses objectifs génocidaires sont les différents modèles de terminateurs, tels que le T-800 (modèle 101).",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/oShNrYScpLBi4pyOjytPy9BerRr.jpg",
+        "alt": "Terminator"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/mRtFOHF93zW4kTp4JOYrH71vxBh.jpg",
+        "alt": "Terminator 2 : Le Jugement dernier"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/rnvUndOuRmnMwTghMLhwsTMY4mf.jpg",
+        "alt": "Terminator 3 : Le Soulèvement des machines"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/4MD4ZP0fNpm3UyKyMYgPwOy8Mgv.jpg",
+        "alt": "Terminator Renaissance"
+      }
+    ],
+    "extra": 2
+  },
+  {
+    "id": "295",
+    "title": "Pirates des Caraïbes - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/wxgD3fB5lQ2sGJLog0rvXW049Pf.jpg",
+    "count": "5 films",
+    "description": "Des Caraïbes à la fontaine de jouvence, suivez les aventures du capitaine Jack Sparrow et de ses équipiers, dans ce voyage explosif…",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/jFmc6zbnx6mSoxejECYvdi3IHIs.jpg",
+        "alt": "Pirates des Caraïbes : La Malédiction du Black Pearl"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/bzOlMYEfNmgCDnFHj3zL3RBqwau.jpg",
+        "alt": "Pirates des Caraïbes : Le Secret du coffre maudit"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3JjceHUzbtgJ4fJs6x2ow4ckH89.jpg",
+        "alt": "Pirates des Caraïbes : Jusqu'au bout du monde"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/5JjjjGg24IGRXIQtaZkPU59acjV.jpg",
+        "alt": "Pirates des Caraïbes : La Fontaine de jouvence"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/fVMudKQfhosujwgAKhfxNGfS9sL.jpg",
+        "alt": "Pirates des Caraïbes : La Vengeance de Salazar"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1570",
+    "title": "Die Hard - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/nKShbIW0wJnSbl3t8uPje0QhTb7.jpg",
+    "count": "5 films",
+    "description": "Une série de films d'action centrés autour du personnage de John McClane, un détective de police de New York City qui se retrouve en lutte contre un groupe de terroristes dans chaque film.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/1nOVVjbf8ucbeLmIlK5D2kCQQST.jpg",
+        "alt": "Piège de cristal"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/mn8bwgfQgNV8bqKnazHAW6C6e0D.jpg",
+        "alt": "Die Hard 4 : Retour en enfer"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/5AObtYoyodZluhmJVcidvzzKfiv.jpg",
+        "alt": "Une Journée en enfer"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/1gphGfZKKnxEVJRLYT9VyyDaOaV.jpg",
+        "alt": "58 minutes pour vivre"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/aBo2EsfKCdcZelx1uFoTg6l0fA2.jpg",
+        "alt": "Die Hard : Belle journée pour mourir"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "86311",
+    "title": "Avengers - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/2UNUv4NJdC36E5myDHACBJ99EwL.jpg",
+    "count": "6 films",
+    "description": "Une série de films de super-héros produite par Marvel Studios qui se base sur l'équipe de super-héros issue de l'univers de Marvel Comics. La série met en scène des super-héros unissant leurs forces pour aider l'organisation de maintien de la paix SHIELD dirigée par Nick Fury.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ylsAO88v2tF0iXRFojPa0UaAJf1.jpg",
+        "alt": "Avengers"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/A0tw88n1byyR2vodhJMlFPQGQgF.jpg",
+        "alt": "Avengers : L'Ère d'Ultron"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/hSfuKPtyEryeFzapZ8UgZd4aESu.jpg",
+        "alt": "Avengers : Infinity War"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/wF7jv3x51hXgkl7t5KHePuRjXc8.jpg",
+        "alt": "Avengers : Endgame"
+      }
+    ],
+    "extra": 2
+  },
+  {
+    "id": "8091",
+    "title": "Alien - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/6X42JnSMdo3dPAswOHUuvebdTq7.jpg",
+    "count": "4 films",
+    "description": "Lorsque vous revivrez la saga horrifique Alien, tout le monde vous entendra crier ! L’horreur commence quand Ellen Ripley (Sigourney Weaver) est confrontée pour la première fois à la créature mortelle Alien. Dans Aliens le retour elle retourne sur LV-426 pour une confrontation brutale ; et déclare la guerre aux créatures. Dans Alien³, son vaisseau s’écrase sur une planète isolée, mais elle n’était pas seule dans son vaisseau… Deux siècles plus tard, Ripley revient à la vie dans Alien, la résurrection !",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/l8CES84JndFlNfBNMxdLRYaLvI6.jpg",
+        "alt": "Alien, le huitième passager"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/uafMg29wVV4XvxPS59s8nBBbP4i.jpg",
+        "alt": "Aliens, le retour"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/z2nli2Do5OjHGqSvaW50e5N4yCI.jpg",
+        "alt": "Alien³"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ePPdAnGJk9mR1qNxHhGrIhLAo4Q.jpg",
+        "alt": "Alien, la résurrection"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "2344",
+    "title": "Matrix - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/bRm2DEgUiYciDw3myHuYFInD7la.jpg",
+    "count": "4 films",
+    "description": "La collection Matrix représente une histoire de science-fiction complexe intégrant de nombreux éléments philosophiques. Écrit et réalisé par les sœurs Wachowski et produit par Joel Silver.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/pEoqbqtLc4CcwDUDqxmEDSWpWTZ.jpg",
+        "alt": "Matrix"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/csKNmbZuo8aqPF6hejO3rmaFEqx.jpg",
+        "alt": "Matrix Reloaded"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/xOCeckuZDzqydvt3vLlzftZkef1.jpg",
+        "alt": "Matrix Revolutions"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kCF43aQ77ShTfKyY8vAJBVHN5j3.jpg",
+        "alt": "Matrix Resurrections"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "131295",
+    "title": "Captain America - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/7kVucUYqz8fZkOmFtA8opDwJFXM.jpg",
+    "count": "4 films",
+    "description": "Steven « Steve » Rogers, alias Captain America est un super-héros évoluant dans l'univers Marvel de la maison d'édition Marvel Comics. Créé par scénariste Joe Simon et le dessinateur Jack Kirby, le personnage de fiction apparaît pour la première fois dans le comic book Captain America Comics #1 en décembre 1940",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/n3Xa8g1sWrUVUal6zk0OoC9ARo1.jpg",
+        "alt": "Captain America : Le Soldat de l'hiver"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/i2nc9IAP1xRWoa3MgeR7ldsshkV.jpg",
+        "alt": "Captain America : Civil War"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/l1SP3gyHA5ZEuf72WKx5ihtZZFO.jpg",
+        "alt": "Captain America : First Avenger"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/wDRXmiAEJdhNIcuetM4016fOCx8.jpg",
+        "alt": "Captain America : Brave New World"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "945",
+    "title": "L'Arme Fatale - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/jSslTHuJS86fp4SVJKP9oBhE4s6.jpg",
+    "count": "4 films",
+    "description": "De leur première rencontre à leur dernière aventure 10 ans plus tard, Riggs et Murtaugh ont accumulé une somme incroyable de catastrophes, de coups de gueule, de balles perdues et de bons gros fous rires…",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/uh1ImPGPySZ0bKEVgPDIXHLt22.jpg",
+        "alt": "L'Arme fatale"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/z4Vd5YgIztiLOkpcmAlj7yhhD6R.jpg",
+        "alt": "L'Arme fatale 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/zsrpmK8H9LokswJYJaUKLL6yHEB.jpg",
+        "alt": "L'Arme fatale 3"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/8wUNoQ0Q92dHSXqdq7mceGudasg.jpg",
+        "alt": "L'Arme fatale 4"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "131296",
+    "title": "Thor - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/3KL8UNKFWgIKXzLHjwY0uwgjzYl.jpg",
+    "count": "4 films",
+    "description": "Une série de films basée sur Thor, le personnage de bande dessinée publié par Marvel Comics.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/q8pF6s9b9veTQvxTqMDIQf9nJKi.jpg",
+        "alt": "Thor"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/eAIGX0nlwlb5sMb4uDRGNFqMyG9.jpg",
+        "alt": "Thor : Le Monde des ténèbres"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/mAA8RXkgF87jSWWMSf6hgLl73mk.jpg",
+        "alt": "Thor : Ragnarok"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kSMarEm3ESOOr11dzsep2RZ1ClD.jpg",
+        "alt": "Thor : Love and Thunder"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "119",
+    "title": "Le Seigneur des anneaux - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/bccR2CGTWVVSZAG0yqmy3DIvhTX.jpg",
+    "count": "3 films",
+    "description": "Dans les Terres du Milieu, l'Anneau unique forgé par Sauron le maléfique pour dominer les hommes, les elfes et les nains est tombé par inadvertance dans les mains de Frodon, paisible hobbit. Ce n'est qu'une question de temps avant que les sinistres Cavaliers Noirs, les Servants de l'Anneau, retrouvent sa trace. Sous la direction de Gandalf le magicien, une expédition est alors montée avec pour mission une tâche quasi-impossible : détruire l'Anneau, en le jetant dans le feu de la Montagne du Destin, au cœur du territoire ennemi…",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/5OPg6M0yHr21Ovs1fni2H1xpKuF.jpg",
+        "alt": "Le Seigneur des anneaux : La Communauté de l'anneau"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qVHBqQYLDRs7ESjP9q6o9iPHLWj.jpg",
+        "alt": "Le Seigneur des anneaux : Les Deux Tours"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ypUCFOvOf07bcHy81jng9LyMUfi.jpg",
+        "alt": "Le Seigneur des anneaux : Le Retour du roi"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "230",
+    "title": "Le Parrain - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/ipMInu8Ymcl0m47M5585KPh3kOn.jpg",
+    "count": "3 films",
+    "description": "Le Parrain est une saga cinématographique de drame américaine réalisée par Francis Ford Coppola, d'après le roman éponyme de Mario Puzo.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/k3uIbYtiuK8pwbCcbma29nTqmgG.jpg",
+        "alt": "Le Parrain"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/fATmEcLwO3tTiisa8gYxhV3x4sS.jpg",
+        "alt": "Le Parrain, 2e partie"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/6qDyBIl9vizY5pneZ2tREaa86UC.jpg",
+        "alt": "Le Parrain, 3e partie"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "263",
+    "title": "The Dark Knight - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/xyhrCEdB4XRkelfVsqXeUZ6rLHi.jpg",
+    "count": "3 films",
+    "description": "La trilogie très acclamée « The Dark Knight » de Christopher Nolan se compose de BATMAN BEGINS, THE DARK KNIGHT et THE DARK KNIGHT RISES. BATMAN BEGINS explore les origines de la légende de Batman et l’émergence du Dark Knight comme puissance au service du bien. Dans THE DARK KNIGHT, Batman s’efforce de démanteler les dernières organisations criminelles qui sévissent à Gotham, mais se retrouve rapidement au centre d’un chaos total orchestré par un nouveau génie du crime, le Joker. Dans THE DARK KNIGHT RISES, Batman a disparu dans la nuit. Le héros est devenu fugitif après avoir été rendu responsable de la mort de Harvey Dent. L’émergence de Bane, un terroriste masqué qui a préparé un plan diabolique pour Gotham, le force à sortir de son exil volontaire. Mais même s’il porte à nouveau le costume, Batman n’est peut être pas de taille face à cette nouvelle menace.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/pyNXnq8QBWoK3b37RS6C3axwUOy.jpg",
+        "alt": "The Dark Knight : Le Chevalier noir"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ApcGBERN0p9I0nDOIwJeEmpnLU5.jpg",
+        "alt": "The Dark Knight Rises"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/taKcn26BMWnsUcMFSlr5RfGDtFB.jpg",
+        "alt": "Batman Begins"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "264",
+    "title": "Retour vers le futur - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/c9C9Pg2QctyjZHRmS0P8rZg1OTA.jpg",
+    "count": "3 films",
+    "description": "Retour vers le futur est une trilogie cinématographique écrite par Bob Gale et Robert Zemeckis, réalisée par ce dernier et dont les différents volets sont sortis respectivement en 1985, 1989 et 1990. Elle raconte les aventures d'un lycéen, Marty McFly (Michael J. Fox) et d'un scientifique, le Dr Emmett Brown (Christopher Lloyd) qui voyagent à travers le temps à l'aide d'une DeLorean DMC-12 modifiée à cet effet.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/iCgFtDUZxN8iUzNBCisjUrBmg2q.jpg",
+        "alt": "Retour vers le futur"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/pvSf95zo0GZNp83QCtmK1GFLHtT.jpg",
+        "alt": "Retour vers le futur II"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/xormrixo6PYdjyh31JWT2LCBmjO.jpg",
+        "alt": "Retour vers le futur III"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "448150",
+    "title": "Deadpool - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/dTq7mGyAR5eAydR532feWfjJjzm.jpg",
+    "count": "3 films",
+    "description": "Une série de films sur l'anti-superhéros du même nom. Une partie plus drôle et humoristique de X-Men.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/z5VjcCEioj2c2dvxmoqBW0Rj8Xj.jpg",
+        "alt": "Deadpool"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ybjooZMNlRBaFNfs52XqONc4Xyw.jpg",
+        "alt": "Deadpool 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/7CtRdKd5hQPB2b1apKCqxxQUKSf.jpg",
+        "alt": "Deadpool & Wolverine"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "531241",
+    "title": "Spider-Man (Avengers) - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/AvnqpRwlEaYNVL6wzC4RN94EdSd.jpg",
+    "count": "4 films",
+    "description": "Cette saga nous dépeint la vie de Peter Parker, partagé entre se vie de lycéen lambda et ses aspirations de justicier, tout d'abord à l'échelle de son quartier et plus tard à une échelle planétaire au sein de la prestigieuse équipe des Avengers, chaperonné par Iron-Man, alias Tony Stark...",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/77Z0g5fc1qWJ7SfHyeiHsMkYx5O.jpg",
+        "alt": "Spider-Man : Homecoming"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/9FkewgPxlMPjgKhFN7LaRJEqmCI.jpg",
+        "alt": "Spider-Man : Far From Home"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/jwfDFqzxBkXC5bERBZrCEfK9iii.jpg",
+        "alt": "Spider-Man : No Way Home"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ucQ0QBXXQPSxeUmWfh4YQenIuB9.jpg",
+        "alt": "Spider-Man: Brand New Day"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "87096",
+    "title": "Avatar - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/6qkJLRCZp9Y3ovXti5tSuhH0DpO.jpg",
+    "count": "5 films",
+    "description": "La saga Avatar raconte l'histoire du monde de Pandora, habité par les Na'vi, une race humanoïde indigène. Le protagoniste principal, Jake Sully, est envoyé sur Pandora en tant qu'avatar, un hybride entre un humain et un Na'vi. Au cours de sa mission, Jake découvre la beauté et la complexité du monde des Na'vi et tisse des liens profonds avec les habitants de la planète. La saga se concentre sur le conflit entre les humains et les Na'vi et la lutte pour sauver le monde de Pandora.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/5eATVqK2WVQi0D3wjzM5OP8EqZv.jpg",
+        "alt": "Avatar : De feu et de cendres"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/v5Y8pVwJK68SKQQ1GRbIB1hkPDy.jpg",
+        "alt": "Avatar"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kQYx143yujkwyjJdZH2skOGeQfA.jpg",
+        "alt": "Avatar : La Voie de l'eau"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qzMYKnT4MG1d0gnhwytr4cKhUvS.jpg",
+        "alt": "Avatar 4"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/rtmmvqkIC5zDMEd638Es2woxbz8.jpg",
+        "alt": "Avatar 5"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "121938",
+    "title": "Le Hobbit - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/7wO7MSnP5UcwR2cTHdJFF1vP4Ie.jpg",
+    "count": "3 films",
+    "description": "Cette histoire se déroule 60 ans avant la Guerre de l'Anneau. Le Hobbit est l'histoire de Bilbon Sacquet, oncle de Frodon. C'est un hobbit comme les autres, évitant le danger, l'action, l'aventure ainsi que les autres races que les hobbits. Il apprécie le plaisir simple de se sentir bien au chaud dans sa demeure. Mais un soir, treize nains font leur entrée chez lui, accompagnés de Gandalf le Gris le magicien. Ce dernier lui propose de les suivre pour un long et dangereux voyage vers le Mont Solitaire, où se trouve un trésor gardé par un dragon. Bien que Bilbon se désintéresse dans un premier temps de ce voyage, les nains et Gandalf finissent par réussir à le convaincre de les accompagner. Lors de leur périlleux voyage, ils rencontrent de nombreuses difficultés, et participent à la Bataille des Cinq Armées. Par accident, Bilbon croise la route de la créature nommée Gollum et s'empare de son trésor, un anneau magique qui permet de devenir invisible.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/mdy9mG31U7jSB8edfRELv53Yfjp.jpg",
+        "alt": "Le Hobbit : Un voyage inattendu"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/sqZWKOM4PXtJQH9tMveBtWCdKri.jpg",
+        "alt": "Le Hobbit : La Désolation de Smaug"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/h4wjbuC61iMaCqrO3bmGQ3ibuJE.jpg",
+        "alt": "Le Hobbit : La Bataille des cinq armées"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "131292",
+    "title": "Iron Man - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/rI8zOWkRQJdlAyQ6WJOSlYK6JxZ.jpg",
+    "count": "3 films",
+    "description": "Collection des films Iron Man (littéralement l'Homme de Fer), super-héros de comics créé en 1963 par Stan Lee pour Marvel Comics.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/g9DSeSozGi4zpUyeOYZYMNmIv9O.jpg",
+        "alt": "Iron Man 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/sE71EBrRMfW0NKMHlXPO55Km88X.jpg",
+        "alt": "Iron Man 3"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kNKUCNLu1lZDGAHOBEHxR6psYHx.jpg",
+        "alt": "Iron Man"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "382685",
+    "title": "Insaisissables - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/scBzORmLqP00h8hPKS19TLtyRQm.jpg",
+    "count": "4 films",
+    "description": "Insaisissables est un thriller américain de 2013 réalisé par Louis Leterrier. Le film met en vedette un groupe composé de Jesse Eisenberg, Mark Ruffalo, Woody Harrelson, Mélanie Laurent, Isla Fisher, Dave Franco, Michael Caine et Morgan Freeman. L'intrigue suit un agent du FBI et un détective d'Interpol traquants une équipe d'illusionnistes qui se livrent à des braquages de banques pendant leurs performances et récompensent leur public avec l'argent. Une suite a été publiée le 10 juin 2016 et s'intitulait Insaisissables 2. Un troisième volet est prévu.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/q8JJ7vKuV7IFE6TIbViuPokqIpr.jpg",
+        "alt": "Insaisissables"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/w7Q9BAqpbPHSeo6ZDYRpFGpGUxn.jpg",
+        "alt": "Insaisissables 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/rfjuf6kNLVnH8qOk6UZJBHQHKlF.jpg",
+        "alt": "Insaisissables 3"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3ZdJGPQ8yRiXX62Ph7NwRwLD7VU.jpg",
+        "alt": "Untitled Now You See Me 4"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "573436",
+    "title": "Spider-Man : New Generation - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/oC5S5pdfzPiQC4us05uDMT7v5Ng.jpg",
+    "count": "3 films",
+    "description": "Une collection animée qui explore les différentes versions de Spider-Man dans de multiples univers en suivant les premiers pas de Miles Morales...",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/7uPGS5CgvIjDcFUhw9HB9qYeDXf.jpg",
+        "alt": "Spider-Man : New Generation"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ydaJsTyrRimSQ1dTf2xvrmJKz5b.jpg",
+        "alt": "Spider-Man : Across the Spider-Verse"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/9PIhQqqI6Q4a5YjwMjxvzZcPJhf.jpg",
+        "alt": "Spider-Man: Beyond the Spider-Verse"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "726871",
+    "title": "Dune - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/fahk0Fu7VUUfK6IkTt1R3waOD9F.jpg",
+    "count": "3 films",
+    "description": "La saga en 3 volets de Paul Atréides, et son ascension au pouvoir sur la planète mortelle Arrakis",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qpyaW4xUPeIiYA5ckg5zAZFHvsb.jpg",
+        "alt": "Dune : Première partie"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/iRNbRAIGQQr5diGnjpwJFm0dgt4.jpg",
+        "alt": "Dune : Deuxième partie"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/s6r04BVmT2T2Xr6PbZQYHCI7H2r.jpg",
+        "alt": "Dune : Troisième partie"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "422837",
+    "title": "Blade Runner - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/li3buIx57ph3RX5XlbpMzJPewZ0.jpg",
+    "count": "2 films",
+    "description": "Une série de films de science-fiction américains se déroulant dans un Los Angeles dystopique et dépeignant un futur dans lequel des humains synthétiques connus comme des réplicants sont créés par la puissante Tyrell Corporation pour travailler sur des colonies hors-monde.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/zHKWxyG4j404HVeSYHNH4niUpkW.jpg",
+        "alt": "Blade Runner"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qWD9E0Wgn8w6nMMutCNFAUiSHrX.jpg",
+        "alt": "Blade Runner 2049"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1084247",
+    "title": "Zootopie Collection",
+    "cover": "https://image.tmdb.org/t/p/w500/1WDssJDYInLA4Avg45lgy3WM6Ly.jpg",
+    "count": "3 films",
+    "description": "Film d'animation de la collection \"zootopia\" mettant en avant un melting pot où toutes les espèces cohabitent entre elles.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/xEx4dHi2IrTB0vkVPccrGrMcZQW.jpg",
+        "alt": "Zootopie"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/hBI7Wrps6tDjhEzBxJgoPLhbmT1.jpg",
+        "alt": "Zootopie 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/gramV8L8bzYnd3jHFmf8QKOMW86.jpg",
+        "alt": "Zootopia 3"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "531330",
+    "title": "Top Gun - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/9MGm0XT04ob99MyGQfMT7I8y3UE.jpg",
+    "count": "2 films",
+    "description": "Série de films basée sur le personnage du lieutenant Pete Maverick Mitchell, un aviateur de la marine américaine.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/85kNHM0BWHE9All9GYeofwnbnu5.jpg",
+        "alt": "Top Gun"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/uuwi4wwG6HAHVqaEvJDx6gI773N.jpg",
+        "alt": "Top Gun : Maverick"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1241984",
+    "title": "Vaiana - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/4OgaftFNqtE1UvfDDb2Eov7A5Rz.jpg",
+    "count": "2 films",
+    "description": "La collection originale de Disney se déroule dans l'ancienne Polynésie et raconte l'histoire de Vaiana, la fille déterminée du chef d'un village côtier, choisie par l'océan lui-même pour réunir une relique mystique avec la déesse Te Fiti.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/u9rrmuYW9jCmFn3zN0RX9vhzRKp.jpg",
+        "alt": "Vaiana, la légende du bout du monde"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/zdVxpaoQdpheQqWWd6b82eY9Pid.jpg",
+        "alt": "Vaiana 2"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1434561",
+    "title": "Super Mario - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/hX6DycbhqpkHuYD5ia4YeQQ2RgV.jpg",
+    "count": "2 films",
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ahMxyHMSJXingQr4yJBMzMU9k42.jpg",
+        "alt": "Super Mario Bros., le film"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/aSQktALDmbunDbwkuZbZFMEWVFr.jpg",
+        "alt": "Super Mario Galaxy, le film"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1267164",
+    "title": "Wedding Nightmare - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/mpbJGCN9l5Nw6KEi9rKiKC4c6Hd.jpg",
+    "count": "2 films",
+    "description": "Une série de comédies d'horreur avec Samara Weaving.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3YsZpdAPyRCL7GrRMy4Y8G8a5Lk.jpg",
+        "alt": "Wedding Nightmare"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ICQGjgWmTD3idlMUgRhhKIIxul.jpg",
+        "alt": "Wedding Nightmare : Deuxième Partie"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "987044",
+    "title": "Joker - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/k1YC7mFLvxX4bbD7P8lkcML0Jek.jpg",
+    "count": "2 films",
+    "description": "Durant les années 80, Arthur Fleck, comédien raté, rencontre des voyous violents en errant dans les rues de Gotham City déguisé en clown. Méprisé par la société, Fleck s'enfonce peu à peu dans la démence et devient le génie criminel connu sous le nom de Joker, un dangereux tueur psychotique.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/tWjJ3ILjsbTwKgXxEv48QAbYZ19.jpg",
+        "alt": "Joker"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/cWJGZAozNQFKLCD8vv4ukw4nJP8.jpg",
+        "alt": "Joker : Folie à deux"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "968080",
+    "title": "Wicked - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/oXIhFH4m4ONWScQx6TrbUdPzMv9.jpg",
+    "count": "2 films",
+    "description": "Wicked raconte l'histoire d'Elphaba, la future Méchante Sorcière de l'Ouest, et de sa relation avec Glinda, la Bonne Sorcière.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kQkgPhj6sCuoMWzPKWQVOWUXzib.jpg",
+        "alt": "Wicked"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/A16dlyaV3FCYGYIsYhQJr0tIjo5.jpg",
+        "alt": "Wicked : Partie II"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "985311",
+    "title": "The Passion of the Christ Collection",
+    "cover": "https://image.tmdb.org/t/p/w500/lpZBhgQDkiQCXZBlQh5pY6KLOtT.jpg",
+    "count": "3 films",
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/nVjopQNIWFGQ4Kk73QxAeIw6xov.jpg",
+        "alt": "La Passion du Christ"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qx3QVH1eVqtrdvL1dndXPhCktLq.jpg",
+        "alt": "The Resurrection of the Christ: Part One"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qx3QVH1eVqtrdvL1dndXPhCktLq.jpg",
+        "alt": "The Resurrection of the Christ: Part Two"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1314623",
+    "title": "Le Diable s'habille en Prada - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/mtefhDkoYsJ8NtguqAdQBh2e91i.jpg",
+    "count": "2 films",
+    "description": "Une New-Yorkaise naïve arrive à Manhattan pour effectuer un stage dans un magazine de mode, où elle découvre le monde impitoyable de l'industrie.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/vTIBjWMWx1p5Wv2J3IRhEW13lrj.jpg",
+        "alt": "Le Diable s'habille en Prada"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qkFZ2vjX0PMq84rip0QquLVXE2k.jpg",
+        "alt": "Le Diable s'habille en Prada 2"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1540907",
+    "title": "Superman (DCU) - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/6xQWbcYRHoVDRkyspTy64x8l22m.jpg",
+    "count": "3 films",
+    "description": "Une série de films de super-héros suivant les aventures de Superman / Clark Kent dans l'univers DC (DCU).",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/bL1U8TDb2ZiThIBFAdKHOfpv8lk.jpg",
+        "alt": "Superman"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/6SULjhuI84udCoQq6dR2cbZ2hVP.jpg",
+        "alt": "L'Homme de demain"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/lV8Yuhz36hds5dvEIwB7DThixH.jpg",
+        "alt": "Supergirl"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1611146",
+    "title": "La Femme de ménage - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/lu7VARBXX1B5XjwYh3KhcV7WlGW.jpg",
+    "count": "2 films",
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/ordUueMu5qauAQfEq8UUjETHkCD.jpg",
+        "alt": "La Femme de ménage"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/wN9UPRZ5jbL9n3wIkZSrVov1dC2.jpg",
+        "alt": "Les Secrets de la femme de ménage"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "1461530",
+    "title": "Minecraft - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/gvR8XaxV3wZlh1LKpReAjaTWhA2.jpg",
+    "count": "2 films",
+    "description": "Quatre marginaux se retrouvent confrontés à des problèmes ordinaires, lorsqu’ils sont soudainement entraînés à travers un portail mystérieux vers l’Overworld : un étrange pays des merveilles cubique où l’imagination règne en maître. Pour rentrer chez eux, ils devront apprivoiser cet univers et se lancer dans une quête magique aux côtés d’un artisan expert inattendu : Steve.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/cq9z69AyIXeL2H14bqHE5ukm3M9.jpg",
+        "alt": "Minecraft, le film"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qfid5nudNlSUFvVNx8cqIonrTI4.jpg",
+        "alt": "A Minecraft Movie 2"
+      }
+    ],
+    "extra": 0
+  }
+]
