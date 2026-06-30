@@ -14,6 +14,7 @@ import HistoryPage from "./pages/HistoryPage";
 import ContinuousPlayerPage from "./pages/ContinuousPlayerPage";
 import LiveTVPage from "./pages/LiveTVPage";
 import ImportPage from "./pages/ImportPage";
+import GenresCollectionsPage from "./pages/GenresCollectionsPage";
 
 const queryClient = new QueryClient();
 
