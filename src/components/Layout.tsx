@@ -14,6 +14,7 @@ const navItems = [
   { to: "/podcasts", label: "Podcasts", icon: <Mic className="w-4 h-4" /> },
   { to: "/code", label: "Code", icon: <Code className="w-4 h-4" /> },
   { to: "/gallery", label: "Galerie", icon: <Image className="w-4 h-4" /> },
+  { to: "/genres", label: "Genres & Collections", icon: <Layers className="w-4 h-4" /> },
   { to: "/livetv", label: "LiveTV", icon: <Radio className="w-4 h-4" /> },
   { to: "/favorites", label: "Favoris", icon: <Heart className="w-4 h-4" /> },
   { to: "/playlist", label: "Playlist", icon: <ListMusic className="w-4 h-4" /> },
