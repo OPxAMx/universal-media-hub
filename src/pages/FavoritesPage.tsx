@@ -3,8 +3,8 @@ import ContentGrid from "@/components/ContentGrid";
 import { useContentStore } from "@/store/contentStore";
 
 const FavoritesPage = () => {
-  const { items, favorites } = useContentStore();
-  const favItems = items.filter(i => favorites.includes(i.id));
+  const { favorites, filteredItems } = useContentStore();
+  const favItems = filteredItems().filter(i => favorites.includes(i.id));
 
   return (
     <Layout>
