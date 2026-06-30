@@ -1,9 +1,9 @@
 import { ContentItem } from "@/types/content";
-import { Heart, Play, Plus, Check } from "lucide-react";
+import { Heart, Play, Plus, Check, Calendar } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
-import { getTagColor } from "@/lib/colors";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
+import { extractYear, visibleTags } from "@/lib/cardHelpers";
 
 
 interface ContentCardProps {
