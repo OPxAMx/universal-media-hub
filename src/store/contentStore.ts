@@ -1,13 +1,13 @@
 import { create } from "zustand";
 import { ContentItem } from "@/types/content";
-import { sampleContent, loadSampleContent } from "@/data/sampleContent";
-import allCollectionFilms from "@/data/allCollectionFilms.json";
-import { extraExamples } from "@/data/extraExamples";
+import { sampleContent, loadSampleContent, localDataItems } from "@/data/sampleContent";
 
 const buildBase = (sample: ContentItem[]): ContentItem[] => {
   const seen = new Set<string>();
   const out: ContentItem[] = [];
-  for (const it of [...extraExamples, ...sample, ...(allCollectionFilms as ContentItem[])]) {
+  // Order: locally-bundled data files (src/data/*.json|*.ts) first, then the
+  // big remote sample dataset. Duplicates by `id` are filtered.
+  for (const it of [...localDataItems, ...sample]) {
     if (!it || !it.id || seen.has(it.id)) continue;
     seen.add(it.id);
     out.push(it);
