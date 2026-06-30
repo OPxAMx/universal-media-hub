@@ -38,6 +38,7 @@ const App = () => (
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/livetv" element={<LiveTVPage />} />
           <Route path="/import" element={<ImportPage />} />
+          <Route path="/genres" element={<GenresCollectionsPage />} />
           <Route path="/viewer/:id" element={<ViewerPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/editor/:id" element={<EditorPage />} />
