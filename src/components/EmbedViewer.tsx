@@ -1,8 +1,15 @@
 import { ContentItem } from "@/types/content";
-import { X, Heart, ExternalLink, ListPlus, Star, Languages, Pencil, Calendar, Clock, User, Tag, Info, Globe } from "lucide-react";
+import { X, Heart, ExternalLink, ListPlus, Star, Languages, Pencil, Calendar, Clock, User, Tag, Info, Globe, Building2, Users, Megaphone, Clapperboard } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+const toList = (v: unknown): string[] => {
+  if (!v) return [];
+  if (Array.isArray(v)) return v.map(x => (typeof x === "string" ? x : (x as any)?.name || "")).filter(Boolean);
+  if (typeof v === "string") return v.split(/[,;]\s*/).filter(Boolean);
+  return [];
+};
 
 interface EmbedViewerProps {
   item: ContentItem;
