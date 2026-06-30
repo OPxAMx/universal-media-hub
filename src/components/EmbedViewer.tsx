@@ -178,16 +178,63 @@ const EmbedViewer = ({ item, onClose }: EmbedViewerProps) => {
                 { icon: User, label: "Auteur", value: item.meta.author },
                 { icon: Calendar, label: "Ajouté le", value: item.meta.date_added },
                 { icon: Globe, label: "Source", value: item.meta.source || item.embed.provider },
-              ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="rounded-xl p-3 bg-secondary/30 border border-border/30 backdrop-blur-sm">
-                  <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
-                    <Icon className="w-3 h-3" /> {label}
+                typeof vote === "number" && vote > 0
+                  ? { icon: Star, label: "Note", value: `${vote.toFixed(1)} / 10` }
+                  : null,
+                item.meta?.director ? { icon: Clapperboard, label: "Réalisateur", value: item.meta.director as string } : null,
+              ].filter(Boolean).map((entry: any) => {
+                const { icon: Icon, label, value } = entry;
+                return (
+                  <div key={label} className="rounded-xl p-3 bg-secondary/30 border border-border/30 backdrop-blur-sm">
+                    <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
+                      <Icon className="w-3 h-3" /> {label}
+                    </div>
+                    <div className="text-sm font-medium text-foreground truncate" title={String(value)}>{value || "—"}</div>
                   </div>
-                  <div className="text-sm font-medium text-foreground truncate">{value || "—"}</div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
+
+          {/* Cast */}
+          {cast.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Users className="w-3.5 h-3.5" /> Distribution
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {cast.slice(0, 12).map(name => (
+                  <span key={name} className="text-[11px] px-2.5 py-1 rounded-full bg-secondary/50 text-foreground/80 border border-border/40">{name}</span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Producers */}
+          {producers.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Megaphone className="w-3.5 h-3.5" /> Producteurs
+              </h3>
+              <p className="text-sm text-foreground/90">{producers.join(", ")}</p>
+            </section>
+          )}
+
+          {/* Production companies */}
+          {companies.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                <Building2 className="w-3.5 h-3.5" /> Sociétés de production
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {companies.map(c => (
+                  <span key={c} className="text-[11px] px-2.5 py-1 rounded-full bg-accent/15 text-foreground/90 border border-accent/30">{c}</span>
+                ))}
+              </div>
+            </section>
+          )}
+
+
 
           {/* Tags */}
           {item.tags.length > 0 && (
