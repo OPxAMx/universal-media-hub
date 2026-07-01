@@ -1,4 +1,4 @@
-import { SlidersHorizontal, LayoutGrid, List } from "lucide-react";
+import { SlidersHorizontal, LayoutGrid, List, Rows3 } from "lucide-react";
 import { useViewMode } from "@/hooks/useViewMode";
 import { useFiltersOpen } from "@/hooks/useFiltersOpen";
 import { useContentStore } from "@/store/contentStore";
@@ -60,6 +60,18 @@ const HeaderToolbar = () => {
           }`}
         >
           <List className="w-3.5 h-3.5" />
+        </button>
+        <button
+          onClick={() => setViewMode("horizontal")}
+          aria-label="Affichage horizontal"
+          title="Fiches horizontales"
+          className={`p-1.5 rounded-full transition-colors ${
+            viewMode === "horizontal"
+              ? "bg-primary text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          <Rows3 className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

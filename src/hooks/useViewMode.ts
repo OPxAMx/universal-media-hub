@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export type ViewMode = "grid" | "list";
+export type ViewMode = "grid" | "list" | "horizontal";
 const KEY = "uem-view-mode";
 
 const subs = new Set<(m: ViewMode) => void>();
