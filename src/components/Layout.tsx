@@ -6,6 +6,16 @@ import NeonBeams from "./NeonBeams";
 import HeaderToolbar from "./HeaderToolbar";
 import { useState, useEffect } from "react";
 
+// Primary tabs — always visible on wider screens (Prime Video style)
+const primaryNav = [
+  { to: "/", label: "Accueil" },
+  { to: "/movies", label: "Films" },
+  { to: "/series", label: "Séries" },
+  { to: "/livetv", label: "TV en direct" },
+  { to: "/genres", label: "Collections" },
+];
+
+// Full nav for drawer / burger menu
 const navItems = [
   { to: "/", label: "Accueil", icon: <Home className="w-4 h-4" /> },
   { to: "/movies", label: "Films", icon: <Film className="w-4 h-4" /> },
@@ -43,43 +53,43 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         className="sticky top-0 z-40 backdrop-blur-md"
         style={{ background: "linear-gradient(180deg, hsl(0 0% 0% / 0.95) 0%, hsl(0 0% 0% / 0.85) 100%)" }}
       >
-        <div className="container flex items-center gap-3 sm:gap-6 h-16 relative z-10">
-          {/* Burger - shown when nav links don't fit (below xl) */}
+        <div className="container flex items-center gap-3 sm:gap-5 h-16 relative z-10">
+          {/* Burger + logo combined, Prime Video style */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="xl:hidden p-2 rounded-md text-foreground hover:bg-white/10 transition-colors shrink-0"
+            className="flex items-center gap-1 shrink-0 group"
             aria-label="Ouvrir le menu"
           >
-            <Plus className="w-6 h-6" />
-          </button>
-
-          <Link to="/" className="flex items-center shrink-0">
+            <Plus className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" strokeWidth={2.5} />
             <span
               className="font-heading font-black tracking-tighter text-2xl md:text-3xl text-primary"
               style={{ letterSpacing: "-0.05em" }}
             >
               UEM
             </span>
-          </Link>
+          </button>
 
-          {/* Inline nav only on very wide screens */}
-          <nav className="hidden xl:flex items-center gap-5 flex-1 min-w-0 overflow-x-auto scrollbar-hide">
-            {navItems.map(n => (
-              <Link
-                key={n.to}
-                to={n.to}
-                className={`text-sm whitespace-nowrap transition-colors ${
-                  location.pathname === n.to
-                    ? "text-foreground font-semibold"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {n.label}
-              </Link>
-            ))}
+          {/* Primary tabs (Prime Video style pills) */}
+          <nav className="hidden md:flex items-center gap-1 flex-1 min-w-0 overflow-x-auto scrollbar-hide">
+            {primaryNav.map(n => {
+              const active = location.pathname === n.to;
+              return (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  className={`px-4 py-1.5 rounded-md text-sm whitespace-nowrap transition-all ${
+                    active
+                      ? "bg-white/10 text-foreground font-semibold ring-1 ring-white/15"
+                      : "text-white/85 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {n.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          <div className="flex-1 xl:flex-none xl:w-64 min-w-0">
+          <div className="flex-1 md:flex-none md:w-56 min-w-0 ml-auto">
             <SearchBar />
           </div>
           <div className="flex justify-end shrink-0">
