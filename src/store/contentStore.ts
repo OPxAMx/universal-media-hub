@@ -160,12 +160,18 @@ export const useContentStore = create<ContentStore>((set, get) => ({
       if (searchQuery) {
         const q = searchQuery.toLowerCase().trim();
         if (!q) return true;
+        const pc = item.meta?.production_companies;
+        const pcStr = Array.isArray(pc) ? pc.join(" ") : (pc || "");
+        const networks = (item.meta as any)?.networks;
+        const nwStr = Array.isArray(networks) ? networks.join(" ") : (networks || "");
         return (
           (item.title || "").toLowerCase().includes(q) ||
           (item.description || "").toLowerCase().includes(q) ||
           (item.id || "").toLowerCase().includes(q) ||
           (item.meta?.author || "").toLowerCase().includes(q) ||
           (item.embed?.provider || "").toLowerCase().includes(q) ||
+          pcStr.toLowerCase().includes(q) ||
+          nwStr.toLowerCase().includes(q) ||
           (item.tags || []).some(t => (t || "").toLowerCase().includes(q))
         );
       }
