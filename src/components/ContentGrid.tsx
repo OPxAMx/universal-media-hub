@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ContentCard from "./ContentCard";
+import HorizontalCard from "./HorizontalCard";
 import { ContentItem } from "@/types/content";
 import { useViewMode } from "@/hooks/useViewMode";
 import { useNavigate } from "react-router-dom";
@@ -71,6 +72,14 @@ const ContentGrid = ({ items, title }: ContentGridProps) => {
           {shown.map((item, i) => (
             <div key={item.id} className="fade-up" style={{ animationDelay: `${Math.min(i, 10) * 30}ms` }}>
               <ListRow item={item} />
+            </div>
+          ))}
+        </div>
+      ) : viewMode === "horizontal" ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {shown.map((item, i) => (
+            <div key={item.id} className="fade-up" style={{ animationDelay: `${Math.min(i, 10) * 40}ms` }}>
+              <HorizontalCard item={item} />
             </div>
           ))}
         </div>
