@@ -15,6 +15,7 @@ import ContinuousPlayerPage from "./pages/ContinuousPlayerPage";
 import LiveTVPage from "./pages/LiveTVPage";
 import ImportPage from "./pages/ImportPage";
 import GenresCollectionsPage from "./pages/GenresCollectionsPage";
+import ProviderPage from "./pages/ProviderPage";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/livetv" element={<LiveTVPage />} />
           <Route path="/import" element={<ImportPage />} />
           <Route path="/genres" element={<GenresCollectionsPage />} />
+          <Route path="/provider" element={<ProviderPage />} />
           <Route path="/viewer/:id" element={<ViewerPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/editor/:id" element={<EditorPage />} />
