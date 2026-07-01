@@ -3,6 +3,7 @@ import ContentCard from "@/components/ContentCard";
 import AdvancedFilters from "@/components/AdvancedFilters";
 import CollectionsSection from "@/components/CollectionsSection";
 import ContentGrid from "@/components/ContentGrid";
+import ProvidersCarousel from "@/components/ProvidersCarousel";
 import { useContentStore } from "@/store/contentStore";
 import { Film, Tv, Music, Mic, Code, Image, ChevronLeft, ChevronRight, Clock, AlertTriangle } from "lucide-react";
 import { useMemo, useRef, useEffect, useState } from "react";
@@ -180,6 +181,10 @@ const Index = () => {
 
             {/* RECENTLY ADDED */}
             <Carousel title="Récemment Ajouté" items={recentlyAdded} icon={<Clock className="w-5 h-5" />} />
+
+            {/* PROVIDERS */}
+            <ProvidersCarousel />
+
 
             {/* RECENT HISTORY */}
             {recentHistory.length > 0 && (
