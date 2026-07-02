@@ -1,20 +1,21 @@
-import { useMemo, useCallback } from "react";
+import { useMemo, useCallback, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import CollectionsSection from "@/components/CollectionsSection";
 import ContentCard from "@/components/ContentCard";
 import AdvancedFilters from "@/components/AdvancedFilters";
 import { useContentStore } from "@/store/contentStore";
 import { visibleTags } from "@/lib/cardHelpers";
-import { Layers, FolderHeart } from "lucide-react";
+import { Layers, FolderHeart, ArrowLeft } from "lucide-react";
 
 // Build a stable, URL-safe anchor id for a genre name.
 const genreAnchor = (name: string) =>
   "genre-" + name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 const GenresCollectionsPage = () => {
-  // Respect the global search / filters (activeType, tags, id, dates, sort).
   const filteredItems = useContentStore(s => s.filteredItems);
   const filtered = filteredItems();
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(60);
 
   const byGenre = useMemo(() => {
     const map: Record<string, typeof filtered> = {};
@@ -30,10 +31,20 @@ const GenresCollectionsPage = () => {
       .sort((a, b) => b[1].length - a[1].length);
   }, [filtered]);
 
+  const openGenre = useCallback((name: string) => {
+    setSelectedGenre(name);
+    setVisibleCount(60);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const scrollToGenre = useCallback((name: string) => {
     const el = document.getElementById(genreAnchor(name));
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
+
+  useEffect(() => { setVisibleCount(60); }, [selectedGenre]);
+
+  const selectedList = selectedGenre ? (byGenre.find(([g]) => g === selectedGenre)?.[1] ?? []) : [];
 
   return (
     <Layout>
