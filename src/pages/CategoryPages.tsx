@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import ContentGrid from "@/components/ContentGrid";
 import AdvancedFilters from "@/components/AdvancedFilters";
@@ -5,6 +6,15 @@ import { useContentStore } from "@/store/contentStore";
 
 const CategoryPage = ({ type, title }: { type: string; title: string }) => {
   const filteredItems = useContentStore(s => s.filteredItems);
+  const setActiveType = useContentStore(s => s.setActiveType);
+
+  // Sync the active type filter with the current tab so search/filters
+  // stay coherent between the navbar tabs and the FilterBar chips.
+  useEffect(() => {
+    setActiveType(type);
+    return () => setActiveType(null);
+  }, [type, setActiveType]);
+
   const filtered = filteredItems().filter(i => i.type === type);
 
   return (
