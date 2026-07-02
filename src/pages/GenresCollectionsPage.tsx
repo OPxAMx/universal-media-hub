@@ -2,6 +2,7 @@ import { useMemo, useCallback, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import CollectionsSection from "@/components/CollectionsSection";
 import ContentCard from "@/components/ContentCard";
+import ContentGrid from "@/components/ContentGrid";
 import AdvancedFilters from "@/components/AdvancedFilters";
 import { useContentStore } from "@/store/contentStore";
 import { visibleTags } from "@/lib/cardHelpers";
@@ -66,22 +67,8 @@ const GenresCollectionsPage = () => {
               <span className="text-sm text-muted-foreground">({selectedList.length})</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-              {selectedList.slice(0, visibleCount).map(item => (
-                <ContentCard key={item.id} item={item} />
-              ))}
-            </div>
+            <ContentGrid items={selectedList} />
 
-            {visibleCount < selectedList.length && (
-              <div className="flex justify-center mt-8">
-                <button
-                  onClick={() => setVisibleCount(c => c + 60)}
-                  className="px-6 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition text-sm font-medium"
-                >
-                  Charger plus ({selectedList.length - visibleCount} restants)
-                </button>
-              </div>
-            )}
           </section>
         ) : (
           <>
