@@ -58,6 +58,8 @@ const JsonUploader = () => {
         author: String(metaSrc.author || raw.director || ""),
         date_added: String(metaSrc.date_added || raw.release_date || new Date().toISOString().slice(0, 10)),
         source: String(metaSrc.source || raw.source || ""),
+        backdrop: metaSrc.backdrop || raw.backdrop || raw.backdrop_path || undefined,
+        vote_average: metaSrc.vote_average ?? raw.vote_average,
       },
     };
   };

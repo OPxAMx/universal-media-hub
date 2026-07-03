@@ -12,7 +12,7 @@ interface Collection {
   id: string;
   title: string;
   cover: string;
-  count: string;
+  count: string | number;
   description: string;
   posters: Poster[];
   extra: number;
