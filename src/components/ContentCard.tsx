@@ -64,9 +64,18 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
             </div>
 
             {/* Type badge - Netflix red */}
+            {/* Type badge - Netflix red */}
             <span className="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm bg-primary text-white z-10">
               {item.type}
             </span>
+
+            {/* Rating badge */}
+            {typeof item.meta?.vote_average === "number" && (
+              <span className="absolute bottom-2 left-2 z-10 inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-sm bg-black/80 text-yellow-400 backdrop-blur-sm">
+                <Star className="w-2.5 h-2.5" fill="currentColor" />
+                {item.meta.vote_average.toFixed(1)}
+              </span>
+            )}
 
             {/* Bottom title + description overlay on hover */}
             <div className="absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
