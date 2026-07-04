@@ -12,12 +12,19 @@ export const sampleContent: ContentItem[] = [];
 const isContentItem = (x: any): x is ContentItem =>
   x && typeof x === "object" && typeof x.id === "string" && typeof x.type === "string";
 
+const normalizeLocalItem = (x: any): ContentItem => {
+  const meta = x.meta ? { ...x.meta } : {};
+  if (x.vote_average != null && meta.vote_average == null) meta.vote_average = x.vote_average;
+  if (x.backdrop && !meta.backdrop) meta.backdrop = x.backdrop;
+  return { ...x, meta };
+};
+
 const collectFromModule = (mod: any): ContentItem[] => {
   const out: ContentItem[] = [];
   const visit = (v: any) => {
     if (!v) return;
     if (Array.isArray(v)) v.forEach(visit);
-    else if (isContentItem(v)) out.push(v);
+    else if (isContentItem(v)) out.push(normalizeLocalItem(v));
     else if (typeof v === "object") Object.values(v).forEach(visit);
   };
   visit(mod?.default ?? mod);
@@ -42,7 +49,8 @@ export async function loadSampleContent(): Promise<ContentItem[]> {
     const res = await fetch(asset.url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return Array.isArray(data) ? data : [];
+    if (!Array.isArray(data)) return [];
+    return data.map(normalizeLocalItem);
   } catch (e) {
     console.error("Failed to load sampleContent asset", e);
     return [];
