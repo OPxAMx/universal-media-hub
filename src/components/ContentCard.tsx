@@ -1,5 +1,5 @@
 import { ContentItem } from "@/types/content";
-import { Heart, Play, Plus, Check, Calendar, Star } from "lucide-react";
+import { Heart, Play, Plus, Check, Calendar } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
@@ -71,8 +71,8 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
 
             {/* Rating badge */}
             {typeof item.meta?.vote_average === "number" && (
-              <span className="absolute bottom-2 left-2 z-10 inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-sm bg-black/80 text-yellow-400 backdrop-blur-sm">
-                <Star className="w-2.5 h-2.5" fill="currentColor" />
+              <span className="absolute bottom-2 left-2 z-10 inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-full bg-black/80 text-yellow-400 border border-yellow-400/30 shadow-sm backdrop-blur-sm">
+                <span className="leading-none">⭐</span>
                 {item.meta.vote_average.toFixed(1)}
               </span>
             )}
