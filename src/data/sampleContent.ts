@@ -49,7 +49,8 @@ export async function loadSampleContent(): Promise<ContentItem[]> {
     const res = await fetch(asset.url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    return Array.isArray(data) ? data : [];
+    if (!Array.isArray(data)) return [];
+    return data.map(normalizeLocalItem);
   } catch (e) {
     console.error("Failed to load sampleContent asset", e);
     return [];
