@@ -1,5 +1,5 @@
 import { ContentItem } from "@/types/content";
-import { Heart, Play, Plus, Check, Calendar } from "lucide-react";
+import { Heart, Play, Plus, Check, Calendar, Star } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
