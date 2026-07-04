@@ -186,6 +186,22 @@ export const useContentStore = create<ContentStore>((set, get) => ({
         else if (sortKey === "date") { av = a.meta?.date_added || ""; bv = b.meta?.date_added || ""; }
         return av < bv ? -1 * dir : av > bv ? 1 * dir : 0;
       });
+    } else {
+      // Default: most recent year first, then highest vote_average.
+      const yearOf = (it: ContentItem): number => {
+        const d = it.meta?.date_added || "";
+        const m = d.match(/(19|20)\d{2}/);
+        if (m) return parseInt(m[0], 10);
+        const tag = (it.tags || []).find(t => /^(19|20)\d{2}$/.test(t));
+        return tag ? parseInt(tag, 10) : 0;
+      };
+      result = [...result].sort((a, b) => {
+        const ya = yearOf(a), yb = yearOf(b);
+        if (yb !== ya) return yb - ya;
+        const va = typeof a.meta?.vote_average === "number" ? a.meta.vote_average : -1;
+        const vb = typeof b.meta?.vote_average === "number" ? b.meta.vote_average : -1;
+        return vb - va;
+      });
     }
     return result;
   },
