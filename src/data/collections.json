@@ -7596,5 +7596,387 @@
       }
     ],
     "extra": 0
+  },
+  {
+    "id": "c96680",
+    "title": "Mi$e à Prix - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/1TbMf5bJnYCP9sXhRSVHULPJDbw.jpg",
+    "count": 2,
+    "description": "Série de films Mise à Prix.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/nM81UJN33CEuJpue59x9bPs69p4.jpg",
+        "alt": "Mi$e à Prix - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/k4xCkFucwSoUxmVrEyaSsQ3MY6g.jpg",
+        "alt": "Mise à prix 2"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c334996",
+    "title": "Le Fils de Batman - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/sVvEkTNx6SjwOb80iyURe5KHtcD.jpg",
+    "count": 4,
+    "description": "Cette collection élargit l'histoire de Batman dans l'univers du film d'animation de DC. Batman apprend qu'il a un fils pré-adolescent violent et indiscipliné avec Talia al Ghul, Damian Wayne, qui est secrètement élevé par Ra's al Ghul et la Ligue des assassins. Lorsque Ra's al Ghul meurt apparemment après une bataille avec Deathstroke, Batman doit s'efforcer d'empêcher son fils, perdu depuis longtemps, de se venger et de le guider vers un chemin juste, en plus de la possibilité pour le couple de se reconnaître véritablement comme une famille.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/uQz93ytcYDJMBdF6WsM2eZxEa9i.jpg",
+        "alt": "Le Fils de Batman - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/aGp9XDXmVM5lCKHWtgBC15S7XLr.jpg",
+        "alt": "Le Fils de Batman"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/nehC7zJQsK2SKWWHgYRR851UkNi.jpg",
+        "alt": "Batman vs. Robin"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/xIMNHtmddRsZJW2YgVHbkrn7Qhw.jpg",
+        "alt": "Batman: Mauvais Sang"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c694606",
+    "title": "Rocky Horror Collection",
+    "cover": "https://image.tmdb.org/t/p/w500/oPmhtP3C6rOkAJ55tcmCXOPFVOX.jpg",
+    "count": 2,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3pyE6ZqDbuJi7zrNzzQzcKTWdmN.jpg",
+        "alt": "Rocky Horror Collection"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/obUmsgTu0MqXiEU5PtSOuAqnl05.jpg",
+        "alt": "The Rocky Horror Picture Show"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c248126",
+    "title": "Splash - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/6g494E24vQUxwPF8D7fanYTeapM.jpg",
+    "count": 2,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/5Xzud0J8QEE11nGKTyicy0UlkKE.jpg",
+        "alt": "Splash - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/oRyUTkxfsufW39sFnDVkiFJoFcW.jpg",
+        "alt": "Splash  2"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c126209",
+    "title": "Halloween (Rob Zombie) - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/tXXPOkcFLcDiJ4OU5SOU3JnhQrg.jpg",
+    "count": 2,
+    "description": "Une série de films slasher américains réalisés et produits par Rob Zombie. La série est un reboot du film d'horreur du même nom de 1978. La \"réimagination\" de Rob Zombie suit les prémisses de l'original de John Carpenter, avec Michael Myers traquant Laurie Strode et ses amis le soir d'Halloween. Le film de Rob Zombie va plus loin dans la psyché du personnage, en essayant de répondre à la question de savoir ce qui l'a poussé à tuer des gens.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/iKnDJrIqc9Q5e4ZZGLFUpw0co6o.jpg",
+        "alt": "Halloween (Rob Zombie) - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/bIqDPdb7wxYuPynxySTIpoL5K1G.jpg",
+        "alt": "Halloween II"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c230161",
+    "title": "Fright Night (Reboot) - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/9N1PbMkYJ5Zn2suUSHt38lAJnkD.jpg",
+    "count": 2,
+    "description": "En 2009, DreamWorks a annoncé qu'elle allait superviser un remake de Fright Night. Mike De Luca, Michael Gaeta et Alison Rosenzweig en sont les producteurs. Marti Noxon a écrit le scénario et Craig Gillespie dirigera le remake, qui a été financé par Steven Spielberg avec sa société DreamWorks. Anton Yelchin jouera le rôle principal dans le rôle de Charlie Brewster, un adolescent qui pense que son voisin d'à côté est un vampire. Toni Collette joue la mère de Charlie. Colin Farrell joue le rôle de Jerry Dandrige, antagoniste, voisin charismatique et vampire. L'acteur écossais David Tennant joue le rôle de Peter Vincent. Le remake a été suivi d'une suite sans suite, intitulée Fright Night 2, qui a été diffusée en vidéo directe le 1er octobre 2013 par la 20th Century Fox Home Entertainment.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/4KdybORkZqenIkdEsOEQ4PfFdzn.jpg",
+        "alt": "Fright Night (Reboot) - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3Is5G28YLNKq22n5Ee2yTmYA3m6.jpg",
+        "alt": "Fright Night"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c30663",
+    "title": "Harold et Kumar - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/b70mFgsSn2hl3CvC0nRx0SHUEX0.jpg",
+    "count": 3,
+    "description": "Une série de films américains de comédie stoner avec John Cho (Harold) et Kal Penn (Kumar).",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/pDWbZ5vccuKBoVCaXHAexTld6Cr.jpg",
+        "alt": "Harold et Kumar - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/yXM7fCiQd1dpKHCYsKRZPrpWBBk.jpg",
+        "alt": "Harold et Kumar chassent le burger"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/yHzAT9E5BeqnjFbpUIK1Nh67i5r.jpg",
+        "alt": "Harold et Kumar s'évadent de Guantanamo"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c19387",
+    "title": "The X-Files - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/22p3xTTuXc9FEnzyGlfB9KBtR4Y.jpg",
+    "count": 2,
+    "description": "En 1998, X-Files gagne le grand écran avec le long métrage Fight the Future de Rob Bowman dont l’intrigue s'intercale entre les saisons 5 et 6, cette dernière reprenant l’histoire là où le film s’arrête. Avec une recette au box-office mondial dépassant à peine son budget, c’est un succès très modéré, mais qui satisfait les fans de la série. Un deuxième film a vu le jour en 2008, réalisé par Chris Carter lui-même. Manque de chance, à quelques jours du début du tournage, Chris Carter perdit le script du film. Contraint à tout réécrire en urgence, cette péripétie serait – dit-on – à l'origine du relatif insuccès du film. L’action de Régénération se déroule plusieurs années après la fermeture du bureau des affaires non classées. L’ex-agent Scully exerce comme médecin; quant à Mulder, il se terre dans un appartement loin de toute conspiration extra-terrestre. Les deux héros seront néanmoins contraints de répondre à l’appel du FBI confronté à une épidémie de disparitions mystérieuses.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/mn1jd14a6q7DWxtO69ZnkXE9ItL.jpg",
+        "alt": "The X-Files - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/nZFOfv6nDoDzBhhS6UdbJEleUBe.jpg",
+        "alt": "The X-Files : le film"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c105324",
+    "title": "Mirrors - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/bZszA8ZkY7x42LrNoZzpyvENHH5.jpg",
+    "count": 2,
+    "description": "Série de films Mirrors.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/19utvoMMpqeyY6m0u8S72enIF0C.jpg",
+        "alt": "Mirrors - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/gDr5TaM129kUNwXkUUZ7Cha2CNn.jpg",
+        "alt": "Mirrors"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c1679860",
+    "title": "Looney Tunes ACME - Live Action - Collection",
+    "cover": "https://image.tmdb.org/t/p/w500/au4NPRmGJUn25ziATlmWt9MCbio.jpg",
+    "count": 2,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/fifRZwzmKsvzSmZTvohDv7a8Qdv.jpg",
+        "alt": "Looney Tunes ACME - Live Action - Collection"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/o2SHmEc5K3DKopQoiOFNTjjWZ3V.jpg",
+        "alt": "Coyote vs ACME"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c10893",
+    "title": "Critters - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/wqqvfXVm6fQwEVLSWImt4yYdgCD.jpg",
+    "count": 5,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/p8roepkTiRA5Sjz2HR3DSFK4w7n.jpg",
+        "alt": "Critters - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/5rR3dVJXnXskkBBWKbLg5EDKWtT.jpg",
+        "alt": "Critters"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/frjklbq23pRgBjhekEq6drQkrZm.jpg",
+        "alt": "Critters 2"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/uc59MnPbyrh2GLLPj8Gc5gFBEsl.jpg",
+        "alt": "Critters 3"
+      }
+    ],
+    "extra": 1
+  },
+  {
+    "id": "c87186",
+    "title": "Les Anges de Boston - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/wQZVQSiX7KqWNlL70qyS29gjObr.jpg",
+    "count": 2,
+    "description": "Les Anges de Boston, ce sont Conner et Murphy MacManus, deux frères irlandais et catholiques. Tout du moins, c'est le surnom que les médias leur ont donné après leur premier coup d'éclat.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/7vyhg5Ofq0ZKcznN74f25sxOcrG.jpg",
+        "alt": "Les Anges de Boston - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/mh4dTAIIVcWOds8OMyd2YOEjqot.jpg",
+        "alt": "Les Anges de Boston"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c165369",
+    "title": "The Collector - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/4x4mtl1xgxIH5yxGr05L1WZeTjG.jpg",
+    "count": 3,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/4vBLXFOtYJ73la79asXpTmCWHub.jpg",
+        "alt": "The Collector - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/qbhJiXi48fRQevHf56i2JmYqyJ7.jpg",
+        "alt": "The Collector"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/2QUIrPdUxk8ovHPALWUw44H6PMI.jpg",
+        "alt": "The Collection"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c690952",
+    "title": "Les Oiseaux - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/oS2rF2WNohdnZKkld7ylR9nulVx.jpg",
+    "count": 2,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/pIc5nX1neiJ38R7b4e8PKqvxbkD.jpg",
+        "alt": "Les Oiseaux - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/3hJ1WWMmR5IyhpSmZjcFz5PwdED.jpg",
+        "alt": "Les Oiseaux"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c689974",
+    "title": "Teen Titans Go! Collection",
+    "cover": "https://image.tmdb.org/t/p/w500/kvweoG5Sv77mlbIFWxu0eYE8rwe.jpg",
+    "count": 4,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/6Yu7VJwocOxd8WNAyOV326d1omS.jpg",
+        "alt": "Teen Titans Go! Collection"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/1mGk5c7QZEJEeMxLlBS8MtMSn9l.jpg",
+        "alt": "Teen Titans GO! Le film"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/iK4dq9BAdshqng5K2Qu1VAJtmRD.jpg",
+        "alt": "Teen Titans Go! vs. Teen Titans"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/yqiRsgIylxbjQPG1CHkirx2idcW.jpg",
+        "alt": "Teen Titans Go découvrent Space Jam"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c221539",
+    "title": "Dracula (Universal) - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/sdbStuQ5qEPZqqWUlNlBd0dPtBT.jpg",
+    "count": 4,
+    "description": "Découvrez cette collection de films captivante.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/hLA7d1FFaPM7DpeFZvWyCQ2UQ44.jpg",
+        "alt": "Dracula (Universal) - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/4wbLuZFvW541LeMuOSKM6ETQk0i.jpg",
+        "alt": "Dracula"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/cE7VH4otrBUGbZ0vOpP0LWwOEDa.jpg",
+        "alt": "La Fille de Dracula"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kNlUOb6hWA8awLASWaP26LcOqE9.jpg",
+        "alt": "Le fils de Dracula"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c608103",
+    "title": "Shaft (Reboot) - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/hK9ASFeu7ba6PVWrKkyqjaLvk4V.jpg",
+    "count": 2,
+    "description": "Héritage des films et de la série télévisée du même nom datant des années 70 mettant en scène un flic de Harlem aux méthodes peu orthodoxes mais efficaces. Ici, il s'agit du neveu de John SHAFT (en réalité son fils) qui reprend le flambeau.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/kPQyxTzCnguyYGSGasN37cFin4T.jpg",
+        "alt": "Shaft (Reboot) - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/oii9HlEXeWZSqCqkF5ZWH1LkPej.jpg",
+        "alt": "Shaft"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c376650",
+    "title": "Mise à l'épreuve - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/3ZX5hvXjMxWJ5joyJxmWJT5nZDo.jpg",
+    "count": 2,
+    "description": "Une série de films comiques américains sur l'action des copains flics basée sur une histoire originaire de Coolidge. Elle suit Ben Barber, un agent de sécurité du lycée qui doit prouver au frère de sa petite amie, James Payton, qu'il est digne de l'épouser. James, un policier qui cherche à attraper le patron des contrebandiers serbes, Omar, emmène Ben pour faire ses preuves.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/2kD0HYLi82xH1KsKfSt05Dr0kbu.jpg",
+        "alt": "Mise à l'épreuve - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/56nG2RnxiF8UGhwYBQW7VfDoPC7.jpg",
+        "alt": "Mise à l'épreuve"
+      }
+    ],
+    "extra": 0
+  },
+  {
+    "id": "c352789",
+    "title": "Zoolander - Saga",
+    "cover": "https://image.tmdb.org/t/p/w500/xNTvMy84w8wnrEEzWBiTWL08fVo.jpg",
+    "count": 2,
+    "description": "Série de films américains de comédie satirique mettant en scène un mannequin narcissique et stupide nommé Derek Zoolander (trois fois mannequin de l'année sur VH1) et Hansel McDonald, un mannequin rival.",
+    "posters": [
+      {
+        "src": "https://image.tmdb.org/t/p/w200/pXZAUyMwann7BeVEjb19CPlz30w.jpg",
+        "alt": "Zoolander - Saga"
+      },
+      {
+        "src": "https://image.tmdb.org/t/p/w200/n8AJzALlTPBwe9Tkv3tdxbiAr9i.jpg",
+        "alt": "Zoolander"
+      }
+    ],
+    "extra": 0
   }
 ]
