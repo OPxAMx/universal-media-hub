@@ -1,9 +1,11 @@
 import { ContentItem } from "@/types/content";
-import { Heart, Play, Plus, Check, Calendar } from "lucide-react";
+import { Heart, Play, Plus, Check, Calendar, Film } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
 import { extractYear, visibleTags } from "@/lib/cardHelpers";
+import { useState } from "react";
+import TrailerPreview from "./TrailerPreview";
 
 
 interface ContentCardProps {
@@ -17,6 +19,8 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
   const inPlaylist = playlist.includes(item.id);
   const navigate = useNavigate();
   const { ref, isVisible } = useLazyLoad();
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const trailerKey = item.meta?.trailer_key;
 
   const handleView = () => {
     if (onView) onView();
