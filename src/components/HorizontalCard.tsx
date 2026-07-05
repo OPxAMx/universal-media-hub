@@ -70,6 +70,14 @@ const HorizontalCard = ({ item }: Props) => {
         style={{ background: "radial-gradient(circle at 80% -50%, transparent 60%, rgba(0,0,0,0.6))" }}
       />
 
+      {/* Rating badge — always visible */}
+      {typeof rating === "number" && (
+        <span className="absolute top-2 right-2 z-20 inline-flex items-center gap-1 text-[11px] font-bold px-2 py-1 rounded-full bg-black/80 text-yellow-400 border border-yellow-400/30 shadow-sm backdrop-blur-sm">
+          <span className="leading-none">⭐</span>
+          {rating.toFixed(1)}
+        </span>
+      )}
+
       {/* Content */}
       <div
         className="absolute left-0 right-0 bottom-0 p-4 sm:p-6 transition-transform duration-700 ease-in-out"
