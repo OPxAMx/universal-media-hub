@@ -1,9 +1,11 @@
 import { ContentItem } from "@/types/content";
-import { Heart, Play, Plus, Check, Calendar } from "lucide-react";
+import { Heart, Play, Plus, Check, Calendar, Film } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useNavigate } from "react-router-dom";
 import { useLazyLoad } from "@/hooks/use-lazy-load";
 import { extractYear, visibleTags } from "@/lib/cardHelpers";
+import { useState } from "react";
+import TrailerPreview from "./TrailerPreview";
 
 
 interface ContentCardProps {
@@ -17,6 +19,8 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
   const inPlaylist = playlist.includes(item.id);
   const navigate = useNavigate();
   const { ref, isVisible } = useLazyLoad();
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const trailerKey = item.meta?.trailer_key;
 
   const handleView = () => {
     if (onView) onView();
@@ -105,10 +109,25 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
                 {item.meta.author && <span className="truncate">{item.meta.author}</span>}
               </p>
             )}
+            {trailerKey && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setPreviewOpen(true); }}
+                className="mt-3 w-full inline-flex items-center justify-center gap-1.5 text-[11px] font-semibold px-2 py-1.5 rounded-sm bg-primary/15 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <Film className="w-3 h-3" /> See Preview
+              </button>
+            )}
           </div>
         </div>
       ) : (
         <div className="rounded-sm bg-card/50 animate-pulse h-full min-h-[280px]" />
+      )}
+      {trailerKey && previewOpen && (
+        <TrailerPreview
+          trailerKey={previewOpen ? trailerKey : null}
+          title={item.title}
+          onOpenChange={(o) => setPreviewOpen(o)}
+        />
       )}
     </div>
   );

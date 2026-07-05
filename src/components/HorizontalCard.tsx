@@ -1,15 +1,18 @@
 import { ContentItem } from "@/types/content";
-import { Heart, Plus, Check, Star } from "lucide-react";
+import { Heart, Plus, Check, Star, Film } from "lucide-react";
 import { useContentStore } from "@/store/contentStore";
 import { useNavigate } from "react-router-dom";
 import { extractYear, visibleTags } from "@/lib/cardHelpers";
+import { useEffect, useRef, useState } from "react";
+import TrailerPreview from "./TrailerPreview";
 
 interface Props { item: ContentItem }
 
 /**
- * Netflix/Prime-style horizontal (16:9) hero card inspired by the CodePen sample.
+ * Netflix/Prime-style horizontal (16:9) hero card.
  * - Background image
- * - Content slides up on hover to reveal synopsis + icons
+ * - After 5s hover: play trailer video in background (if available)
+ * - "See Preview" button opens trailer modal
  */
 const HorizontalCard = ({ item }: Props) => {
   const { toggleFavorite, favorites, addToPlaylist, playlist } = useContentStore();
@@ -18,12 +21,30 @@ const HorizontalCard = ({ item }: Props) => {
   const inPlaylist = playlist.includes(item.id);
   const year = extractYear(item);
   const rating = item.meta?.vote_average;
+  const trailerKey = item.meta?.trailer_key;
+
+  const [showTrailerBg, setShowTrailerBg] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const timerRef = useRef<number | null>(null);
+
+  const startHover = () => {
+    if (!trailerKey || showTrailerBg) return;
+    if (timerRef.current) window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => setShowTrailerBg(true), 5000);
+  };
+  const endHover = () => {
+    if (timerRef.current) { window.clearTimeout(timerRef.current); timerRef.current = null; }
+    setShowTrailerBg(false);
+  };
+  useEffect(() => () => { if (timerRef.current) window.clearTimeout(timerRef.current); }, []);
 
   const bg = item.meta?.backdrop || item.thumbnail;
 
   return (
     <article
       onClick={() => navigate(`/viewer/${item.id}`)}
+      onMouseEnter={startHover}
+      onMouseLeave={endHover}
       className="movie-card-h group/hc relative overflow-hidden rounded-xl cursor-pointer bg-black text-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
       style={{ aspectRatio: "16 / 9" }}
     >
@@ -31,8 +52,16 @@ const HorizontalCard = ({ item }: Props) => {
         src={bg}
         alt={item.title}
         loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/hc:scale-105"
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover/hc:scale-105 ${showTrailerBg ? "opacity-0" : "opacity-100"}`}
       />
+      {showTrailerBg && trailerKey && (
+        <iframe
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&controls=0&loop=1&playlist=${trailerKey}&modestbranding=1&rel=0`}
+          title={`${item.title} trailer`}
+          allow="autoplay; encrypted-media"
+        />
+      )}
       {/* Bottom gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
       {/* Corner overlay */}
@@ -85,6 +114,14 @@ const HorizontalCard = ({ item }: Props) => {
           >
             {inPlaylist ? <Check className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
           </button>
+          {trailerKey && (
+            <button
+              onClick={e => { e.stopPropagation(); setPreviewOpen(true); }}
+              className="inline-flex items-center gap-1.5 px-3 h-9 rounded-full bg-primary/90 hover:bg-primary text-primary-foreground text-[11px] font-semibold backdrop-blur-sm border border-white/30"
+            >
+              <Film className="w-3.5 h-3.5" /> See Preview
+            </button>
+          )}
           {visibleTags(item.tags).slice(0, 2).map(t => (
             <span key={t} className="hidden sm:inline-flex items-center px-2.5 h-9 rounded-full bg-white/10 border border-white/20 text-[11px]">{t}</span>
           ))}
@@ -94,6 +131,13 @@ const HorizontalCard = ({ item }: Props) => {
       <style>{`
         .movie-card-h:hover [data-content] { transform: translateY(0) !important; }
       `}</style>
+      {trailerKey && (
+        <TrailerPreview
+          trailerKey={previewOpen ? trailerKey : null}
+          title={item.title}
+          onOpenChange={(o) => setPreviewOpen(o)}
+        />
+      )}
     </article>
   );
 };

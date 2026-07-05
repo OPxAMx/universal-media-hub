@@ -27,6 +27,7 @@ export interface ContentItem {
     director?: string;
     producers?: string[] | string;
     genres?: string[];
+    trailer_key?: string;
     [key: string]: any;
   };
   /** For type === "gallery": ordered list of media IDs (any type) included in the gallery. */
