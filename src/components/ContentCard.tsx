@@ -108,11 +108,25 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
                 {item.meta.duration && item.meta.author && <span>·</span>}
                 {item.meta.author && <span className="truncate">{item.meta.author}</span>}
               </p>
+            {trailerKey && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setPreviewOpen(true); }}
+                className="mt-3 w-full inline-flex items-center justify-center gap-1.5 text-[11px] font-semibold px-2 py-1.5 rounded-sm bg-primary/15 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <Film className="w-3 h-3" /> See Preview
+              </button>
             )}
           </div>
         </div>
       ) : (
         <div className="rounded-sm bg-card/50 animate-pulse h-full min-h-[280px]" />
+      )}
+      {trailerKey && previewOpen && (
+        <TrailerPreview
+          trailerKey={previewOpen ? trailerKey : null}
+          title={item.title}
+          onOpenChange={(o) => setPreviewOpen(o)}
+        />
       )}
     </div>
   );
