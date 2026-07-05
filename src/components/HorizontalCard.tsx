@@ -114,6 +114,14 @@ const HorizontalCard = ({ item }: Props) => {
           >
             {inPlaylist ? <Check className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
           </button>
+          {trailerKey && (
+            <button
+              onClick={e => { e.stopPropagation(); setPreviewOpen(true); }}
+              className="inline-flex items-center gap-1.5 px-3 h-9 rounded-full bg-primary/90 hover:bg-primary text-primary-foreground text-[11px] font-semibold backdrop-blur-sm border border-white/30"
+            >
+              <Film className="w-3.5 h-3.5" /> See Preview
+            </button>
+          )}
           {visibleTags(item.tags).slice(0, 2).map(t => (
             <span key={t} className="hidden sm:inline-flex items-center px-2.5 h-9 rounded-full bg-white/10 border border-white/20 text-[11px]">{t}</span>
           ))}
@@ -123,6 +131,13 @@ const HorizontalCard = ({ item }: Props) => {
       <style>{`
         .movie-card-h:hover [data-content] { transform: translateY(0) !important; }
       `}</style>
+      {trailerKey && (
+        <TrailerPreview
+          trailerKey={previewOpen ? trailerKey : null}
+          title={item.title}
+          onOpenChange={(o) => setPreviewOpen(o)}
+        />
+      )}
     </article>
   );
 };
