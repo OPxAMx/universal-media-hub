@@ -108,6 +108,7 @@ const ContentCard = ({ item, onView }: ContentCardProps) => {
                 {item.meta.duration && item.meta.author && <span>·</span>}
                 {item.meta.author && <span className="truncate">{item.meta.author}</span>}
               </p>
+            )}
             {trailerKey && (
               <button
                 onClick={(e) => { e.stopPropagation(); setPreviewOpen(true); }}
