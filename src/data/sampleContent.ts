@@ -46,6 +46,25 @@ const collectFromModule = (mod: any): ContentItem[] => {
   return out;
 };
 
+const assetModules = import.meta.glob("../assets/data/*.asset.json", { eager: true });
+const externalAssets = [
+  asset,
+  ...Object.values(assetModules).map((mod: any) => mod?.default ?? mod),
+].filter((entry: any) => entry?.url);
+
+const loadAssetItems = async (entry: any): Promise<ContentItem[]> => {
+  try {
+    const res = await fetch(entry.url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!Array.isArray(data)) return [];
+    return data.map(normalizeLocalItem);
+  } catch (e) {
+    console.error("Failed to load sampleContent asset", entry?.url, e);
+    return [];
+  }
+};
+
 /** Eagerly aggregate every other data file under src/data/ (except this loader). */
 const jsonModules = import.meta.glob("./*.json", { eager: true });
 const tsModules = import.meta.glob("./*.ts", { eager: true });
@@ -60,14 +79,6 @@ export const localDataItems: ContentItem[] = (() => {
 })();
 
 export async function loadSampleContent(): Promise<ContentItem[]> {
-  try {
-    const res = await fetch(asset.url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (!Array.isArray(data)) return [];
-    return data.map(normalizeLocalItem);
-  } catch (e) {
-    console.error("Failed to load sampleContent asset", e);
-    return [];
-  }
+  const chunks = await Promise.all(externalAssets.map(loadAssetItems));
+  return chunks.flat();
 }
