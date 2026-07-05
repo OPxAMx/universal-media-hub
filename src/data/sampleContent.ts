@@ -12,10 +12,25 @@ export const sampleContent: ContentItem[] = [];
 const isContentItem = (x: any): x is ContentItem =>
   x && typeof x === "object" && typeof x.id === "string" && typeof x.type === "string";
 
+const pickTrailerKey = (videos: any): string | undefined => {
+  if (!Array.isArray(videos) || !videos.length) return undefined;
+  const yt = videos.filter((v: any) => v && v.site === "YouTube" && v.key);
+  if (!yt.length) return undefined;
+  const trailers = yt.filter((v: any) => v.type === "Trailer");
+  const pool = trailers.length ? trailers : yt;
+  const fr = pool.find((v: any) => v.iso_639_1 === "fr" && v.official);
+  const off = pool.find((v: any) => v.official);
+  return (fr || off || pool[0]).key;
+};
+
 const normalizeLocalItem = (x: any): ContentItem => {
   const meta = x.meta ? { ...x.meta } : {};
   if (x.vote_average != null && meta.vote_average == null) meta.vote_average = x.vote_average;
   if (x.backdrop && !meta.backdrop) meta.backdrop = x.backdrop;
+  if (meta.trailer_key == null) {
+    const key = pickTrailerKey(x.videos);
+    if (key) meta.trailer_key = key;
+  }
   return { ...x, meta };
 };
 
