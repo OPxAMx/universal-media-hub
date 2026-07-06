@@ -146,7 +146,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </>
       )}
 
-      <main className="container py-8 relative z-10">{children}</main>
+      <main className="container py-8 relative z-10 space-y-4">
+        <AdvancedFilters />
+        {children}
+      </main>
+
     </div>
   );
 };
