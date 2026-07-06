@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import CollectionsSection from "@/components/CollectionsSection";
 import ContentCard from "@/components/ContentCard";
 import ContentGrid from "@/components/ContentGrid";
-import AdvancedFilters from "@/components/AdvancedFilters";
+
 import { useContentStore } from "@/store/contentStore";
 import { visibleTags } from "@/lib/cardHelpers";
 import { Layers, FolderHeart, ArrowLeft } from "lucide-react";
