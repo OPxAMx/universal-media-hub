@@ -57,8 +57,10 @@ interface ContentStore {
   addToHistory: (id: string) => void;
   clearHistory: () => void;
   filteredItems: () => ContentItem[];
+  applyFilters: (items: ContentItem[]) => ContentItem[];
   getItem: (id: string) => ContentItem | undefined;
 }
+
 
 const loadFavorites = (): string[] => {
   try { return JSON.parse(localStorage.getItem("uem-favorites") || "[]"); } catch { return []; }
