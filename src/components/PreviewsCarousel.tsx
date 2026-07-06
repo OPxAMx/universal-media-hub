@@ -12,10 +12,11 @@ interface Props {
 /** "Previews for you" style carousel: big trailer + description card. */
 const PreviewsCarousel = ({ items, providerName, providerLogo }: Props) => {
   const navigate = useNavigate();
-  const withTrailers = useMemo(
-    () => items.filter(i => i.meta?.trailer_key).slice(0, 20),
-    [items]
-  );
+  const withTrailers = useMemo(() => {
+    const trailered = items.filter(i => i.meta?.trailer_key);
+    return (trailered.length ? trailered : items).slice(0, 20);
+  }, [items]);
+
   const [idx, setIdx] = useState(0);
   const [muted, setMuted] = useState(true);
 
@@ -78,13 +79,22 @@ const PreviewsCarousel = ({ items, providerName, providerLogo }: Props) => {
 
           {/* Right: trailer */}
           <div className="relative bg-black aspect-video md:aspect-auto min-h-[280px]">
-            <iframe
-              key={trailerKey}
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${trailerKey}&modestbranding=1&rel=0`}
-              title={`${current.title} trailer`}
-              allow="autoplay; encrypted-media"
-            />
+            {trailerKey ? (
+              <iframe
+                key={trailerKey}
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=${trailerKey}&modestbranding=1&rel=0`}
+                title={`${current.title} trailer`}
+                allow="autoplay; encrypted-media"
+              />
+            ) : (
+              <img
+                src={current.meta?.backdrop || current.thumbnail}
+                alt={current.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
+
             {/* Controls */}
             <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
               <button
