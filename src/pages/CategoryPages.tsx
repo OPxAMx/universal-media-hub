@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import ContentGrid from "@/components/ContentGrid";
-import AdvancedFilters from "@/components/AdvancedFilters";
+
 import { useContentStore } from "@/store/contentStore";
 
 const CategoryPage = ({ type, title }: { type: string; title: string }) => {
