@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import ContentCard from "@/components/ContentCard";
-import AdvancedFilters from "@/components/AdvancedFilters";
+
 import CollectionsSection from "@/components/CollectionsSection";
 import ContentGrid from "@/components/ContentGrid";
 import ProvidersCarousel from "@/components/ProvidersCarousel";
