@@ -12,10 +12,11 @@ interface Props {
 /** "Previews for you" style carousel: big trailer + description card. */
 const PreviewsCarousel = ({ items, providerName, providerLogo }: Props) => {
   const navigate = useNavigate();
-  const withTrailers = useMemo(
-    () => items.filter(i => i.meta?.trailer_key).slice(0, 20),
-    [items]
-  );
+  const withTrailers = useMemo(() => {
+    const trailered = items.filter(i => i.meta?.trailer_key);
+    return (trailered.length ? trailered : items).slice(0, 20);
+  }, [items]);
+
   const [idx, setIdx] = useState(0);
   const [muted, setMuted] = useState(true);
 
