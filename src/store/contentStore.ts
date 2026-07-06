@@ -23,8 +23,9 @@ interface HistoryEntry {
   watchedAt: string;
 }
 
-export type SortKey = "title" | "id" | "date" | "none";
+export type SortKey = "title" | "id" | "date" | "rating" | "popularity" | "genre" | "country" | "producer" | "provider" | "none";
 export type SortDir = "asc" | "desc";
+
 
 interface ContentStore {
   items: ContentItem[];
