@@ -121,7 +121,7 @@ const Index = () => {
   return (
     <Layout>
       <div className="space-y-12">
-        <AdvancedFilters />
+
         {isFiltering || viewMode === "list" ? (
           <ContentGrid
             items={isFiltering ? filtered : items}
