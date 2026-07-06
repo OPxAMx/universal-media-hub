@@ -1,6 +1,6 @@
 import { useContentStore, SortKey } from "@/store/contentStore";
 import { useMemo } from "react";
-import { X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers } from "lucide-react";
+import { X, ArrowDownAZ, ArrowUpAZ, Hash, Calendar, Tag, Film, Tv, Music, Mic, Code, Image, Layers, Star, Flame, Popcorn, Globe, Building2, Cast } from "lucide-react";
 import { ContentType } from "@/types/content";
 import { useFiltersOpen } from "@/hooks/useFiltersOpen";
 
