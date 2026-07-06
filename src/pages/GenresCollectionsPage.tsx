@@ -50,7 +50,8 @@ const GenresCollectionsPage = () => {
   return (
     <Layout>
       <div className="space-y-10">
-        <AdvancedFilters />
+
+
 
         {selectedGenre ? (
           /* SELECTED GENRE — full grid */
