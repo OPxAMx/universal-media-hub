@@ -47,8 +47,9 @@ const ProviderPage = () => {
             </p>
           </div>
         </div>
+        <PreviewsCarousel items={filtered} providerName={provider.name} providerLogo={provider.logo} />
         <ContentGrid items={filtered} title={`Catalogue ${provider.name}`} />
-      </div>
+
     </Layout>
   );
 };
