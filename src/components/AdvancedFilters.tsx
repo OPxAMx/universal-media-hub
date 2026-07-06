@@ -48,7 +48,14 @@ const AdvancedFilters = () => {
     { key: "title", label: "Nom", icon: <ArrowDownAZ className="w-3.5 h-3.5" /> },
     { key: "id", label: "ID", icon: <Hash className="w-3.5 h-3.5" /> },
     { key: "date", label: "Date", icon: <Calendar className="w-3.5 h-3.5" /> },
+    { key: "genre", label: "Genre", icon: <Popcorn className="w-3.5 h-3.5" /> },
+    { key: "popularity", label: "Popularité", icon: <Flame className="w-3.5 h-3.5" /> },
+    { key: "rating", label: "Rating", icon: <Star className="w-3.5 h-3.5" /> },
+    { key: "country", label: "Pays", icon: <Globe className="w-3.5 h-3.5" /> },
+    { key: "producer", label: "Producteur", icon: <Building2 className="w-3.5 h-3.5" /> },
+    { key: "provider", label: "Provider", icon: <Cast className="w-3.5 h-3.5" /> },
   ];
+
 
   if (!open) return null;
 
