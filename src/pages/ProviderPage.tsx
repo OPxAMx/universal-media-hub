@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ContentGrid from "@/components/ContentGrid";
+import PreviewsCarousel from "@/components/PreviewsCarousel";
 import { useContentStore } from "@/store/contentStore";
 import { PROVIDERS, buildProviderHaystack } from "@/lib/providers";
+
 
 const ProviderPage = () => {
   const [params] = useSearchParams();
