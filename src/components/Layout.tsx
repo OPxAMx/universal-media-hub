@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NeonBeams from "./NeonBeams";
 import HeaderToolbar from "./HeaderToolbar";
+import AdvancedFilters from "./AdvancedFilters";
+
 import { useState, useEffect } from "react";
 
 // Primary tabs — always visible on wider screens (Prime Video style)
@@ -144,7 +146,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </>
       )}
 
-      <main className="container py-8 relative z-10">{children}</main>
+      <main className="container py-8 relative z-10 space-y-4">
+        <AdvancedFilters />
+        {children}
+      </main>
+
     </div>
   );
 };

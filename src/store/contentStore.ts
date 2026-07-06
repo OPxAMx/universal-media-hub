@@ -23,8 +23,9 @@ interface HistoryEntry {
   watchedAt: string;
 }
 
-export type SortKey = "title" | "id" | "date" | "none";
+export type SortKey = "title" | "id" | "date" | "rating" | "popularity" | "genre" | "country" | "producer" | "provider" | "none";
 export type SortDir = "asc" | "desc";
+
 
 interface ContentStore {
   items: ContentItem[];
@@ -56,8 +57,10 @@ interface ContentStore {
   addToHistory: (id: string) => void;
   clearHistory: () => void;
   filteredItems: () => ContentItem[];
+  applyFilters: (items: ContentItem[]) => ContentItem[];
   getItem: (id: string) => ContentItem | undefined;
 }
+
 
 const loadFavorites = (): string[] => {
   try { return JSON.parse(localStorage.getItem("uem-favorites") || "[]"); } catch { return []; }
@@ -148,9 +151,9 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     localStorage.removeItem("uem-history");
     set({ history: [] });
   },
-  filteredItems: () => {
-    const { items, searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir } = get();
-    let result = items.filter(item => {
+  applyFilters: (source: ContentItem[]) => {
+    const { searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir } = get();
+    let result = source.filter(item => {
       if (activeType && item.type !== activeType) return false;
       if (activeTags.length && !activeTags.some(t => (item.tags || []).includes(t))) return false;
       if (filterId && !(item.id || "").toLowerCase().includes(filterId.toLowerCase())) return false;
@@ -177,6 +180,12 @@ export const useContentStore = create<ContentStore>((set, get) => ({
       }
       return true;
     });
+
+    const firstStr = (v: any): string => {
+      if (Array.isArray(v)) return (v[0] || "").toString().toLowerCase();
+      return (v || "").toString().toLowerCase();
+    };
+
     if (sortKey !== "none") {
       const dir = sortDir === "asc" ? 1 : -1;
       result = [...result].sort((a, b) => {
@@ -184,10 +193,18 @@ export const useContentStore = create<ContentStore>((set, get) => ({
         if (sortKey === "title") { av = (a.title || "").toLowerCase(); bv = (b.title || "").toLowerCase(); }
         else if (sortKey === "id") { av = a.id; bv = b.id; }
         else if (sortKey === "date") { av = a.meta?.date_added || ""; bv = b.meta?.date_added || ""; }
+        else if (sortKey === "rating") { av = typeof a.meta?.vote_average === "number" ? a.meta.vote_average : -1; bv = typeof b.meta?.vote_average === "number" ? b.meta.vote_average : -1; }
+        else if (sortKey === "popularity") {
+          av = typeof (a.meta as any)?.popularity === "number" ? (a.meta as any).popularity : (typeof (a.meta as any)?.vote_count === "number" ? (a.meta as any).vote_count : -1);
+          bv = typeof (b.meta as any)?.popularity === "number" ? (b.meta as any).popularity : (typeof (b.meta as any)?.vote_count === "number" ? (b.meta as any).vote_count : -1);
+        }
+        else if (sortKey === "genre") { av = firstStr(a.meta?.genres); bv = firstStr(b.meta?.genres); }
+        else if (sortKey === "country") { av = firstStr((a.meta as any)?.origin_country || (a.meta as any)?.production_countries); bv = firstStr((b.meta as any)?.origin_country || (b.meta as any)?.production_countries); }
+        else if (sortKey === "producer") { av = firstStr(a.meta?.production_companies); bv = firstStr(b.meta?.production_companies); }
+        else if (sortKey === "provider") { av = (a.embed?.provider || "").toLowerCase(); bv = (b.embed?.provider || "").toLowerCase(); }
         return av < bv ? -1 * dir : av > bv ? 1 * dir : 0;
       });
     } else {
-      // Default: most recent year first, then highest vote_average.
       const yearOf = (it: ContentItem): number => {
         const d = it.meta?.date_added || "";
         const m = d.match(/(19|20)\d{2}/);
@@ -205,6 +222,8 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     }
     return result;
   },
+  filteredItems: () => get().applyFilters(get().items),
+
   getItem: (id) => get().items.find(i => i.id === id),
 }));
 

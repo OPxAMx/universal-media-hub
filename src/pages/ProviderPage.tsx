@@ -11,10 +11,19 @@ const ProviderPage = () => {
   const [params] = useSearchParams();
   const id = params.get("id") || "";
   const items = useContentStore(s => s.items);
+  const applyFilters = useContentStore(s => s.applyFilters);
+  const searchQuery = useContentStore(s => s.searchQuery);
+  const activeType = useContentStore(s => s.activeType);
+  const activeTags = useContentStore(s => s.activeTags);
+  const filterId = useContentStore(s => s.filterId);
+  const filterDateFrom = useContentStore(s => s.filterDateFrom);
+  const filterDateTo = useContentStore(s => s.filterDateTo);
+  const sortKey = useContentStore(s => s.sortKey);
+  const sortDir = useContentStore(s => s.sortDir);
 
   const provider = PROVIDERS.find(p => p.key === id);
 
-  const filtered = useMemo(() => {
+  const providerItems = useMemo(() => {
     if (!provider) return [];
     return items
       .filter(i => i.type === "film" || i.type === "series")
@@ -23,6 +32,13 @@ const ProviderPage = () => {
         return provider.aliases.some(a => hay.includes(a));
       });
   }, [items, provider]);
+
+  const filtered = useMemo(
+    () => applyFilters(providerItems),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [providerItems, applyFilters, searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir]
+  );
+
 
   if (!provider) {
     return (

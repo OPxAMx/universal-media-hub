@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import ContentCard from "@/components/ContentCard";
-import AdvancedFilters from "@/components/AdvancedFilters";
+
 import CollectionsSection from "@/components/CollectionsSection";
 import ContentGrid from "@/components/ContentGrid";
 import ProvidersCarousel from "@/components/ProvidersCarousel";
@@ -121,7 +121,7 @@ const Index = () => {
   return (
     <Layout>
       <div className="space-y-12">
-        <AdvancedFilters />
+
         {isFiltering || viewMode === "list" ? (
           <ContentGrid
             items={isFiltering ? filtered : items}
