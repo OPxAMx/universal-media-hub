@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NeonBeams from "./NeonBeams";
 import HeaderToolbar from "./HeaderToolbar";
+import AdvancedFilters from "./AdvancedFilters";
+
 import { useState, useEffect } from "react";
 
 // Primary tabs — always visible on wider screens (Prime Video style)
