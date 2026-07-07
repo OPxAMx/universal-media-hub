@@ -95,25 +95,18 @@ const HorizontalCard = ({ item }: Props) => {
         className="absolute left-0 right-0 bottom-0 p-4 sm:p-6 transition-transform duration-700 ease-in-out"
         style={{
           transform: "translateY(calc(100% - 5.5em))",
-        }}
-        data-content
-      >
-        {!item.meta?.logo && (
+ <img
+            src={item.meta.logo}
+            alt={item.title}
+            loading="lazy"
+            className="max-h-16 sm:max-h-20 w-auto max-w-[70%] object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          />
+        ) : (
           <h3 className="font-heading font-bold text-lg sm:text-2xl leading-tight line-clamp-1">
             {item.title}
           </h3>
         )}
         <div className="flex items-center gap-2 mt-1 text-xs sm:text-sm text-white/85">
-          {typeof rating === "number" && (
-            <span className="inline-flex items-center gap-1 text-primary font-semibold">
-              <Star className="w-3.5 h-3.5" fill="currentColor" />
-              {rating.toFixed(1)}
-            </span>
-          )}
-          {year && <><span>·</span><span>{year}</span></>}
-          {item.meta?.duration && <><span>·</span><span>{item.meta.duration}</span></>}
-        </div>
-
         <p
           className="text-xs sm:text-sm text-white/85 mt-2 line-clamp-3 opacity-0 translate-y-3 group-hover/hc:opacity-100 group-hover/hc:translate-y-0 transition-all duration-500"
           style={{ transitionDelay: "120ms" }}
