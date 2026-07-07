@@ -40,6 +40,7 @@ interface ContentStore {
   filterDateTo: string;
   sortKey: SortKey;
   sortDir: SortDir;
+  activeGenres: string[];
   setSearchQuery: (q: string) => void;
   setActiveType: (type: string | null) => void;
   toggleTag: (tag: string) => void;
@@ -47,6 +48,8 @@ interface ContentStore {
   setFilterDateFrom: (v: string) => void;
   setFilterDateTo: (v: string) => void;
   setSort: (key: SortKey, dir?: SortDir) => void;
+  toggleGenre: (g: string) => void;
+  setActiveGenres: (g: string[]) => void;
   clearFilters: () => void;
   toggleFavorite: (id: string) => void;
   addToPlaylist: (id: string) => void;
