@@ -160,10 +160,17 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     set({ history: [] });
   },
   applyFilters: (source: ContentItem[]) => {
-    const { searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir } = get();
+    const { searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir, activeGenres } = get();
     let result = source.filter(item => {
       if (activeType && item.type !== activeType) return false;
       if (activeTags.length && !activeTags.some(t => (item.tags || []).includes(t))) return false;
+      if (activeGenres.length) {
+        const g = (item.meta?.genres || []).map((x: string) => (x || "").toLowerCase());
+        const tags = (item.tags || []).map(x => (x || "").toLowerCase());
+        const hay = [...g, ...tags];
+        const match = activeGenres.some(sel => hay.some(h => h.includes(sel.toLowerCase())));
+        if (!match) return false;
+      }
       if (filterId && !(item.id || "").toLowerCase().includes(filterId.toLowerCase())) return false;
       const itemDate = item.meta?.date_added || "";
       if (filterDateFrom && itemDate && itemDate < filterDateFrom) return false;
