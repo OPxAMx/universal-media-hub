@@ -167,6 +167,32 @@ const AdvancedFilters = () => {
             </div>
           </div>
 
+          {sortKey === "genre" && (
+            <div className="space-y-1.5 fade-up">
+              <label className="text-xs text-muted-foreground flex items-center gap-1.5">
+                <Popcorn className="w-3 h-3" />Sous-catégorie ({activeGenres.length} sélectionnés)
+              </label>
+              <div className="flex flex-wrap gap-1.5">
+                {GENRE_CHOICES.map(g => {
+                  const active = activeGenres.includes(g);
+                  return (
+                    <button
+                      key={g}
+                      onClick={() => toggleGenre(g)}
+                      className={`text-xs px-3 py-1.5 rounded-full transition-all ${
+                        active ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      }`}
+                    >
+                      {g}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+
+
           <div className="space-y-1.5">
             <label className="text-xs text-muted-foreground flex items-center gap-1.5"><Tag className="w-3 h-3" />Tags ({activeTags.length} sélectionnés)</label>
             <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto">
