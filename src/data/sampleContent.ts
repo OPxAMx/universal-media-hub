@@ -31,6 +31,10 @@ const normalizeLocalItem = (x: any): ContentItem => {
     const key = pickTrailerKey(x.videos);
     if (key) meta.trailer_key = key;
   }
+  if (!meta.logo) {
+    const logos = Array.isArray(x.logos) ? x.logos : (Array.isArray(meta.logos) ? meta.logos : null);
+    if (logos && logos.length) meta.logo = logos[0];
+  }
   return { ...x, meta };
 };
 

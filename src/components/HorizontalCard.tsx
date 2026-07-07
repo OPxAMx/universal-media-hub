@@ -86,9 +86,18 @@ const HorizontalCard = ({ item }: Props) => {
         }}
         data-content
       >
-        <h3 className="font-heading font-bold text-lg sm:text-2xl leading-tight line-clamp-1">
-          {item.title}
-        </h3>
+        {item.meta?.logo ? (
+          <img
+            src={item.meta.logo}
+            alt={item.title}
+            loading="lazy"
+            className="max-h-16 sm:max-h-20 w-auto max-w-[70%] object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          />
+        ) : (
+          <h3 className="font-heading font-bold text-lg sm:text-2xl leading-tight line-clamp-1">
+            {item.title}
+          </h3>
+        )}
         <div className="flex items-center gap-2 mt-1 text-xs sm:text-sm text-white/85">
           {typeof rating === "number" && (
             <span className="inline-flex items-center gap-1 text-primary font-semibold">
