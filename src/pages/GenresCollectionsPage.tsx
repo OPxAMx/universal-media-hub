@@ -13,6 +13,17 @@ const genreAnchor = (name: string) =>
   "genre-" + name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 const GenresCollectionsPage = () => {
+  // Subscribe to filter state so re-renders happen when filters change
+  useContentStore(s => s.searchQuery);
+  useContentStore(s => s.activeType);
+  useContentStore(s => s.activeTags);
+  useContentStore(s => s.filterId);
+  useContentStore(s => s.filterDateFrom);
+  useContentStore(s => s.filterDateTo);
+  useContentStore(s => s.sortKey);
+  useContentStore(s => s.sortDir);
+  useContentStore(s => s.activeGenres);
+  useContentStore(s => s.items);
   const filteredItems = useContentStore(s => s.filteredItems);
   const filtered = filteredItems();
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);

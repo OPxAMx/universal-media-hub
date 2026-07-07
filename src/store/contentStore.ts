@@ -40,6 +40,7 @@ interface ContentStore {
   filterDateTo: string;
   sortKey: SortKey;
   sortDir: SortDir;
+  activeGenres: string[];
   setSearchQuery: (q: string) => void;
   setActiveType: (type: string | null) => void;
   toggleTag: (tag: string) => void;
@@ -47,6 +48,8 @@ interface ContentStore {
   setFilterDateFrom: (v: string) => void;
   setFilterDateTo: (v: string) => void;
   setSort: (key: SortKey, dir?: SortDir) => void;
+  toggleGenre: (g: string) => void;
+  setActiveGenres: (g: string[]) => void;
   clearFilters: () => void;
   toggleFavorite: (id: string) => void;
   addToPlaylist: (id: string) => void;
@@ -99,6 +102,7 @@ export const useContentStore = create<ContentStore>((set, get) => ({
   filterDateTo: "",
   sortKey: "none",
   sortDir: "desc",
+  activeGenres: [],
   setSearchQuery: (q) => set({ searchQuery: q }),
   setActiveType: (type) => set({ activeType: type }),
   toggleTag: (tag) => set((s) => ({
@@ -107,8 +111,12 @@ export const useContentStore = create<ContentStore>((set, get) => ({
   setFilterId: (v) => set({ filterId: v }),
   setFilterDateFrom: (v) => set({ filterDateFrom: v }),
   setFilterDateTo: (v) => set({ filterDateTo: v }),
-  setSort: (key, dir) => set((s) => ({ sortKey: key, sortDir: dir ?? s.sortDir })),
-  clearFilters: () => set({ searchQuery: "", activeType: null, activeTags: [], filterId: "", filterDateFrom: "", filterDateTo: "", sortKey: "none" }),
+  setSort: (key, dir) => set((s) => ({ sortKey: key, sortDir: dir ?? s.sortDir, activeGenres: key === "genre" ? s.activeGenres : [] })),
+  toggleGenre: (g) => set((s) => ({
+    activeGenres: s.activeGenres.includes(g) ? s.activeGenres.filter(x => x !== g) : [...s.activeGenres, g]
+  })),
+  setActiveGenres: (g) => set({ activeGenres: g }),
+  clearFilters: () => set({ searchQuery: "", activeType: null, activeTags: [], filterId: "", filterDateFrom: "", filterDateTo: "", sortKey: "none", activeGenres: [] }),
   toggleFavorite: (id) => set((s) => {
     const next = s.favorites.includes(id) ? s.favorites.filter(f => f !== id) : [...s.favorites, id];
     localStorage.setItem("uem-favorites", JSON.stringify(next));
@@ -152,10 +160,17 @@ export const useContentStore = create<ContentStore>((set, get) => ({
     set({ history: [] });
   },
   applyFilters: (source: ContentItem[]) => {
-    const { searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir } = get();
+    const { searchQuery, activeType, activeTags, filterId, filterDateFrom, filterDateTo, sortKey, sortDir, activeGenres } = get();
     let result = source.filter(item => {
       if (activeType && item.type !== activeType) return false;
       if (activeTags.length && !activeTags.some(t => (item.tags || []).includes(t))) return false;
+      if (activeGenres.length) {
+        const g = (item.meta?.genres || []).map((x: string) => (x || "").toLowerCase());
+        const tags = (item.tags || []).map(x => (x || "").toLowerCase());
+        const hay = [...g, ...tags];
+        const match = activeGenres.some(sel => hay.some(h => h.includes(sel.toLowerCase())));
+        if (!match) return false;
+      }
       if (filterId && !(item.id || "").toLowerCase().includes(filterId.toLowerCase())) return false;
       const itemDate = item.meta?.date_added || "";
       if (filterDateFrom && itemDate && itemDate < filterDateFrom) return false;
