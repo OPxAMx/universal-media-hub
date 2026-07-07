@@ -14,6 +14,8 @@ const typeOptions: { value: ContentType; label: string; icon: React.ReactNode }[
   { value: "iframe", label: "Iframe", icon: <Layers className="w-3.5 h-3.5" /> },
 ];
 
+const GENRE_CHOICES = ["Action", "Drame", "Thriller", "Horreur", "Sci-fi", "Animation", "Comédie", "Documentaire"];
+
 const AdvancedFilters = () => {
   const {
     items,
@@ -23,6 +25,7 @@ const AdvancedFilters = () => {
     filterDateTo, setFilterDateTo,
     sortKey, sortDir, setSort,
     activeTags, toggleTag,
+    activeGenres, toggleGenre,
     clearFilters,
     searchQuery,
   } = useContentStore();
