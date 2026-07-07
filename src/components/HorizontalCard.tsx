@@ -113,15 +113,6 @@ const HorizontalCard = ({ item }: Props) => {
           {year && <><span>·</span><span>{year}</span></>}
           {item.meta?.duration && <><span>·</span><span>{item.meta.duration}</span></>}
         </div>
-          {typeof rating === "number" && (
-            <span className="inline-flex items-center gap-1 text-primary font-semibold">
-              <Star className="w-3.5 h-3.5" fill="currentColor" />
-              {rating.toFixed(1)}
-            </span>
-          )}
-          {year && <><span>·</span><span>{year}</span></>}
-          {item.meta?.duration && <><span>·</span><span>{item.meta.duration}</span></>}
-        </div>
 
         <p
           className="text-xs sm:text-sm text-white/85 mt-2 line-clamp-3 opacity-0 translate-y-3 group-hover/hc:opacity-100 group-hover/hc:translate-y-0 transition-all duration-500"
