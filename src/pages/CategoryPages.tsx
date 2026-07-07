@@ -5,11 +5,20 @@ import ContentGrid from "@/components/ContentGrid";
 import { useContentStore } from "@/store/contentStore";
 
 const CategoryPage = ({ type, title }: { type: string; title: string }) => {
-  const filteredItems = useContentStore(s => s.filteredItems);
   const setActiveType = useContentStore(s => s.setActiveType);
+  // Subscribe to filter state so component re-renders on changes
+  useContentStore(s => s.searchQuery);
+  useContentStore(s => s.activeTags);
+  useContentStore(s => s.filterId);
+  useContentStore(s => s.filterDateFrom);
+  useContentStore(s => s.filterDateTo);
+  useContentStore(s => s.sortKey);
+  useContentStore(s => s.sortDir);
+  useContentStore(s => s.activeGenres);
+  useContentStore(s => s.activeType);
+  useContentStore(s => s.items);
+  const filteredItems = useContentStore(s => s.filteredItems);
 
-  // Sync the active type filter with the current tab so search/filters
-  // stay coherent between the navbar tabs and the FilterBar chips.
   useEffect(() => {
     setActiveType(type);
     return () => setActiveType(null);
